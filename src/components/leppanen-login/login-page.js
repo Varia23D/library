@@ -15,10 +15,11 @@ const Login = () => {
   };
 
   const handleLogin = async () => {
-    const url = 'http://81.200.149.55:1337/admin/auth/login';
+    const url = 'http://81.200.149.55:1337/api/auth/local';
     try {
       if (user.identifier && user.password) {
         const { data } = await axios.post(url, user);
+        console.log (data)
         if (data.jwt) {
           alert('Login successful!');
           setUser(initialUser);
