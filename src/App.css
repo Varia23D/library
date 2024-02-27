@@ -1,0 +1,11 @@
+body {
+    background-color: #ffffff; /* Set a modern background color */
+    margin: 0;
+    padding: 0;
+  }
+
+  .app-container {
+    display: flex;
+    flex-direction: column;
+
+  }
