@@ -10,7 +10,7 @@ let Registration = () => {
 
     let register = async () => {
         try{
-            let url = 'http://localhost:1337/api/auth/local/register'; // database link
+            let url = 'http://localhost:1337/auth/local/register'; // database link http://81.200.149.55:1337/api/auth/register
             if (user.username && user.email && user.password){
                 let result = await axios.post(url, user);
                 if (result){
