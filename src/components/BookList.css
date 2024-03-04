@@ -1,0 +1,59 @@
+/* Overall book list wrapper styling */
+.book-list-wrapper {
+  margin: 0; /* Center  horizontally */
+  padding: 30px; /* spacing */
+  background-color: #ffffff;
+}
+
+/* Overall book list styling */
+.book-list {
+  font-family: 'League Spartan', sans-serif; /* Use League Spartan font */
+  color: #535c68; /* Set text color */
+}
+
+/* Styling for individual book container */
+.book-container {
+  background-color: #ffffff; /* Light background color */
+  border-radius: 12px; /* Rounded corners */
+  margin-top: 20px; /* Spacing between book containers */
+  padding: 10px; /* Padding inside container */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  /* max-width: 1000px; /* Maximum width of container */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center align items vertically */
+}
+
+/* Styling for book details */
+.book-details {
+  flex: 1; /* Allow details to grow and fill available space */
+  margin-left: 10px; /* Add space between book cover and details */
+}
+
+/* Styling for book title */
+.book-details h2 {
+  font-size: 16px; /* Set title font size */
+  margin-top: 0; /* Remove default margin */
+  color: #535c68; /* Set title color */
+  font-weight: medium;
+}
+
+/* Styling for additional book information */
+.book-details p {
+  font-size: 14px; /* Set font size for additional information */
+  color: #535c68; /* Set color for additional information */
+}
+
+/* Styling for due date */
+.book-details .due-date {
+  font-size: 9px; /* Set smaller font size for due date */
+  color: #535c68; /* Set color for due date */
+}
+
+/* Styling for book list headers */
+.book-list h1 {
+  color: #535c68; /* Set header color */
+  font-weight: bold; /* Set header font weight */
+  font-size: 18px; /* Set header font size */
+  margin-top: 30px;
+  font-family: 'Quicksand', sans-serif; /* Use Quicksand font */
+}
