@@ -1,5 +1,5 @@
 
-import Registration from './Registration/Registration';
+import Registration from './Pages/Registration';
 
 function App() {
   return (
