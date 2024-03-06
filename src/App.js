@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import StudentHomePage from './Pages/StudentHomePage';
 //import Home from './Pages/Home';
-//import Registration from './Pages/Registration
+import Registration from './Pages/Registration'
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -21,7 +21,7 @@ const App = () => {
 
     <div className="app-container"> {/* Add a class for styling */}
       <StudentHomePage/>
-       //<Registration/>
+       <Registration/>
 
     </div>
   );
