@@ -1,0 +1,187 @@
+.nav-container {
+    display: flex;
+    justify-content: center; /* Center the desktop menu horizontally by default */
+    padding: 20px;
+  }
+  
+  /* Media query for screens smaller than 768px (Mobile) */
+  @media screen and (max-width: 768px) {
+    .nav-container {
+      justify-content: flex-end; /* Align to the right on mobile */
+    }
+  }
+
+
+/* CSS for desktop navbar */
+.desktop-menu {
+    display: flex;
+    list-style: none;
+    justify-content: center; /* Center items horizontally */
+  }
+  
+  .desktop-menu .menu__item {
+    padding: 12px 24px;
+    color: #84CCF8;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: .25s;
+  }
+  
+  .desktop-menu .menu__item:hover {
+    background-color: #ffffff;
+    color: #0074bd;
+  }
+  
+  /* Hide burger menu button on desktop */
+  .menu__btn {
+    display: none;
+  }
+  
+  /* Media query for screens larger than 768px (PC) */
+  @media screen and (max-width: 768px) {
+    /* Hide desktop menu on mobile */
+    .desktop-menu {
+      display: none;
+    }
+    
+    /* Show burger menu button on mobile */
+    .menu__btn {
+      display: block;
+    }
+  }
+  
+.menu__box {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -270px; /* Initially hide off the screen */
+    width: 270px;
+    height: 100%;
+    margin: 0;
+    padding: 50px 0;
+    list-style: none;
+    background-color: rgba(132, 204, 248, 0.50);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    transition-duration: .25s;
+    border-top-left-radius: 16px;
+    backdrop-filter: blur(5px);
+}
+  
+.menu__box.open {
+    right: 0; /* Slide in when menu is open */
+}
+  
+.menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: #ffffff;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: .25s;
+    box-shadow: 0px 2px 1px rgba(255, 255, 255, 0.3);
+}
+    
+.menu__item:hover {
+    background-color: #ffffff;
+    color: #84CCF8;
+}
+
+  /* Media query for screens larger than 768px (PC) */
+  @media screen and (min-width: 769px) {
+    .menu__box {
+      display: none; /* Hide the menu for larger screens */
+    }
+  
+    .menu__btn {
+      display: none; /* Hide the burger menu for larger screens */
+    }
+  }
+
+.menu__btn {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #84CCF8;
+    transition-duration: .25s;
+}
+
+.menu__btn > span{
+    content: '';
+    top: 4px;
+  }
+
+.menu__btn > span::before {
+    content: '';
+    top: 16px;
+}
+
+.menu__btn > span::after {
+    content: '';
+    top: 8px;
+}
+
+.menu__btn > span.open {
+    transform: rotate(45deg);
+    background-color: #ffffff;
+    top: 50%; /* Adjust to vertically center */
+}
+
+.menu__btn > span.open::before {
+    top: 0;
+    transform: rotate(0deg);
+    background-color: #ffffff;
+}
+
+.menu__btn > span.open::after {
+    top: 0;
+    transform: rotate(90deg);
+    background-color: #ffffff;
+}
+  
+.user-profile {
+    text-align: center;
+    padding: 20px;
+    height: 150px;
+}
+  
+.user-avatar {
+    line-height: 0;
+    display: inline-block;
+    margin: 5px;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    background-size: cover;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+  
+.user-avatar img {
+    border-radius: 50%;
+}
+  
+a.user-avatar {
+    color: transparent;
+}
+  
+.user-name {
+    font-family: 'League Spartan', sans-serif;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #ffffff;
+}

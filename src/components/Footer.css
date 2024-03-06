@@ -1,0 +1,14 @@
+.footer-container {
+    background-color: #84CCF8;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    flex-grow: 1
+  }
+  
+  .footer-text {
+    font-family: 'League Spartan', sans-serif; /* Apply League Spartan font */
+    font-size: 16px; /* Adjust font size as needed */
+  }
+  
