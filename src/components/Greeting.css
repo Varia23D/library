@@ -1,0 +1,19 @@
+/* Greeting component styling */
+.greeting-container {
+    flex: 1; /* Take up remaining space */
+    display: flex; /* Use flex layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 20px; /* Spacing */
+    background-color: #ffffff; /* Background color */
+  }
+  
+  
+  /* Styling for the greeting text */
+  .greeting-text {
+    font-family: 'Quicksand', sans-serif; /* Use Quicksand font */
+    color: #535c68; /* Set text color */
+    font-size: 25px; /* Set font size */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center align text */
+  }

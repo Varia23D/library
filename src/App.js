@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import StudentHomePage from './Pages/StudentHomePage';
+//import Home from './Pages/Home';
 
-function App() {
+
+const App = () => {
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    // Fetch book data from your API endpoint
+    fetch('your-api-endpoint')
+      .then(response => response.json())
+      .then(data => setBooks(data))
+      .catch(error => console.error('Error fetching data:', error));
+  }, []); // Empty dependency array ensures the effect runs only once after the component mounts
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container"> {/* Add a class for styling */}
+      <StudentHomePage/>
     </div>
   );
-}
+};
 
 export default App;
