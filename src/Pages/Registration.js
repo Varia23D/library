@@ -2,12 +2,21 @@ import axios from 'axios';
 import React, {useState} from 'react';
 import './Registration.css';
 
-let user1 = {username:'', email:'', password:''};                  // blank initial user
+//TODO:
+//lets change the name of user1 variable to more understandable like initialUser 
+// use const instead of let if it is possible, it helps to read code and provides it's security (so you don't change something that don't need to be changed)
+//add navigation to login page
+//add some style to .css to make it look pretty (use your own or Nea's) 
+//routes to your component
+
+
+let user1 = {username:'', email:'', password:''};                  // blank initial user 
+//lets change the name of it to more understandable like initialUser and use const not let
 
 let Registration = () => {
 
     let [user, setUser] = useState(user1);                         // pass blank initial user to useState
-
+    //same insted of let use const 
     let register = async () => {
         try{
             let url = 'http://localhost:1337/api/auth/local/register'; // (test database 'http://81.200.149.55:1337')
@@ -18,6 +27,7 @@ let Registration = () => {
                     console.log('registered successfully');
                     alert('registered successfully');
                     // TO ADD: navigate to login page after successful registration
+    //lets do that:
                 }
             }
         }
@@ -45,3 +55,5 @@ let Registration = () => {
 }
 
 export default Registration;
+
+

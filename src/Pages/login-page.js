@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+// TODO
+// Routes to the component
+// add some stile to the page, make it look pretty (use own or Nea's)
+// TBA
+
 const initialUser = { password: '', identifier: '' };
 
 const Login = () => {
