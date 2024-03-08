@@ -1,5 +1,104 @@
-.registration{
+/* global */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'League Spartan', sans-serif;
+    
+}
+
+/* main container, background color and image */
+.main{
+    background-image:url('varialogo.png'), linear-gradient(#84CCF8, #fff);
+    background-repeat: no-repeat;
+    background-position: 65%;
+    color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+
+/* heading position and style */
+.title{
+    font-size: 20px;
+    padding: 20px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+}
+.registration{
+    margin-right: 260px;
+    margin-top: 20px;
+}
+
+
+/* positioning and style for input fields */
+.input{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 45%;
+    background-color: #fff;
+    border-radius: 20px;
+    color: black;
+    text-align: left;
+}
+.input > input{
+    padding: 5px;
+    border: none;
+    margin: 7px;
+    border-bottom: 1px solid rgba(173, 173, 173, 1);
+}
+.input > label{
+    margin-top: 5px;
+    font-size: 18px;
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+/* positioning and style for button */
+.buttonBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.registerButton{
+    margin: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(134, 206, 248, 1);
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    width: 30%;
+}
+.registerButton:hover{
+    background-color: #5fbffa;
+}
+
+
+/* mobile settings */
+@media only screen and (max-width: 768px) {
+    .input{
+        margin-top: 50px;
+        width: 90%;
+    }
+    .registerButton{
+        width: 90%;
+    }
+    .registration{
+        margin: 0px;
+    }
+}
+@media only screen and (max-width: 1191px) {
+    .main{
+        background-position: 55% 70%;
+    }
+    .input{
+        margin-top: 30px;
+    }
+    .registration{
+        margin:0px;
+        margin-top: 20px;
+    }
 }
