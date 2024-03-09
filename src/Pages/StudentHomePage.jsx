@@ -14,14 +14,13 @@ const StudentHomePage = () => {
   // Fetch book data from your API endpoint
   useEffect(() => {
     updateBooks()
-    console.log('data: ', books)
   }, []); 
 
   return (
     <div className="app-container"> {/* Add a class for styling */}
       <TopNavbar />
       <Greeting username={username} /> {/* Pass the username prop */}
-      <QrReader/>
+      <QrReader updateBooks={updateBooks}/>
       <BookList books={books} />
       <Footer /> {/* Include the Footer component */}
     </div>
