@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
-// TODO
-// Routes to the component
-// add some stile to the page, make it look pretty (use own or Nea's)
-// TBA
+import { useNavigate } from "react-router-dom";
+import { storeUser } from '../components/helpers/userStorage';
 
 const initialUser = { password: '', identifier: '' };
 
 const Login = () => {
   const [user, setUser] = useState(initialUser);
-
+  const navigate = useNavigate();
   const handleChange = ({ target }) => {
     const { name, value } = target;
     setUser((currentUser) => ({
@@ -20,14 +17,16 @@ const Login = () => {
   };
 
   const handleLogin = async () => {
-    const url = 'http://81.200.149.55:1337/api/auth/local';
+    const url = `${process.env.REACT_APP_BACKEND}/api/auth/local`;
     try {
       if (user.identifier && user.password) {
         const { data } = await axios.post(url, user);
         console.log (data)
         if (data.jwt) {
           alert('Login successful!');
+          storeUser(data)
           setUser(initialUser);
+          navigate('/')
         } else {
           alert('Invalid login credentials!');
         }

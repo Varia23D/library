@@ -1,3 +1,5 @@
+// Q:? why we repeat links
+
 import React, { useState } from 'react';
 import './TopNavbar.css';
 
@@ -15,7 +17,7 @@ const TopNavbar = () => {
         <li><a className="menu__item" href="#">Edit Profile</a></li>
         <li><a className="menu__item" href="#">Home</a></li>
         <li><a className="menu__item" href="#">Books</a></li>
-        <li><a className="menu__item" href="#">Logout</a></li>
+        <li><a className="menu__item" href="/logout">Logout</a></li>
       </ul>
 
       {/* Mobile Navbar */}
@@ -32,7 +34,7 @@ const TopNavbar = () => {
         <li><a className="menu__item" href="#">Edit Profile</a></li>
         <li><a className="menu__item" href="#">Home</a></li>
         <li><a className="menu__item" href="#">Books</a></li>
-        <li><a className="menu__item" href="#">Logout</a></li>
+        <li><a className="menu__item" href="/logout">Logout</a></li>
       </ul>
     </div>
   );

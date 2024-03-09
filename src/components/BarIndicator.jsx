@@ -1,8 +1,10 @@
 import React from 'react';
 import './BarIndicator.css'; // Import CSS file for styling
 
-const BarIndicator = ({ rentedDate, dueDate }) => {
+const BarIndicator = (rentedDate, dueDate) => {
   const today = new Date();
+
+  console.log('dates: ',rentedDate, dueDate)
   const rentedParts = rentedDate.split('-').map(Number);
   const dueParts = dueDate.split('-').map(Number);
   
