@@ -7,12 +7,12 @@ const QRCodeScanner = ({updateBooks}) => {
   const [isScannerRunning, setIsScannerRunning] = useState(false);
 
   useEffect(() => {
-    // Инициализация сканера QR-кода
+    //QR scaner init
     const html5QrCode = new Html5Qrcode('reader');
     html5QrCodeRef.current = html5QrCode;
 
     return () => {
-      // Остановка сканера при размонтировании компонента
+      //QR scanner stop 
       if (isScannerRunning) {
         html5QrCode.stop();
       }
