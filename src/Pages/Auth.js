@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 
 const loginUser = async (user, setUser, initialUser) => {
   // API endpoint for authentication
-  const url = 'http://localhost:1337/api/auth/local';// (test database 'http://81.200.149.55:1337')
+  const url = 'http://81.200.149.55:1337/api/auth/local';// (test database 'http://81.200.149.55:1337')
   try {
     // Check if both email and password are providedA
     if (user.identifier && user.password) {
