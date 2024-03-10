@@ -9,7 +9,8 @@ export const fetchTransactionData = async (bookId) => {
     const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/transactions?filters[book]=${bookId}&filters[open]=true`, {
       method: "GET",
       headers: {
-        "Authorization": `Bearer ${jwt}`
+        "Authorization": `Bearer ${jwt}`,
+        'Cache-Control': 'max-age=3600',
       }
     })
     if (!response.ok) {
@@ -40,7 +41,7 @@ export const closeTransaction = async (transactionId, bookId) => {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
-        "Authorization": `Bearer ${jwt}`
+        "Authorization": `Bearer ${jwt}`,
       },
       body: JSON.stringify(body),
     });
