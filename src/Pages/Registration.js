@@ -1,6 +1,8 @@
 import axios from 'axios';
-import React, {useState} from 'react';
+import {useState} from 'react';
 import './Registration.css';
+// import {useHistory} from 'react-router-dom';
+
 
 let user1 = {username:'', email:'', password:''};                  // blank initial user
 
@@ -18,6 +20,9 @@ let Registration = () => {
                     console.log('registered successfully');
                     alert('registered successfully');
                     // TO ADD: navigate to login page after successful registration
+                    // Suggestion: use react-router-dom library
+                    // to navigate to login page using useHistory hook
+                    // like that: history.push('/login'); 
                 }
             }
         }
@@ -32,16 +37,7 @@ let Registration = () => {
         setUser((currentUser) => ({...currentUser, [name]:value})); // assigns input value to the blank user with setUser hook
     };
 
-    return(
-        <>
-            <div className='registration'>
-                <input type='text' name='username' value={user.username} placeholder='name here' onChange={handleChange}/>
-                <input type='email' name='email' value={user.email} placeholder='email here' onChange={handleChange}/>
-                <input type='password' name='password' value={user.password} placeholder='password here' onChange={handleChange}/>
-                <button onClick={register}>register</button>
-            </div>
-        </>
-    );
+    return { user, handleChange, register };
 }
 
 export default Registration;
