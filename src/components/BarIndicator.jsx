@@ -1,23 +1,32 @@
 import React from 'react';
 import './BarIndicator.css'; // Import CSS file for styling
 
-const BarIndicator = ({rentedDate, dueDate}) => {
-  const todayParsed = Date.now()
-  const parsedRentedDate = Date.parse(rentedDate)
-  const parsedDueDate = Date.parse(dueDate)
-  const rentedTime = parsedDueDate - parsedRentedDate
-  const progress =  100 * ( todayParsed - parsedRentedDate ) /rentedTime
+// calculates how much % of book's rented time passed
+const calculateProgress = (rentedDate, dueDate) => {
+  const todayParsed = Date.now();
+  const parsedRentedDate = Date.parse(rentedDate);
+  const parsedDueDate = Date.parse(dueDate);
+  const rentedTime = parsedDueDate - parsedRentedDate;
+  return 100 * (todayParsed - parsedRentedDate) / rentedTime;
+};
 
-  let color;
-  if (progress < 25) {
-    color = '#badc58';
-  } else if (progress < 50) {
-    color = '#f6e58d';
-  } else if (progress < 85) {
-    color = '#ffbe76';
+//takes progress and return color
+const getColor = (progress) => {
+  if (0 <= progress && progress < 25) {
+    return '#badc58';
+  } else if (25 <= progress && progress < 50) {
+    return '#f6e58d';
+  } else if (50 <= progress && progress < 85) {
+    return '#ffbe76';
   } else {
-    color = '#ff7979';
+    return '#ff7979';
   }
+};
+
+//function returns colorful bar indicator, depending on dates
+const BarIndicator = ({ rentedDate, dueDate }) => {
+  const progress = calculateProgress(rentedDate, dueDate);
+  const color = getColor(progress);
 
   return (
     <div className="bar-indicator">

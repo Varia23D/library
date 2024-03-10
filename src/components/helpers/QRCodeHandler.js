@@ -1,5 +1,7 @@
 import { closeTransaction, createTransaction, fetchTransactionData } from "./apiRequests";
 
+//function takes data from QR code and function to update info about user transactions
+//
 export const handleQRCodeScan = async (decodedText, updateBooks) => {
   try {
     const transactionId = await fetchTransactionData(decodedText);

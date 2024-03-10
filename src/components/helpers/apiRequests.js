@@ -1,9 +1,12 @@
 import { getJWT } from "./jwtUtils";
 
+
+//function takse book id and checks if there does user have an open transaction with that book id?
+// if he does function returns transaction data or null if he doesn't
 export const fetchTransactionData = async (bookId) => {
   const jwt = getJWT()
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND}api/transactions?filters[book]=${bookId}&filters[open]=true`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/transactions?filters[book]=${bookId}&filters[open]=true`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${jwt}`
@@ -23,6 +26,8 @@ export const fetchTransactionData = async (bookId) => {
   }
 };
 
+
+//function takes transaction and book ids and sendsa  put request to change open status of taken transaction and launches function to change book status to returned 
 export const closeTransaction = async (transactionId, bookId) => {
   const jwt = getJWT()
   try {
@@ -31,7 +36,7 @@ export const closeTransaction = async (transactionId, bookId) => {
             open: false
           }
         };
-    const response = await fetch(`${process.env.REACT_APP_BACKEND}api/transactions/${transactionId}`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/transactions/${transactionId}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
@@ -50,13 +55,15 @@ export const closeTransaction = async (transactionId, bookId) => {
   }
 };
 
+//function takes book id and sends a post request to create a new transaction with that book id and launches function to change book status to taken 
+
 export const createTransaction = async (bookId) => {
   const jwt = getJWT()
   try {
     const body = {
       data: { book: bookId }
     };
-    const response = await fetch(`${process.env.REACT_APP_BACKEND}api/transactions/`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/transactions/`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -76,6 +83,8 @@ export const createTransaction = async (bookId) => {
   changeBookStatusTaken(bookId);
 };
 
+
+// function takes book id and status to make a put request to change the book status to taken/returned, depending on status value 
 export const changeBookStatus = async (bookId, status) => {
   const jwt = getJWT()
   try {
@@ -84,7 +93,7 @@ export const changeBookStatus = async (bookId, status) => {
         taken: status === 'taken' ? true : false,
       }
     };
-    const response = await fetch(`${process.env.REACT_APP_BACKEND}api/book-copies/${bookId}`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/book-copies/${bookId}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",

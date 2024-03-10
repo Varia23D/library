@@ -1,4 +1,6 @@
 import { userData } from "./userStorage";
+// function returns jwt token from server
+
 
 export const getJWT = () => {
   const { jwt } = userData()

@@ -1,20 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import BarIndicator from './BarIndicator';
 import './BookList.css';
-import { formatDate } from './helpers/formatDate';
+import BookItem from './BookItem';
 
-const BookItem = ({ book }) => (
-  <div className="book-container">
-    <div className="book-details">
-      <h2>{book.book.book.title}</h2>
-      <BarIndicator rentedDate={formatDate(book.publishedAt)} dueDate={book.returnDate} />
-      <p className="due-date">{book.returnDate}</p>
-    </div>
-  </div>
-);
 
-const BookList = ({ books }) => {
+const BookList = ({ books = [] }) => {
   const today = new Date();
   
  const renderBookList = (title, bookList) => (
@@ -28,7 +17,7 @@ const BookList = ({ books }) => {
     </div>
   );
 
-  const rentedBooks = books.filter(book => {
+  const rentedBooks =  books.filter(book => {
     const dueDate = new Date(book.returnDate);
     return today <= dueDate;
   });
