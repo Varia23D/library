@@ -12,7 +12,7 @@ const Registration = () => {
 
     const register = async () => {
         try{
-            const url = 'http://localhost:1337/api/auth/local/register';   // (test database 'http://81.200.149.55:1337')
+            const url = 'http://81.200.149.55:1337/api/auth/local/register';
             if (user.username && user.email && user.password){             // ensure all input fields have content
                 const result = await axios.post(url, user);                // make post request to API with user info
                 if (result){
