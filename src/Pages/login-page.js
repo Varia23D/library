@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import loginUser from './Auth';
+import Auth from './Auth';
 
 // Define the initial state for the user with empty email and password
 const initialUser = { password: '', identifier: '' };
@@ -21,7 +21,7 @@ const LoginForm = () => {
 
   // Event handler for the login button click
   const handleLogin = () => {
-    loginUser(user, setUser, initialUser);
+    Auth(user, setUser, initialUser);
   };
 
   // JSX rendering for the login form
