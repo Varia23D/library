@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../../src/components/loginPage.css';
 
 // Define the initial state for the user with empty email and password
 const initialUser = { password: '', identifier: '' };
@@ -54,9 +55,10 @@ const Login = () => {
     <div className='login'>
       <div>
         <h2>Login:</h2>
-        <label>
-          Email:
-          <input
+        <div className='container1'>
+          <label className='email'>
+            Email:
+            <input className='emailBar'
             type='email'
             name='identifier'
             value={user.identifier}
@@ -64,9 +66,9 @@ const Login = () => {
             placeholder='Enter your email'
           />
         </label>
-        <label>
+        <label className='password'>
           Password:
-          <input
+          <input className='passwordBar'
             type='password'
             name='password'
             value={user.password}
@@ -74,7 +76,10 @@ const Login = () => {
             placeholder='Enter your password'
           />
         </label>
-        <button onClick={handleLogin}>Login</button>
+        <button class='signupBtn'>No account? Register here: </button>
+        <button class='loginBtn'onClick={handleLogin}>Login</button>
+        <button className='moodleLoginBtn'>Moodle login</button>
+        </div>
       </div>
     </div>
   );
