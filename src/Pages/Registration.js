@@ -14,7 +14,7 @@ let Registration = () => {
         try{
             const url = 'http://81.200.149.55:1337/api/auth/local/register'; // (test database 'http://81.200.149.55:1337')
             if (user.username && user.email && user.password){     // ensure all input fields have content
-                let result = await axios.post(url, user);          // make post request to API with user info
+                const result = await axios.post(url, user);          // make post request to API with user info
                 if (result){
                     setUser(user1);                                // if the API responds, set input values to the user
                     console.log('registered successfully');
@@ -29,7 +29,7 @@ let Registration = () => {
         }
     };
 
-    let handleChange = ({target}) => {                              // function to handle input  
+    const handleChange = ({target}) => {                              // function to handle input  
         const {name, value} = target;                                 // target's name and value assigned to variables
         setUser((currentUser) => ({...currentUser, [name]:value})); // assigns input value to the blank user with setUser hook
     };
