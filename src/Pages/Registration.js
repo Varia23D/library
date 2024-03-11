@@ -40,11 +40,11 @@ const Registration = () => {
                 <div className='registration'><h1>Registration</h1></div>
             </div>
             <div className='input'>
-                <label for='username' >Name</label> 
+                <label htmlFor='username' >Name</label> 
                 <input type='text' name='username' value={user.username} placeholder='Enter your name' onChange={handleChange}/>
-                <label for='email' >Email</label>
+                <label htmlFor='email' >Email</label>
                 <input type='email' name='email' value={user.email} placeholder='Enter your email' onChange={handleChange}/>
-                <label for='password' >Password</label>
+                <label htmlFor='password' >Password</label>
                 <input type='password' name='password' value={user.password} placeholder='Enter your password' onChange={handleChange}/>
                 <div className='buttonBox'> <button className='registerButton' onClick={register}>register</button> </div>
             </div>
