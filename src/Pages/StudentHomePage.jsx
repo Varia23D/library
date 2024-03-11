@@ -1,28 +1,47 @@
 import React, { useState, useEffect } from 'react';
-import { useBooks } from '../components/hooks/useBooks'
-import BookList from '../../src/components/BookList';
-import TopNavbar from '../../src/components/TopNavbar'; // Import the TopNavbar component
-import Greeting from '../../src/components/Greeting'; // Import the Greeting component
-import QrReader from '../../src/components/QrReader';
-import Footer from '../../src/components/Footer'; // Import the Footer component
+import { useBooks } from '../components/hooks/useBooks';
+import BookList from '../components//BookList'; // Adjust the path as needed
+import TopNavbar from '../components//TopNavbar'; // Adjust the path as needed
+import Greeting from '../components//Greeting'; // Adjust the path as needed
+import QrReader from '../components//QrReader'; // Adjust the path as needed
+import Footer from '../components//Footer'; // Adjust the path as needed
+import SearchBar from '../components//SearchBar'; // Adjust the path as needed
+import SearchResult from '../components//SearchResult'; // Adjust the path as needed
 import { userData } from '../components/helpers/userStorage';
 
 const StudentHomePage = () => {
-  const {books, updateBooks} = useBooks();
-  const {username} = userData() || {}
-  
+  const { books, updateBooks } = useBooks();
+  const { username } = userData() || {};
+  const [searchResults, setSearchResults] = useState([]); // Define searchResults state
+
   // Fetch book data from your API endpoint
   useEffect(() => {
-    updateBooks()
-  }, []); 
+    updateBooks();
+  }, []);
+
+  const handleSearch = (searchTerm) => {
+    console.log('Search term:', searchTerm); // Check if handleSearch is called and receiving the correct search term
+    // Perform search logic here
+    // For example, you can filter books based on the search term
+    const filteredBooks = books.filter(book =>
+      book.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResults(filteredBooks);
+  };
+
 
   return (
-    <div className="app-container"> {/* Add a class for styling */}
+    <div className="app-container">
       <TopNavbar />
-      <Greeting username={username} /> {/* Pass the username prop */}
-      <QrReader updateBooks={updateBooks}/>
-      <BookList books={books} />
-      <Footer /> {/* Include the Footer component */}
+      <Greeting username={username} />
+      <QrReader updateBooks={updateBooks} />
+      <SearchBar onSearch={handleSearch} />
+      {searchResults.length > 0 ? (
+        <SearchResult results={searchResults} />
+      ) : (
+        <BookList books={books} />
+      )}
+      <Footer />
     </div>
   );
 };
