@@ -6,7 +6,7 @@ import './Registration.css';
 
 const initialUser = {username:'', email:'', password:''};                  // blank initial user
 
-const RegistrationHandler = () => {
+const registrationHandler = () => {
 
     const [user, setUser] = useState(initialUser);                         // pass blank initial user to useState
     const navigate = useNavigate();
@@ -37,4 +37,4 @@ const RegistrationHandler = () => {
     return { user, handleChange, register };
 }
 
-export default RegistrationHandler;
+export default registrationHandler;

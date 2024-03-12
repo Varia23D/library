@@ -1,12 +1,12 @@
 import React from 'react';
-import Registration from '../helpers/RegistrationHandler';
+import registrationHandler from '../helpers/registrationHandler';
 import './Registration.css';
 
 
 //Returns a registration form component.
  
 const Registration = () => {
-    const { user, handleChange, register } = Registration();
+    const { user, handleChange, register } = registrationHandler();
 
     return (
         <div className='main'>

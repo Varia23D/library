@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Auth from '../helpers/Auth';
+import loginHandler from '../helpers/loginHandler';
 
 // Define the initial state for the user with empty email and password
 const initialUser = { password: '', identifier: '' };
 
 // Define the LoginForm functional component
-const LoginForm = () => {
+const Login = () => {
   // State hook to manage the user's input
   const [user, setUser] = useState(initialUser);
   // Event handler for input changes (email and password)
@@ -21,7 +21,7 @@ const LoginForm = () => {
 
   // Event handler for the login button click
   const handleLogin = () => {
-    Auth(user, setUser, initialUser);
+    loginHandler(user, setUser, initialUser);
   };
 
   // JSX rendering for the login form
@@ -55,4 +55,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default Login;

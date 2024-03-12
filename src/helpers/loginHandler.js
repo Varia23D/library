@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-const Auth = async (user, setUser, initialUser) => {
+const loginHandler = async (user, setUser, initialUser) => {
   // API endpoint for authentication
   const url = 'http://81.200.149.55:1337/api/auth/local';// (test database 'http://81.200.149.55:1337')
   try {
@@ -31,4 +31,4 @@ const Auth = async (user, setUser, initialUser) => {
   }
 };
 
-export default Auth;
+export default loginHandler;
