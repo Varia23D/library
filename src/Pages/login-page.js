@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import Auth from '../helpers/Auth';
 
 // Define the initial state for the user with empty email and password
+
+// TODO
+// Routes to the component
+// add some stile to the page, make it look pretty (use own or Nea's)
+// TBA
+
+
 const initialUser = { password: '', identifier: '' };
 
 // Define the LoginForm functional component
