@@ -3,6 +3,14 @@ import React, {useState} from 'react';
 import {useNavigate} from 'react-router';
 import './Registration.css';
 
+//TODO:
+//lets change the name of user1 variable to more understandable like initialUser 
+// use const instead of let if it is possible, it helps to read code and provides it's security (so you don't change something that don't need to be changed)
+//add navigation to login page
+//add some style to .css to make it look pretty (use your own or Nea's) 
+//routes to your component
+
+
 const initialUser = {username:'', email:'', password:''};                  // blank initial user
 
 const Registration = () => {
@@ -53,3 +61,5 @@ const Registration = () => {
 }
 
 export default Registration;
+
+
