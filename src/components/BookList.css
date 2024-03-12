@@ -1,9 +1,14 @@
 /* Overall book list wrapper styling */
+/* Updated book list wrapper styling for responsiveness */
 .book-list-wrapper {
-  margin: 0; /* Center  horizontally */
-  padding: 30px; /* spacing */
+  margin: 0 auto; /* Center the wrapper horizontally */
+  padding: 30px; /* Add padding for spacing */
   background-color: #ffffff;
+  max-width: 1000px; /* Set a maximum width for the wrapper */
+  width: 100%; /* Ensure the wrapper takes up the full width available */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
+
 
 /* Overall book list styling */
 .book-list {
