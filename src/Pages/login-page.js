@@ -54,33 +54,33 @@ const Login = () => {
   return (
     <div className='login'>
       <div>
-        <h2>Login:</h2>
+        <h2>Login</h2>
         <div className='container1'>
           <label className='email'>
-            Email:
             <input className='emailBar'
             type='email'
             name='identifier'
             value={user.identifier}
             onChange={handleChange}
-            placeholder='Enter your email'
+            placeholder='Email: '
           />
         </label>
         <label className='password'>
-          Password:
           <input className='passwordBar'
             type='password'
             name='password'
             value={user.password}
             onChange={handleChange}
-            placeholder='Enter your password'
+            placeholder='Password: '
           />
         </label>
-        <button class='signupBtn'>No account? Register here: </button>
-        <button class='loginBtn'onClick={handleLogin}>Login</button>
+        <button className='loginBtn'onClick={handleLogin}>Login</button>
         <button className='moodleLoginBtn'>Moodle login</button>
+        <p class='or'>or </p>
+        <button class='signupBtn'>Sign up:</button>
         </div>
       </div>
+      <p1 class='filler'></p1>
     </div>
   );
 };
