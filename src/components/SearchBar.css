@@ -7,25 +7,25 @@
 .search-bar-container {
   display: flex;
   align-items: center;
-  max-width: 300px; /* Adjust the maximum width as needed */
-  margin: auto; /* Center the search bar horizontally */
+  max-width: 300px; 
+  margin: auto; 
 }
 
 .search-bar-input {
   flex: 1;
-  padding: 4px 8px; /* Reduce padding */
-  font-size: 12px; /* Reduce font size */
+  padding: 4px 8px; 
+  font-size: 12px; 
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
 .search-bar-button {
-  padding: 4px 8px; /* Reduce padding */
-  font-size: 12px; /* Reduce font size */
+  padding: 4px 8px;
+  font-size: 12px;
   background-color: #86CEF8;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-left: 4px; /* Reduce margin */
+  margin-left: 4px; 
 }

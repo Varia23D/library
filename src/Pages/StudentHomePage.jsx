@@ -1,28 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { useBooks } from '../components/hooks/useBooks';
-import BookList from '../components//BookList'; // Adjust the path as needed
-import TopNavbar from '../components//TopNavbar'; // Adjust the path as needed
-import Greeting from '../components//Greeting'; // Adjust the path as needed
-import QrReader from '../components//QrReader'; // Adjust the path as needed
-import Footer from '../components//Footer'; // Adjust the path as needed
-import SearchBar from '../components//SearchBar'; // Adjust the path as needed
-import SearchResult from '../components//SearchResult'; // Adjust the path as needed
+import BookList from '../components//BookList'; 
+import TopNavbar from '../components//TopNavbar'; 
+import Greeting from '../components//Greeting'; 
+import QrReader from '../components//QrReader'; 
+import Footer from '../components//Footer'; 
+import SearchBar from '../components//SearchBar'; 
+import SearchResult from '../components//SearchResult'; 
 import { userData } from '../components/helpers/userStorage';
 
 const StudentHomePage = () => {
   const { books, updateBooks } = useBooks();
   const { username } = userData() || {};
-  const [searchResults, setSearchResults] = useState([]); // Define searchResults state
+  const [searchResults, setSearchResults] = useState([]); 
 
-  // Fetch book data from your API endpoint
+  //Dont forget Api
   useEffect(() => {
     updateBooks();
   }, []);
 
   const handleSearch = (searchTerm) => {
-    console.log('Search term:', searchTerm); // Check if handleSearch is called and receiving the correct search term
-    // Perform search logic here
-    // For example, you can filter books based on the search term
+    console.log('Search term:', searchTerm); 
+    
     const filteredBooks = books.filter(book =>
       book.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
