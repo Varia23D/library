@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Auth from './Auth';
+import Auth from '../helpers/Auth';
 
 // Define the initial state for the user with empty email and password
 const initialUser = { password: '', identifier: '' };
