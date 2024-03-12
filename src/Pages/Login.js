@@ -1,37 +1,44 @@
 import React, { useState } from 'react';
-import loginHandler from '../helpers/loginHandler';
-
-// Define the initial state for the user with empty email and password
-
-// TODO
-// Routes to the component
-// add some stile to the page, make it look pretty (use own or Nea's)
-// TBA
-
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+import { storeUser } from '../helpers/userStorage';
 
 const initialUser = { password: '', identifier: '' };
 
-// Define the LoginForm functional component
 const Login = () => {
-  // State hook to manage the user's input
   const [user, setUser] = useState(initialUser);
-  // Event handler for input changes (email and password)
+  const navigate = useNavigate();
   const handleChange = ({ target }) => {
-    // Extract the name and value from the input field
     const { name, value } = target;
-    // Update the user state using the previous state
     setUser((currentUser) => ({
       ...currentUser,
       [name]: value,
     }));
   };
 
-  // Event handler for the login button click
-  const handleLogin = () => {
-    loginHandler(user, setUser, initialUser);
+  const handleLogin = async () => {
+    const url = `${process.env.REACT_APP_BACKEND}/api/auth/local`;
+    try {
+      if (user.identifier && user.password) {
+        const { data } = await axios.post(url, user);
+        console.log (data)
+        if (data.jwt) {
+          alert('Login successful!');
+          storeUser(data)
+          setUser(initialUser);
+          navigate('/')
+        } else {
+          alert('Invalid login credentials!');
+        }
+      }
+    } catch (error) {
+
+      console.error('Error during login:', error.message);
+
+      alert('Error during login. Please try again.');
+    }
   };
 
-  // JSX rendering for the login form
   return (
     <div className='login'>
       <div>

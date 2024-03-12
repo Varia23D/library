@@ -2,9 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import StudentHomePage from './Pages/StudentHomePage';
-//import Home from './Pages/Home';
 import Registration from './Pages/Registration'
-
+import { Protector } from "./helpers/Protector"
+import { Container } from "reactstrap";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import Logout from "./components/Logout";
+import Login from './Pages/Login';
+// import {ToastContainer} from 'react-toastify';
 const App = () => {
   const [books, setBooks] = useState([]);
 
@@ -20,9 +24,19 @@ const App = () => {
   return (
 
     <div className="app-container"> {/* Add a class for styling */}
-      <StudentHomePage/>
-       <Registration/>
-
+      {/* <StudentHomePage/> */}
+       {/* <Registration/> */}
+       <Container>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Protector Component={StudentHomePage} />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/registration" element={<Registration />} />
+        </Routes>
+      </BrowserRouter>
+      {/* <ToastContainer /> */}
+    </Container>
     </div>
   );
 };
