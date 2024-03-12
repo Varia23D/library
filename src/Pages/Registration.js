@@ -46,7 +46,10 @@ const Registration = () => {
                 <input type='email' name='email' value={user.email} placeholder='Enter your email' onChange={handleChange}/>
                 <label htmlFor='password' >Password</label>
                 <input type='password' name='password' value={user.password} placeholder='Enter your password' onChange={handleChange}/>
-                <div className='buttonBox'> <button className='registerButton' onClick={register}>register</button> </div>
+                <div className='buttonBox'> 
+                    <button className='registerButton' onClick={register}>register</button>
+                    <button className='moodleButton'>register with moodle</button>
+                </div>
             </div>
         </div>
     );
