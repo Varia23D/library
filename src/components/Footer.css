@@ -1,11 +1,14 @@
+
 .footer-container {
-    background-color: #84CCF8;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    flex: 1;
-    flex-grow: 1
-  }
+  background-color: #84CCF8;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  /* Use flex properties to position the footer at the bottom */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
   
   .footer-text {
     font-family: 'League Spartan', sans-serif; /* Apply League Spartan font */
