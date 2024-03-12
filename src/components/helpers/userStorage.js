@@ -1,4 +1,3 @@
-
 export const storeUser = (data) => {
   localStorage.setItem(
     "user",
