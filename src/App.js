@@ -8,24 +8,24 @@ import { Container } from "reactstrap";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Logout from "./components/Logout";
 import Login from './Pages/login-page';
-// import {ToastContainer} from 'react-toastify';
+
 const App = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    // Fetch book data from your API endpoint
+    
     fetch('your-api-endpoint')
       .then(response => response.json())
       .then(data => setBooks(data))
       .catch(error => console.error('Error fetching data:', error));
-  }, []); // Empty dependency array ensures the effect runs only once after the component mounts
+  }, []); 
 
 
   return (
 
-    <div className="app-container"> {/* Add a class for styling */}
-      {/* <StudentHomePage/> */}
-       {/* <Registration/> */}
+    <div className="app-container"> 
+      
+       
        <Container>
       <BrowserRouter>
         <Routes>

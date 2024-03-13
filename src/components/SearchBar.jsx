@@ -8,9 +8,20 @@ const SearchBar = ({ onSearch }) => {
     setSearchTerm(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    onSearch(searchTerm);
+    try {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/book-types?filters[title]=${searchTerm}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      console.log('Book types:', data.data); // Log the data to ensure it is received correctly
+      
+      onSearch(data.data); // Pass the data array to the parent component
+    } catch (error) {
+      console.error('Error fetching book types:', error);
+    }
   };
 
   return (
@@ -28,5 +39,4 @@ const SearchBar = ({ onSearch }) => {
     </div>
   );
 };
-
 export default SearchBar;

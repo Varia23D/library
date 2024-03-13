@@ -7,7 +7,11 @@ const SearchResult = ({ results }) => {
       <h2>Search Results</h2>
       <ul className="search-result-list">
         {results.map((result, index) => (
-          <li key={index} className="search-result-item">{result}</li>
+          <li key={index} className="search-result-item">
+            <h3>{result.title}</h3>
+            {console.log (result)}
+            <p>{result.description}</p>
+          </li>
         ))}
       </ul>
     </div>
