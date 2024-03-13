@@ -1,3 +1,5 @@
+import Cookies from "js-cookie";
+
 export const storeUser = (data) => {
   localStorage.setItem(
     "user",
