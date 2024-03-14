@@ -7,6 +7,7 @@
   max-width: 1000px; /* Set a maximum width for the wrapper */
   width: 100%; /* Ensure the wrapper takes up the full width available */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  padding-bottom: 100px;
 }
 
 
