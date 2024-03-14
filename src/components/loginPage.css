@@ -83,6 +83,7 @@
 .signup-btn {
     margin-inline: 80px;
     font-weight: bold;
+    text-decoration: underline;
     display: flex;
     justify-content: center;
     color: #0568eb;

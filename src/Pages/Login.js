@@ -79,7 +79,7 @@ const Login = () => {
         <button className='login-btn' onClick={handleLogin}>Login</button>
         <button className='moodle-login-btn'>Moodle login</button>
         <p className='login-options-separator'>or</p>
-        <Link to='/registration' className='signup-btn'>Sign up</Link>
+        <button className='signup-btn'>Sign up</button>
       </div>
     </div>
   );
