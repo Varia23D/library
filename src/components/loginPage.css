@@ -81,8 +81,11 @@
 }
 
 .signup-btn {
-    color: #0568eb;
+    margin-inline: 80px;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    color: #0568eb;
     background: none;
 }
 
@@ -101,6 +104,14 @@
 .login-btn:active,
 .moodle-login-btn:active {
     transform: translateY(4px);
+}
+
+.login-btn:active {
+    background-color: #004A8A;
+}
+
+.moodle-login-btn:active {
+    background-color: #a26a00;
 }
 
 /* Separator Styles */

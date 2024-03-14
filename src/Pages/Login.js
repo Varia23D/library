@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { storeUser } from '../helpers/userStorage';
 import '../components/loginPage.css'
 import varialogo from '../Pages/varialogo.png';
@@ -79,7 +79,7 @@ const Login = () => {
         <button className='login-btn' onClick={handleLogin}>Login</button>
         <button className='moodle-login-btn'>Moodle login</button>
         <p className='login-options-separator'>or</p>
-        <button className='signup-btn'>Sign up</button>
+        <Link to='/registration' className='signup-btn'>Sign up</Link>
       </div>
     </div>
   );
