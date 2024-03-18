@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { storeUser } from '../helpers/userStorage';
 import '../components/loginPage.css'
+import varialogo from '../Pages/varialogo.png';
 
 // Define the initial state for the user with empty email and password
 const initialUser = { password: '', identifier: '' };
@@ -48,34 +49,38 @@ const Login = () => {
 
   return (
     <div className='login-form'>
-      <div>
-        <h2>Login</h2>
-        <div className='container1'>
-          <label className='email'>
-            <input className='emailBar'
+      <div className='logo-container'>
+        <img src={varialogo} alt="Logo" className='logo-image' />
+      </div>
+      <div className='login-container'>
+      <h2>Login</h2>
+        <label className='login-label-email'>
+          
+          <input
+            className='login-input'
             type='email'
             name='identifier'
             value={user.identifier}
             onChange={handleChange}
-            placeholder='Email: '
+            placeholder='Enter your email'
           />
         </label>
-        <label className='password'>
-          <input className='passwordBar'
+        <label className='login-label-password'>
+          
+          <input
+            className='login-input'
             type='password'
             name='password'
             value={user.password}
             onChange={handleChange}
-            placeholder='Password: '
+            placeholder='Enter your password'
           />
         </label>
-        <button className='loginBtn'onClick={handleLogin}>Login</button>
-        <button className='moodleLoginBtn'>Moodle login</button>
-        <p className='or'>or </p>
-        <button className='signupBtn'>Sign up:</button>
-        </div>
+        <button className='login-btn' onClick={handleLogin}>Login</button>
+        <button className='moodle-login-btn'>Moodle login</button>
+        <p className='login-options-separator'>or</p>
+        <button className='signup-btn'>Sign up</button>
       </div>
-      <p className='filler'></p>
     </div>
   );
 };
