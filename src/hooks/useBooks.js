@@ -5,7 +5,7 @@ import { userData } from "../helpers/userStorage"
 export const useBooks = () => {
   const [books, setBooks] = useState([])
   const { jwt } = userData() 
-  const openTransactionsQuerry = '/api/users/me?populate[transactions][populate][book][populate][book][populate]=*&populate[transactions][filters][open]=true' // populate user data and focus only on transactions, filter them by finding only open. That means we show only currently taken books by current user. That filtering can give data about type books, so we have access to title, cover and other info of taken books
+  const openTransactionsQuerry = '/api/users/me?populate[transactions][populate][book][populate][book_type][populate]=*&populate[transactions][filters][open]=true' // populate user data and focus only on transactions, filter them by finding only open. That means we show only currently taken books by current user. That filtering can give data about type books, so we have access to title, cover and other info of taken books
 
   
   const fetchUserData = async () => {
