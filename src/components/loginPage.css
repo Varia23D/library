@@ -1,78 +1,78 @@
 .login-form {
-    background: linear-gradient(to bottom, #0568eb 0%, #0568eb 40%, #bad8ff 100% );
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 5%;
-    padding-right: 5%;
+    height: 100vh;
+    background: linear-gradient(to bottom, #0568eb 0%, #0568eb 40%, #bad8ff 100%);
+    padding: 0 5%;
 }
 
-.container1 {
-    position:relative;
+.login-container {
     display: flex;
     flex-direction: column;
     width: fit-content;
     min-width: 320px;
+    height: 500px;
     background-color: #ffffff;
     border-radius: 20px;
-    height: 500px;
+    position: relative;
 }
 
+/* Logo Styles */
+.logo-container {
+    position: fixed;
+}
+
+.logo-image {
+    position: absolute;
+    top: -300px;
+    left: -50px;
+    width: 240px;
+    pointer-events: none;
+}
+
+/* Heading Styles */
 .login-form h2 {
-    padding-top: 10%;
-    padding-bottom: 30px;
-    font-size: 50px;
-    color: #333;
-    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 15px;
+    color: #004A8A;
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-label.email,
-label.password {
-    padding-left: 20px;
-    padding-right: 20px;
+/* Label Styles */
+.login-label-email,
+.login-label-password {
+    display: grid;
+    padding: 15px 20px;
     font-size: 22px;
+    padding-bottom: 10px;
+}
+
+.login-label-email {
+    margin-top: 20px;
+}
+
+/* Input Styles */
+.login-input {
+    padding: 10px;
+    font-size: medium;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 10px;
-    padding-top: 40px;
-}
-
-.emailBar,
-.passwordBar {
-    padding-left: 10px;
-    font-size: medium;
     margin-top: 5px;
     border-radius: 5px;
     border-style: solid;
     border-color: rgb(186, 186, 186);
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
-.signupBtn {
-    margin-top: 25px;
-    border: none;
-    background: none;
-    font-size: large;
-    font-weight: bold;
-    color: #0568eb;
-    cursor: pointer;
-}
-
-.signupBtn:active {
-    transform: translateY(4px);
-}
-
-.loginBtn {
-    margin-top: 60px;
-    margin-inline: 20px;
-    background-color: #0568eb;
-    color: #ffffff;
+/* Button Styles */
+.login-btn,
+.moodle-login-btn,
+.signup-btn {
+    margin: 20px;
     padding: 15px;
     font-size: 18px;
     border: none;
@@ -80,36 +80,43 @@ label.password {
     cursor: pointer;
 }
 
-.loginBtn:active {
-    transform: translateY(4px);
-    background-color: #004aab;
-    box-shadow: #004aab;
+.signup-btn {
+    margin-inline: 80px;
+    font-weight: bold;
+    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+    color: #0568eb;
+    background: none;
 }
 
-.moodleLoginBtn {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    margin-inline: 20px;
+.login-btn {
+    background-color: #0568eb;
+    color: #ffffff;
+}
+
+.moodle-login-btn {
     background-color: #ffa600;
     color: #ffffff;
-    padding: 15px 30px;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
 }
 
-.moodleLoginBtn:active {
+/* Button Hover/Active Styles */
+.signup-btn:active,
+.login-btn:active,
+.moodle-login-btn:active {
     transform: translateY(4px);
-    background-color: #a96e00;
 }
 
-.filler {
-    display: block;
-    height: 50px;
+.login-btn:active {
+    background-color: #004A8A;
 }
 
-.or {
+.moodle-login-btn:active {
+    background-color: #a26a00;
+}
+
+/* Separator Styles */
+.login-options-separator {
     margin-top: 13px;
     display: flex;
     justify-content: center;

@@ -6,76 +6,78 @@
     
 }
 
+
 /* main container, background color and image */
-.main{
-    background-image:url('varialogo.png'), linear-gradient(#84CCF8, #fff);
-    background-repeat: no-repeat;
-    background-position: 65% 30%;
-    color: #fff;
+.registration{
+    background-image:linear-gradient(#84CCF8, #fff);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+.registration_background_img{
+   background-image: url('varialogo.png');
+   background-repeat: no-repeat;
+   background-position: 100% 33%;
+   background-size: 50%;
+}
 
 
 /* heading position and style */
-.title{
+.registration_heading{
+    color: #fff;
     font-size: 20px;
-    padding: 20px;
+    padding-top: 55px;
+    padding-bottom: 35px;
+    padding-left: 15px;
     height: 70px;
-    display: flex;
-    flex-direction: row;
-}
-.registration{
-    margin-right: 260px;
-    margin-top: 20px;
 }
 
 
-/* positioning and style for input fields */
-.input{
+/* positioning and style for input area */
+.registration_input{
     display: flex;
     flex-direction: column;
     padding: 10px;
-    width: 45%;
+    width: 318px;
     background-color: #fff;
     border-radius: 20px;
     color: black;
     text-align: left;
 }
-.input > input{
-    padding: 5px;
-    border: none;
+.registration_input > input{
+    padding: 8px;
+    border: 1px solid rgba(173, 173, 173, 1);
+    border-radius: 10px;
     margin: 7px;
-    border-bottom: 1px solid rgba(173, 173, 173, 1);
 }
-.input > label{
+.registration_input > label{
     margin-top: 5px;
     font-size: 18px;
-    margin-left: 10px;
-    font-weight: 600;
+    margin-left: 15px;
 }
 
+
 /* positioning and style for button */
-.buttonBox{
+.registration_buttons{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.registerButton{
+.register_button{
     margin: 10px;
+    margin-top: 15px;
     border: none;
     border-radius: 20px;
     background-color: rgba(0, 75, 135, 1);
     color: #fff;
     font-size: 18px;
     padding: 10px;
-    width: 40%;
+    width: 306px;
 }
-.registerButton:hover{
+.register_button:hover{
     background-color: rgb(0, 44, 80);
 }
-.moodleButton{
+.moodle_button{
     margin: 10px;
     border: none;
     margin-top: 5px;
@@ -84,41 +86,22 @@
     color: #fff;
     font-size: 18px;
     padding: 10px;
-    width: 40%;
+    width: 306px;
 }
-.moodleButton:hover{
+.moodle_button:hover{
     background-color: #5fbffa;
 }
 
 
 /* mobile settings */
 @media only screen and (max-width: 768px) {
-    .main{
-        background-position: 55% 70%;
+    .registration_input{
+        width: 318px;
     }
-    .input{
-        margin-top: 50px;
-        width: 90%;
+    .register_button{
+        width: 306px;
     }
-    .registerButton{
-        width: 90%;
-    }
-    .moodleButton{
-        width: 90%;
-    }
-    .registration{
-        margin: 0px;
-    }
-}
-@media only screen and (max-width: 1191px) {
-    .main{
-        background-position: 55%;
-    }
-    .input{
-        margin-top: 30px;
-    }
-    .registration{
-        margin:0px;
-        margin-top: 20px;
+    .moodle_button{
+        width: 306px;
     }
 }
