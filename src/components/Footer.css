@@ -5,7 +5,7 @@
   padding: 20px;
   text-align: center;
   /* Use flex properties to position the footer at the bottom */
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
 }
