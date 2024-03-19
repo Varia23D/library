@@ -9,7 +9,7 @@ const SearchResult = ({ results }) => {
         {results.map((result, index) => (
           <li key={index} className="search-result-item">
             <h3>{result.title}</h3>
-            {console.log (result)}
+            {console.log ("title: ",result.title)}
             <p>{result.description}</p>
           </li>
         ))}
