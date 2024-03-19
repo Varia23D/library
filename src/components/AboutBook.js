@@ -12,17 +12,17 @@ const BookPage = ({ book }) => {
             <img className='circular-image' src={`${process.env.REACT_APP_BACKEND}${book.attributes.cover.data[0].attributes.url}`} alt="" />
           </div>
 
-              <div className='Titlecontainer'>
-                <span className='AboutTitle'>{book.attributes.title}</span>
+              <div className='title-container'>
+                <span className='about-title'>{book.attributes.title}</span>
               </div>
 
                 <div className='about-btn-container'>
-                    <button className='returnBookBtn'>
+                    <button className='return-book-btn'>
                     <span className='btn-text'>Return book</span>
                     </button>
-                  <div className='AboutSection'>
-                     <span className='AboutTheBookTitle'>About</span>
-                     <span className='AboutTheBookText'>{book.attributes.description}</span>
+                  <div className='about-section'>
+                     <span className='about-the-book-title'>About</span>
+                     <span className='about-the-book-text'>{book.attributes.description}</span>
                   </div>
                 </div>
       </div>
