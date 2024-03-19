@@ -3,11 +3,11 @@ import TopNavbar from '../../src/components/TopNavbar';
 import AboutBook from '../components/AboutBook';
 import Footer from '../../src/components/Footer';
 
-const AboutBookPage = () => {
+const AboutBookPage = ({book}) => {
   return (
     <div>
     <TopNavbar />
-    <AboutBook/>
+    <AboutBook book={book}/>
     <Footer />
     </div>
   );
