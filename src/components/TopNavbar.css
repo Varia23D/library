@@ -4,8 +4,8 @@
     padding: 10px;
     position: sticky;
     top: 0;
-    background-color: #ffffff;
-    box-shadow: 0px 8px 8px -6px rgba(90, 90, 90, 0.3);
+    z-index: 20;
+    
   }
   
   /* Media query for screens larger than 768px */
@@ -31,10 +31,10 @@
   
   .desktop-menu .menu__item {
     padding: 12px 24px;
-    color: #84CCF8;
-    font-family: 'Quicksand', sans-serif;
+    color: #1E293B;
+    font-family: 'Source Serif Pro', serif;
     font-size: 16px;
-    font-weight: 600;
+    font-weight:500;
     text-decoration: none;
     transition-duration: .25s;
   }
@@ -72,32 +72,36 @@
     margin: 0;
     padding: 50px 0;
     list-style: none;
-    background-color: rgba(132, 204, 248, 0.50);
+    background-color: rgba(248, 250, 252, 0.95);
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
     transition-duration: .25s;
     border-top-left-radius: 16px;
     backdrop-filter: blur(5px);
+    z-index: 6;
 }
   
 .menu__box.open {
     right: 0; /* Slide in when menu is open */
+ 
 }
   
 .menu__item {
     display: block;
     padding: 12px 24px;
-    color: #ffffff;
-    font-family: 'Quicksand', sans-serif;
+    color: #1E293B;
+    font-family: 'Source Serif Pro';
     font-size: 16px;
     font-weight: 600;
+    text-align: right;
     text-decoration: none;
     transition-duration: .25s;
     box-shadow: 0px 2px 1px rgba(255, 255, 255, 0.3);
+    z-index: 20;
 }
     
 .menu__item:hover {
     background-color: #ffffff;
-    color: #84CCF8;
+    color: #0E499C;
 }
 
   /* Media query for screens larger than 768px (PC) */
@@ -116,7 +120,7 @@
     width: 30px;
     height: 30px;
     cursor: pointer;
-    z-index: 5;
+    z-index: 10;
 }
 
 .menu__btn > span,
@@ -128,6 +132,7 @@
     height: 3px;
     background-color: #84CCF8;
     transition-duration: .25s;
+    z-index: 20;
 }
 
 .menu__btn > span{
@@ -147,20 +152,20 @@
 
 .menu__btn > span.open {
     transform: rotate(45deg);
-    background-color: #ffffff;
+    background-color: #1E293B;
     top: 50%; /* Adjust to vertically center */
 }
 
 .menu__btn > span.open::before {
     top: 0;
     transform: rotate(0deg);
-    background-color: #ffffff;
+    background-color: #1E293B;
 }
 
 .menu__btn > span.open::after {
     top: 0;
     transform: rotate(90deg);
-    background-color: #ffffff;
+    background-color: #1E293B;
 }
   
 .user-profile {
@@ -190,8 +195,8 @@ a.user-avatar {
 }
   
 .user-name {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Source Serif Pro';
     margin-bottom: 10px;
     font-weight: 600;
-    color: #ffffff;
+    color: #1E293B;
 }

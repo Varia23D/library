@@ -13,13 +13,13 @@ const calculateProgress = (rentedDate, dueDate) => {
 //takes progress and return color
 const getColor = (progress) => {
   if (0 <= progress && progress < 25) {
-    return '#badc58';
+    return '#64CCC9';
   } else if (25 <= progress && progress < 50) {
-    return '#f6e58d';
+    return '#FBBF24';
   } else if (50 <= progress && progress < 85) {
-    return '#ffbe76';
+    return '#F59E0B';
   } else {
-    return '#ff7979';
+    return '#B20303';
   }
 };
 
