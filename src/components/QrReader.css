@@ -3,21 +3,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    padding: 10px;
+    padding: 20px 0px 20px 0px;
   }
   
   .square-button {
-    background-color: #86CEF8; /* Green background color */
+    background: linear-gradient(183deg,var(--ocean-stop-1-color) var(--ocean-stop-1-position), var(--ocean-stop-2-color) var(--ocean-stop-2-position));
     color: white; /* White text color */
     padding: 10px 20px; /* Add padding */
+    width: 150px;
     font-size: 16px; /* Increase font size */
     border: none; /* Remove border */
-    border-radius: 5px; /* Add border radius */
+    border-radius: 18px; /* Add border radius */
     cursor: pointer; /* Add cursor on hover */
     transition: background-color 0.3s ease; /* Smooth transition on hover */
-    font-family: 'League Spartan', sans-serif; /* Use League Spartan font */
-    font-weight: 600;
+    font-family: 'League Spartan', sans-serif; 
+    font-weight: 500;
   }
   
   .square-button:hover {

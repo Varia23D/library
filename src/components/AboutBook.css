@@ -1,0 +1,150 @@
+ .cover-photo{
+    position: relative;
+    width: 174px;
+    height: 174px;
+    margin: auto;
+    background: url(https://image.api.playstation.com/vulcan/ap/rnd/202207/0608/Iqy4ngMBhe4Ti2tV4ABSBhjF.jpg)
+    no-repeat center;
+    background-size: cover;
+    border-radius: 50%; /* Set border-radius to 50% to create a circle */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+  .about-container {
+    font-family: 'Source Serif Pro', serif;
+    padding: 20px;
+    padding-top: 40px;
+    max-width: 800px; /* Set a maximum width for the wrapper */
+    width: 100%; /* Ensure the wrapper takes up the full width available */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    margin: auto auto; /* Center the wrapper horizontally */
+    }
+  
+  .Titlecontainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 4px;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .AboutTitle{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-shrink: 0;
+    flex-basis: auto;
+    position: relative;
+    width: 308px;
+    height: 40px;
+    color: #1e293b;
+    font-family: 'Source Serif Pro', serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 40px;
+    text-align: center;
+    white-space: nowrap; 
+
+  }
+  .AboutAuthor{
+    display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  width: 99px;
+  height: 18px;
+  color: #1e293b;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 18px;
+  text-align: center;
+  white-space: nowrap;
+  }
+
+  .info-container {
+    background: linear-gradient(190deg, var(--button-blue-stop-1-color) var(--button-blue-stop-1-position), var(--button-blue-stop-2-color) var(--button-blue-stop-2-position));
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .returnBookBtn {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 150px;
+    height: 36px;
+    border-radius: 18px;
+    background: linear-gradient(183deg,var(--ocean-stop-1-color) var(--ocean-stop-1-position), var(--ocean-stop-2-color) var(--ocean-stop-2-position));
+    border-style: none;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    margin: 20 auto;
+    color: #ffffff;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+  }
+
+  
+  .infoGrid {
+    width: 78px;
+    height: min-content;
+    flex-direction: column;
+    place-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px;
+    border-radius: 8px;
+    margin: 20 auto;
+  }
+  
+  .year, .edition, .ispn, .year-value,.edyear, .ispnCode {
+    color: #1e293b;
+    font-size: 16px;
+    line-height: 150%;
+    font-family: 'Source Serif Pro', serif;
+    width: 62px;
+    height: min-content;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .AboutSection {
+    margin-top: 20px;
+    height: min-content;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .AboutTheBookTitle {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    color: #1e293b;
+    font-size: 20px;
+    font-family: 'Source Serif Pro', serif;
+    margin: 20 auto;
+    padding-bottom: 20px;
+  }
+  
+  .AboutTheBookText{
+    margin: 20 auto;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 100;
+    color: #1e293b;
+    font-size: 14px;
+  }

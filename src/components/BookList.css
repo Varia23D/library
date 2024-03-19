@@ -2,29 +2,40 @@
 /* Updated book list wrapper styling for responsiveness */
 .book-list-wrapper {
   margin: 0 auto; /* Center the wrapper horizontally */
-  padding: 30px; /* Add padding for spacing */
-  background-color: #ffffff;
-  max-width: 1000px; /* Set a maximum width for the wrapper */
+  padding: 0px 20px 20px 20px; /* Add padding for spacing */
+  max-width: 800px; /* Set a maximum width for the wrapper */
   width: 100%; /* Ensure the wrapper takes up the full width available */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  padding-bottom: 100px;
 }
 
 
+.book-cover {
+  position: relative;
+  width: 100px;
+  height: 107px;
+  margin: 0 0 0 0;
+  align-items: center;
+  background-size: cover;
+  overflow: hidden;
+  border-radius: 0;
+  padding: 0;
+  border-radius:  12px 0 0 12px;
+}
+
 /* Overall book list styling */
 .book-list {
-  font-family: 'League Spartan', sans-serif; /* Use League Spartan font */
+  font-family: 'Source Serif Pro';
   color: #535c68; /* Set text color */
 }
 
 /* Styling for individual book container */
 .book-container {
-  background-color: #ffffff; /* Light background color */
+  background: linear-gradient(190deg, var(--button-blue-stop-1-color) var(--button-blue-stop-1-position), var(--button-blue-stop-2-color) var(--button-blue-stop-2-position));
+  height: 107px;
+  padding-right: 12px;
   border-radius: 12px; /* Rounded corners */
   margin-top: 20px; /* Spacing between book containers */
-  padding: 10px; /* Padding inside container */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-  /* max-width: 1000px; /* Maximum width of container */
   display: flex; /* Use flexbox for layout */
   align-items: center; /* Center align items vertically */
 }
@@ -33,33 +44,48 @@
 .book-details {
   flex: 1; /* Allow details to grow and fill available space */
   margin-left: 10px; /* Add space between book cover and details */
+  font-family: 'Source Serif Pro', serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #f8fafc;
+  text-align: left;
 }
 
 /* Styling for book title */
 .book-details h2 {
-  font-size: 16px; /* Set title font size */
-  margin-top: 0; /* Remove default margin */
-  color: #535c68; /* Set title color */
+  color: #1e293b; /* Set title color */
   font-weight: medium;
+  font-family: 'Source Serif Pro', serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 /* Styling for additional book information */
 .book-details p {
-  font-size: 14px; /* Set font size for additional information */
-  color: #535c68; /* Set color for additional information */
+  font-size: 10px; /* Set font size for additional information */
+  color: #1e293b; /* Set color for additional information */
+  font-family: 'League Spartan', sans-serif;
 }
 
 /* Styling for due date */
-.book-details .due-date {
-  font-size: 9px; /* Set smaller font size for due date */
-  color: #535c68; /* Set color for due date */
+.due-date {
+  margin: 6px 0 0 0;
+  text-align: right;
+  margin-bottom: 12px;
 }
 
 /* Styling for book list headers */
 .book-list h1 {
-  color: #535c68; /* Set header color */
-  font-weight: bold; /* Set header font weight */
-  font-size: 18px; /* Set header font size */
-  margin-top: 30px;
-  font-family: 'Quicksand', sans-serif; /* Use Quicksand font */
+  color: #1e293b; /* Set header color */
+  font-weight: 600;
+  font-size: 18px; 
+  font-family: 'Source Serif Pro', serif;
+  line-height: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }

@@ -8,6 +8,7 @@ import { Container } from "reactstrap";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Logout from "./components/Logout";
 import Login from './Pages/Login';
+import AboutBookPage from './Pages/AboutBookPage';
 // import {ToastContainer} from 'react-toastify';
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/registration" element={<Registration />} />
+          <Route path="/AboutBookPage" element={<AboutBookPage />} />
         </Routes>
       </BrowserRouter>
       {/* <ToastContainer /> */}

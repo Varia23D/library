@@ -1,13 +1,13 @@
 import BarIndicator from "./BarIndicator";
 import { formatDate } from "../helpers/formatDate";
-
+import './BookList.css';
 
 const BookItem = ({ book }) => (
   <div className="book-container">
     <div className="book-cover">
       {console.log('book data:',book)}
       {book.book.book_type.cover && book.book.book_type.cover[0] ? (
-        <img style={{maxHeight: '55px' }} 
+        <img style={{maxWidth: '100px' }} 
         src={`${process.env.REACT_APP_BACKEND}${book.book.book_type.cover[0].url}`} 
         alt={book.book.book_type.title} />
         ) : (

@@ -4,16 +4,17 @@
     display: flex; /* Use flex layout */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    padding: 20px; /* Spacing */
-    background-color: #ffffff; /* Background color */
+    padding: 20px 0 20px 0; /* Spacing */
   }
   
   
   /* Styling for the greeting text */
   .greeting-text {
-    font-family: 'Quicksand', sans-serif; /* Use Quicksand font */
-    color: #535c68; /* Set text color */
-    font-size: 25px; /* Set font size */
-    margin: 0; /* Remove default margin */
-    text-align: center; /* Center align text */
+    font-family: 'Source Serif Pro', serif;
+    color: #1E293B; 
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 60px 0 0 0px; 
+    text-align: center; 
   }
