@@ -1,5 +1,6 @@
 import BarIndicator from "./BarIndicator";
 import { formatDate } from "../helpers/formatDate";
+import { Link } from "react-router-dom";
 
 
 const BookItem = ({ book }) => (
@@ -15,7 +16,7 @@ const BookItem = ({ book }) => (
         )}
     </div>
     <div className="book-details">
-      <h2>{book.book.book_type.title}</h2>
+      <h2><Link to={`/book/${book.book.book_type.id}`}>{book.book.book_type.title}</Link></h2>
       <BarIndicator rentedDate={formatDate(book.publishedAt)} dueDate={book.returnDate} />
       <p className="due-date">return date: {book.returnDate}</p>
     </div>

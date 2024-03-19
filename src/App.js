@@ -8,18 +8,27 @@ import { Container } from "reactstrap";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Logout from "./components/Logout";
 import Login from './Pages/Login';
+import BookPage from './components/BookPage';
+import { userData } from './helpers/userStorage';
 // import {ToastContainer} from 'react-toastify';
 const App = () => {
   const [books, setBooks] = useState([]);
-
+  const { jwt } = userData()
   useEffect(() => {
     // Fetch book data from your API endpoint
-    fetch('your-api-endpoint')
+    fetch(`${process.env.REACT_APP_BACKEND}/api/book-types/?populate=*`, {
+      headers: {
+        "Authorization": `Bearer ${jwt}`
+      }
+    })
       .then(response => response.json())
-      .then(data => setBooks(data))
+      .then(data => {
+        
+        setBooks(data.data)
+        console.log('data: ', data)
+      })
       .catch(error => console.error('Error fetching data:', error));
   }, []); // Empty dependency array ensures the effect runs only once after the component mounts
-
 
   return (
 
@@ -33,6 +42,9 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/registration" element={<Registration />} />
+          {books.map(book => (
+              <Route key={book.id} path={`/book/${book.id}`} element={<BookPage book={book} />} />
+            ))}
         </Routes>
       </BrowserRouter>
       {/* <ToastContainer /> */}
