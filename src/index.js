@@ -1,13 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import Login from './Pages/login-page';
-import './index.css';
-import App from './App';
+import ReactDOM from 'react-dom';
+import Main from './Main'; // Import Main from './Main'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
-    <App/>
-    {/* <Login /> */}
-  </React.StrictMode>
+    <Main />
+  </React.StrictMode>,
+  document.getElementById('root')
 );
