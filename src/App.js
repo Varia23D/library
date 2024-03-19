@@ -9,7 +9,7 @@ import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Logout from "./components/Logout";
 import Login from './Pages/Login';
 import AboutBookPage from './Pages/AboutBookPage';
-import BookPage from './components/BookPage';
+import BookPage from './components/AboutBook';
 import { userData } from './helpers/userStorage';
 // import {ToastContainer} from 'react-toastify';
 const App = () => {
@@ -45,7 +45,7 @@ const App = () => {
           <Route path="/registration" element={<Registration />} />
           <Route path="/AboutBookPage" element={<AboutBookPage />} />
           {books.map(book => (
-              <Route key={book.id} path={`/book/${book.id}`} element={<BookPage book={book} />} />
+              <Route key={book.id} path={`/book/${book.id}`} element={<AboutBookPage book={book} />} />
             ))}
         </Routes>
       </BrowserRouter>
