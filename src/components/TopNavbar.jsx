@@ -1,13 +1,18 @@
 // Q:? why we repeat links
-
+import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import './TopNavbar.css';
 
 const TopNavbar = ({ username }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+  const handleLogout = () => {
+    localStorage.setItem("user", "");
+    navigate('/login');
   };
 
   return (
@@ -17,7 +22,7 @@ const TopNavbar = ({ username }) => {
         <li><a className="menu__item" href="#">Edit Profile</a></li>
         <li><a className="menu__item" href="#">Home</a></li>
         <li><a className="menu__item" href="/AboutBookPage">AboutBooks</a></li>
-        <li><a className="menu__item" href="/logout">Logout</a></li>
+        <li><a className="menu__item" href="/logout" onClick={handleLogout}>Logout</a></li>
       </ul>
 
       {/* Mobile Navbar */}
@@ -34,7 +39,7 @@ const TopNavbar = ({ username }) => {
         <li><a className="menu__item" href="#">Edit Profile</a></li>
         <li><a className="menu__item" href="#">Home</a></li>
         <li><a className="menu__item" href="/AboutBookPage">AboutBooks</a></li>
-        <li><a className="menu__item" href="/logout">Logout</a></li>
+        <li><a className="menu__item" href="/logout" onClick={handleLogout}>Logout</a></li>
       </ul>
     </div>
   );
