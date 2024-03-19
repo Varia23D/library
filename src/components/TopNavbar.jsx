@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import './TopNavbar.css';
 
-const TopNavbar = () => {
+const TopNavbar = ({ username }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -16,7 +16,7 @@ const TopNavbar = () => {
       <ul className="desktop-menu">
         <li><a className="menu__item" href="#">Edit Profile</a></li>
         <li><a className="menu__item" href="#">Home</a></li>
-        <li><a className="menu__item" href="#">Books</a></li>
+        <li><a className="menu__item" href="/AboutBookPage">AboutBooks</a></li>
         <li><a className="menu__item" href="/logout">Logout</a></li>
       </ul>
 
@@ -28,12 +28,12 @@ const TopNavbar = () => {
         <li className="user-profile">
           <img className="user-avatar" src="https://popcat.click/twitter-card.jpg" alt="User Avatar" />
           <div className="user-details">
-            <div className="user-name">John Doe</div>
+            <div className="user-name">{username}</div>
           </div>
         </li>
         <li><a className="menu__item" href="#">Edit Profile</a></li>
         <li><a className="menu__item" href="#">Home</a></li>
-        <li><a className="menu__item" href="#">Books</a></li>
+        <li><a className="menu__item" href="/AboutBookPage">AboutBooks</a></li>
         <li><a className="menu__item" href="/logout">Logout</a></li>
       </ul>
     </div>

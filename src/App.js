@@ -8,6 +8,7 @@ import { Container } from "reactstrap";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Logout from "./components/Logout";
 import Login from './Pages/Login';
+import AboutBookPage from './Pages/AboutBookPage';
 import BookPage from './components/BookPage';
 import { userData } from './helpers/userStorage';
 // import {ToastContainer} from 'react-toastify';
@@ -42,6 +43,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/registration" element={<Registration />} />
+          <Route path="/AboutBookPage" element={<AboutBookPage />} />
           {books.map(book => (
               <Route key={book.id} path={`/book/${book.id}`} element={<BookPage book={book} />} />
             ))}
