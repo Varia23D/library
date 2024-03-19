@@ -33,7 +33,7 @@
   }
   
   /* EDIT TITLE */
-  .Titlecontainer {
+  .title-container {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -44,7 +44,7 @@
     padding-top: 40px;
     padding-bottom: 40px;
   }
-  .AboutTitle{
+  .about-title{
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -95,7 +95,7 @@
     }
 
       /* EDIT ABOUT SECTION the title and paragraph info */
-    .AboutSection {
+    .about-section {
       margin-top: 20px;
       height: min-content;
       text-align: center;
@@ -103,7 +103,7 @@
       flex-direction: column;
     }
     
-    .AboutTheBookTitle {
+    .about-the-book-title {
       display: flex;
       align-items: flex-start;
       justify-content: center;
@@ -115,7 +115,7 @@
       font-weight: 400;
     }
     
-    .AboutTheBookText{
+    .about-the-book-text{
       margin: 20 auto;
       font-family: 'League Spartan', sans-serif;
       font-weight: 100;
