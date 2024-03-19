@@ -9,6 +9,10 @@ body{
   min-height: 100%;
   box-sizing: inherit;
 }
+.spacer-container {
+  margin-top: 30px; /* Spacing footer from other components */
+  margin-bottom: 20px; /* Spacing footer from other components */
+}
 
 .footer-container {
   background-color: #84CCF8;
