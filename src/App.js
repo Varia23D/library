@@ -43,7 +43,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/registration" element={<Registration />} />
-          <Route path="/AboutBookPage" element={<AboutBookPage />} />
+          {/* <Route path="/AboutBookPage" element={<AboutBookPage />} /> */}
           {books.map(book => (
               <Route key={book.id} path={`/book/${book.id}`} element={<AboutBookPage book={book} />} />
             ))}
