@@ -23,6 +23,7 @@ const Registration = () => {
                 <div className='registration_buttons'> 
                     <button className='register_button' onClick={register}>register</button>
                     <button className='moodle_button'>register with moodle</button>
+                    <p className='login_nav'>Already have an account? <a href='/login'>Login</a></p>
                 </div>
             </div>
         </div>
