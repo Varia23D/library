@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     font-family: 'League Spartan', sans-serif;
-    
 }
 
 
@@ -90,6 +89,10 @@
 }
 .moodle_button:hover{
     background-color: #5fbffa;
+}
+.login_nav{
+    padding-top: 5px;
+    font-size: 15px;
 }
 
 
