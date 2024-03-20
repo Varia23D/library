@@ -1,9 +1,17 @@
 import React from 'react';
 import './AboutBook.css';
 
-const BookPage = ({ book }) => {
+const BookPage = ({ book, startScanner, stopScanner }) => {
 
   console.log('Book Details:', book.attributes.cover.data[0].attributes.url );
+
+  const toggleScanner = () => {
+    if (startScanner && stopScanner) {
+      startScanner();
+    } else if (stopScanner) {
+      stopScanner();
+    }
+  };
 
   return (
     <div className='whole-page-container'>
@@ -17,7 +25,7 @@ const BookPage = ({ book }) => {
               </div>
 
                 <div className='about-btn-container'>
-                    <button className='return-book-btn'>
+                    <button className='return-book-btn'onClick={toggleScanner}>
                     <span className='btn-text'>Return book</span>
                     </button>
                   <div className='about-section'>
