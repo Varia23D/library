@@ -20,7 +20,7 @@ const RegistrationHandler = () => {
                     console.log('registered successfully');
                     alert('registered successfully');
                 }
-                navigate('./Pages/login-page');    
+                navigate('/login');    
             }
         }
         catch(error){
