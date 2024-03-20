@@ -54,7 +54,7 @@ const QrReader = ({updateBooks}) => {
       <div className={`qr-container`}>
       {!isScannerRunning && (
           <button className="square-button" onClick={startScanner} >
-            Add More {/* Button text */}
+            Scan QR {/* Button text */}
             <span className="plus-icon">&#43;</span> {/* Plus icon */}
           </button>
       )}
