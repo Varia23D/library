@@ -22,6 +22,7 @@ const TopNavbar = ({ username }) => {
         <li><a className="menu__item" href="#">Edit Profile</a></li>
         <li><a className="menu__item" href="#">Home</a></li>
         <li><a className="menu__item" href="/AboutBookPage">AboutBooks</a></li>
+        <li><a className="menu__item" href="/BookSearchPage">Booksearch</a></li>
         <li><a className="menu__item" href="/" onClick={handleLogout}>Logout</a></li>
       </ul>
 
@@ -39,6 +40,7 @@ const TopNavbar = ({ username }) => {
         <li><a className="menu__item" href="#">Edit Profile</a></li>
         <li><a className="menu__item" href="#">Home</a></li>
         <li><a className="menu__item" href="/AboutBookPage">AboutBooks</a></li>
+        <li><a className="menu__item" href="/BookSearchPage">Booksearch</a></li>
         <li><a className="menu__item" href="/" onClick={handleLogout}>Logout</a></li>
       </ul>
     </div>
