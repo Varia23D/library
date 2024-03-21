@@ -23,7 +23,9 @@ const Login = () => {
     }));
   };
 
-
+  const handleSignUpBtn = () => {
+    navigate('/registration')
+  }
   const handleLogin = async () => {
     const url = `${process.env.REACT_APP_BACKEND}/api/auth/local`;
     try {
@@ -79,7 +81,7 @@ const Login = () => {
         <button className='login-btn' onClick={handleLogin}>Login</button>
         <button className='moodle-login-btn'>Moodle login</button>
         <p className='login-options-separator'>or</p>
-        <button className='signup-btn'>Sign up</button>
+        <button className='signup-btn' onClick={handleSignUpBtn}>Sign up</button>
       </div>
     </div>
   );
