@@ -48,14 +48,11 @@ const Login = () => {
   };
 
   return (
-    <div className='login-form'>
-      <div className='logo-container'>
-        <img src={varialogo} alt="Logo" className='logo-image' />
-      </div>
+    <div className='loginForm-container'>
+      <h1>Login</h1>
       <div className='login-container'>
-      <h2>Login</h2>
         <label className='login-label-email'>
-          
+        <h2>Email:</h2>
           <input
             className='login-input'
             type='email'
@@ -66,7 +63,7 @@ const Login = () => {
           />
         </label>
         <label className='login-label-password'>
-          
+          <h2 className=''>Password:</h2>
           <input
             className='login-input'
             type='password'
@@ -79,7 +76,7 @@ const Login = () => {
         <button className='login-btn' onClick={handleLogin}>Login</button>
         <button className='moodle-login-btn'>Moodle login</button>
         <p className='login-options-separator'>or</p>
-        <button className='signup-btn'>Sign up</button>
+        <Link to='/registration' className='signup-btn'>Sign up</Link>
       </div>
     </div>
   );

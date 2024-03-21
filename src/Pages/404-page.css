@@ -1,0 +1,50 @@
+.NotFound-Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(#fff, #84CCF8);
+    position: relative;
+}
+
+.NotFound-logo {
+    position: absolute;
+    width: 174px;
+    height: 179px;
+    margin-top: 96px;
+    pointer-events: none;
+}
+
+.NotFound-h2 {
+    text-align: center;
+    font-family: sans-serif;
+    width: 353px;
+    height: 20px;
+    margin-top: 315px;
+}
+
+.NotFound-Link {
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    width: 314px;
+    height: 50px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    line-height: 50px;
+    background:linear-gradient(206.56deg, #51B5F3 14.94%, #1E78CD 58.66%);
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    margin-top: 42px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.3s;
+}
+
+.NotFound-Link:active {
+    background: linear-gradient(206.56deg, #0f406d 14.94%, #275673 58.66%);
+    transform: translateY(4px);
+}
