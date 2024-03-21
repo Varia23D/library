@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
 import { storeUser } from '../helpers/userStorage';
 import '../components/loginPage.css'
-import varialogo from '../Pages/varialogo.png';
+// import varialogo from '../Pages/varialogo.png';
 
 // Define the initial state for the user with empty email and password
 const initialUser = { password: '', identifier: '' };
@@ -47,6 +47,10 @@ const Login = () => {
     }
   };
 
+  function navigateToRegistration() {
+    window.location.href = "http://localhost:3000/registration"
+  };
+
   return (
     <div className='loginForm-container'>
       <h1>Login</h1>
@@ -76,7 +80,7 @@ const Login = () => {
         <button className='login-btn' onClick={handleLogin}>Login</button>
         <button className='moodle-login-btn'>Moodle login</button>
         <p className='login-options-separator'>or</p>
-        <Link to='/registration' className='signup-btn'>Sign up</Link>
+        <button className='signup-btn' onClick={navigateToRegistration}>Sign up</button>
       </div>
     </div>
   );
