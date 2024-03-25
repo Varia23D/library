@@ -17,10 +17,10 @@ const StudentHomePage = () => {
   }, []); 
 
   return (
-    <div className="app-container"> {/* Add a class for styling */}
+    <div className="app-container"> 
       <TopNavbar />
       <Greeting username={username} /> {/* Pass the username prop */}
-      <QrReader updateBooks={updateBooks}/>
+      <QrReader updateBooks={updateBooks} style={{ width: '200px', height: '200px' }}/>
       <BookList books={books} />
       <Footer /> {/* Include the Footer component */}
     </div>
