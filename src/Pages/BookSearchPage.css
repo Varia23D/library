@@ -1,10 +1,14 @@
+body {
+    overflow: hidden;
+}
+
 .book-search-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
     min-height: 100vh;
-    background: linear-gradient(135deg, #004b87, #0073b7);
+    background: linear-gradient(#fff, #84CCF8);
     color: #fff;
     padding: 20px;
     box-sizing: border-box;
@@ -24,23 +28,27 @@
     max-width: 500px;
     padding: 12px 20px;
     border-radius: 25px;
-    border: 2px solid #fff;
+    border: 2px solid #00c3ff;
     margin: 20px 0;
     font-size: 18px;
-    color: #004b87;
+    color: #00c3ff;
     background-color: rgba(255, 255, 255, 0.9);
     outline: none;
 }
 
 .results-list li {
     list-style-type: none;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: #7cc8f8;
     margin-bottom: 15px;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
     cursor: pointer;
+}
+
+.results-list li:active {
+    background-color: rgba(255, 0, 0, 0);
 }
 
 .modal {
@@ -57,10 +65,11 @@
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background:linear-gradient(#ffffffbe, #078adb71);
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
+    padding-top: 30px;
+    border: 1px solid #078adbbb;
     width: 50%;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -81,4 +90,14 @@
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.booksearch-navbar {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(206.56deg, #33b1ffc0 14.94%, #2474c0c7 58.66%);
+}
+
+.booksearch-loading {
+    color: #00c3ff;
 }
