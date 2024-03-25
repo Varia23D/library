@@ -17,10 +17,11 @@ const StudentHomePage = () => {
   }, []); 
 
   return (
-    <div className="app-container"> 
+    <div className="app-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}> 
       <TopNavbar />
       <Greeting username={username} /> {/* Pass the username prop */}
-      <QrReader updateBooks={updateBooks} style={{ width: '200px', height: '200px' }}/>
+      <div className="app-container" style={{ width: '200px', height: '200px',display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }}>
+      <QrReader updateBooks={updateBooks}/></div>
       <BookList books={books} />
       <Footer /> {/* Include the Footer component */}
     </div>
