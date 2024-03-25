@@ -6,10 +6,10 @@
 }
 
 .max-width-container {
-  max-width: 800px;
+  max-width: 400px;
   width: 100%;
   padding: 0 20px; 
-  margin-top: 96px;
+  margin-top: 30px;
 }
   
    /* EDIT COVER PHOTO */
@@ -86,12 +86,17 @@
       border-radius: 18px;
       background: linear-gradient(183deg,var(--ocean-stop-1-color) var(--ocean-stop-1-position), var(--ocean-stop-2-color) var(--ocean-stop-2-position));
       border-style: none;
-      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       margin: 20 auto;
       color: #ffffff;
       font-family: 'League Spartan', sans-serif;
-      font-size: 20px;
-      font-weight: lighter;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .return-book-btn:hover {
+      box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
       /* EDIT ABOUT SECTION the title and paragraph info */

@@ -17,6 +17,8 @@
 
 body {
     background: linear-gradient(190deg, var(--whiteblue-stop-1-color) var(--whiteblue-stop-1-position), var(--whiteblue-stop-2-color) var(--whiteblue-stop-2-position));
+    background-attachment: fixed;
+    background-size: cover;
     margin: 0;
     padding: 0;
   }
