@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { storeUser } from '../helpers/userStorage';
 import '../components/loginPage.css'
 import varialogo from '../Pages/varialogo.png';
+import { toast } from 'react-toastify';
+
 
 // Define the initial state for the user with empty email and password
 const initialUser = { password: '', identifier: '' };
@@ -31,21 +33,21 @@ const Login = () => {
     try {
       if (user.identifier && user.password) {
         const { data } = await axios.post(url, user);
-        console.log (data)
+        console.log(data)
         if (data.jwt) {
-          alert('Login successful!');
+          toast.success('Login successful!');
           storeUser(data)
           setUser(initialUser);
           navigate('/')
         } else {
 
-          alert('Invalid login credentials!');
+          toast.error('Invalid login credentials!');
         }
       }
     } catch (error) {
       // Log and display an error message in case of an exception
       console.error('Error during login:', error.message);
-      alert('Error during login. Please try again.');
+      toast.error('Error during login. Please try again.');
     }
   };
 
@@ -55,9 +57,9 @@ const Login = () => {
         <img src={varialogo} alt="Logo" className='logo-image' />
       </div>
       <div className='login-container'>
-      <h2>Login</h2>
+        <h2>Login</h2>
         <label className='login-label-email'>
-          
+
           <input
             className='login-input'
             type='email'
@@ -68,7 +70,7 @@ const Login = () => {
           />
         </label>
         <label className='login-label-password'>
-          
+
           <input
             className='login-input'
             type='password'
