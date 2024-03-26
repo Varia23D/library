@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { storeUser } from '../helpers/userStorage';
 import '../components/loginPage.css'
+<<<<<<< HEAD
 import varialogo from '../Pages/varialogo.png';
 import { toast } from 'react-toastify';
 
+=======
+// import varialogo from '../Pages/varialogo.png';
+>>>>>>> f145d46a7a12d0a4532f83b05c33df68dee85e07
 
 // Define the initial state for the user with empty email and password
 const initialUser = { password: '', identifier: '' };
@@ -52,14 +56,17 @@ const Login = () => {
   };
 
   return (
-    <div className='login-form'>
-      <div className='logo-container'>
-        <img src={varialogo} alt="Logo" className='logo-image' />
-      </div>
+    <div className='loginForm-container'>
+      <h1>Login</h1>
       <div className='login-container'>
+<<<<<<< HEAD
         <h2>Login</h2>
         <label className='login-label-email'>
 
+=======
+        <label className='login-label-email'>
+        <h2>Email:</h2>
+>>>>>>> f145d46a7a12d0a4532f83b05c33df68dee85e07
           <input
             className='login-input'
             type='email'
@@ -70,7 +77,11 @@ const Login = () => {
           />
         </label>
         <label className='login-label-password'>
+<<<<<<< HEAD
 
+=======
+          <h2 className=''>Password:</h2>
+>>>>>>> f145d46a7a12d0a4532f83b05c33df68dee85e07
           <input
             className='login-input'
             type='password'

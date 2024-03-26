@@ -19,13 +19,13 @@ const RegistrationHandler = () => {
                 if (result) {
                     setUser(initialUser); // Reset user input
                     console.log('registered successfully');
-                    toast.success('Registered successfully'); // Display success message as toast
+                    toast.success('Registration successfull!'); // Success message as toast
                 }
                 navigate('/login'); // Navigate to login page after successful registration
             }
         } catch (error) {
             console.error(error.message); // Log error message
-            toast.error('Registration unsuccessful: ' + error.message); // Display error message as toast
+            toast.error('Registration unsuccessful: ' + error.message); // Error message as toast
         }
     };
 

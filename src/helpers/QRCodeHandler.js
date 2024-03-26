@@ -10,16 +10,16 @@ export const handleQRCodeScan = async (decodedText, updateBooks) => {
     if (transactionId) {
       await closeTransaction(transactionId, decodedText);
       console.log('Transaction was closed');
-      toast.success('Transaction was closed'); //Toast message
+      toast.success('QR scan succesfull!'); // Toast message
     } else {
       await createTransaction(decodedText);
       console.log('Transaction was created');
-      toast.success('Transaction was created');   //Success message as toast
+      toast.success('QR scan succesfull!');   // toast message
     }
     updateBooks();
   } catch (error) {
     console.error('Error handling QR code scan:', error);
-    toast.error('Error handling QR code scan. Please try again.'); //Error message as toast
+    toast.error('QR scan error!' + error.message); //Error message as toast
   }
 
 };

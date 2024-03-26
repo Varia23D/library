@@ -1,5 +1,4 @@
 import { getJWT } from "./jwtUtils";
-import { toast } from 'react-toastify';
 
 export const fetchTransactionData = async (bookId) => {
   const jwt = getJWT();
@@ -19,7 +18,6 @@ export const fetchTransactionData = async (bookId) => {
     return openTransaction ? openTransaction.id : null;
   } catch (error) {
     console.error('Error getting transaction data:', error);
-    toast.error("Error fetching transaction data. Please try again.");
     throw error;
   }
 };
@@ -39,11 +37,9 @@ export const closeTransaction = async (transactionId, bookId) => {
     if (!response.ok) {
       throw new Error('Failed to close transaction');
     }
-    toast.success('Transaction closed successfully');
     await changeBookStatus(bookId, 'returned');
   } catch (error) {
     console.error('Error closing transaction:', error);
-    toast.error("Error closing transaction. Please try again.");
     throw error;
   }
 };
@@ -63,10 +59,8 @@ export const createTransaction = async (bookId) => {
     if (!response.ok) {
       throw new Error('Failed to create transaction');
     }
-    toast.success('Transaction created successfully');
   } catch (error) {
     console.error('Error creating transaction:', error);
-    toast.error("Error creating transaction. Please try again.");
     throw error;
   }
   changeBookStatus(bookId, 'taken');
@@ -87,10 +81,8 @@ export const changeBookStatus = async (bookId, status) => {
     if (!response.ok) {
       throw new Error(`Failed to change book ${bookId} status to ${status}`);
     }
-    toast.success(`${bookId} status changed to ${status}`);
   } catch (error) {
     console.error('Error modifying book status:', error);
-    toast.error(`Error changing book status to ${status}. Please try again.`);
     throw error;
   }
 };
