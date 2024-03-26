@@ -28,7 +28,7 @@ const LoginHandler = async (user, setUser, initialUser, navigate) => { // Accept
   } catch (error) {
     // Log and display an error message in case of an exception
     console.error('Error during login:', error.message);
-    toast.error('Error during login', ' ' + error.message);   // Toast error message
+    toast.error('Error during login');   // Toast error message
   }
 };
 

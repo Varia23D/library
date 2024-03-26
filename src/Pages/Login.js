@@ -34,19 +34,19 @@ const Login = () => {
         const { data } = await axios.post(url, user);
         console.log(data)
         if (data.jwt) {
-          toast.success('Login successful!');
+          toast.success('Login successful!');   //toast success message
           storeUser(data)
           setUser(initialUser);
           navigate('/')
         } else {
 
-          toast.error('Invalid login credentials!');
+          toast.error('Invalid login credentials!');  // toast error message
         }
       }
     } catch (error) {
       // Log and display an error message in case of an exception
       console.error('Error during login:', error.message);
-      toast.error('Error during login' + error.message);
+      toast.error('Error during login');   //toast success message
     }
   };
 
