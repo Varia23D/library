@@ -30,17 +30,17 @@ const App = () => {
 
     <div className="app-container">
        <Container>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Protector Component={StudentHomePage} />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<Logout />} />
-          <Route path="/registration" element={<Registration />} />
-          <Route path="/book-search" element={<BookSearchPage />} />
-          <Route path="/*" element={<NotFoundPage />} />
-          {books.map(book => (
-              <Route key={book.id} path={`/book/${book.id}`} element={<AboutBookPage book={book} />} />
-            ))}
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Protector Component={StudentHomePage} />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/registration" element={<Registration />} />
+            <Route path="/book-search" element={<BookSearchPage />} />
+            <Route path="/*" element={<NotFoundPage />} />
+            {books.map(book => (
+                <Route key={book.id} path={`/book/${book.id}`} element={<AboutBookPage book={book} />} />
+              ))}
           </Routes>
         </BrowserRouter>
       </Container>
