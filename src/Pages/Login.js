@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { storeUser } from '../helpers/userStorage';
 import '../components/loginPage.css'
-import varialogo from '../Pages/varialogo.png';
+// import varialogo from '../Pages/varialogo.png';
 
 // Define the initial state for the user with empty email and password
 const initialUser = { password: '', identifier: '' };
@@ -49,15 +49,16 @@ const Login = () => {
     }
   };
 
+  const handleSignUpBtn = () => {
+    navigate ('/registration')
+  };
+
   return (
-    <div className='login-form'>
-      <div className='logo-container'>
-        <img src={varialogo} alt="Logo" className='logo-image' />
-      </div>
+    <div className='loginForm-container'>
+      <h1>Login</h1>
       <div className='login-container'>
-      <h2>Login</h2>
         <label className='login-label-email'>
-          
+        <h2>Email:</h2>
           <input
             className='login-input'
             type='email'
@@ -68,7 +69,7 @@ const Login = () => {
           />
         </label>
         <label className='login-label-password'>
-          
+          <h2 className=''>Password:</h2>
           <input
             className='login-input'
             type='password'
