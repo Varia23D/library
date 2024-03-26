@@ -35,9 +35,8 @@ const TopNavbar = ({ username }) => {
       <ul className="desktop-menu">
         <li><a className="menu__item" href="#">Edit Profile</a></li>
         <li><a className="menu__item" href="/">Home</a></li>
-        <li><a className="menu__item" href="/AboutBookPage">AboutBooks</a></li>
-        <li><a className="menu__item" href="/BookSearchPage">Booksearch</a></li>
-        <li><a className="menu__item" href="/" onClick={handleLogout}>Logout</a></li>
+        <li><a className="menu__item" href="/book-search">Book search</a></li>
+        <li><a className="menu__item" href="/login" onClick={handleLogout}>Logout</a></li>
       </ul>
 
       {/* Mobile Navbar */}
@@ -53,9 +52,8 @@ const TopNavbar = ({ username }) => {
         </li>
         <li><a className="menu__item" href="#">Edit Profile</a></li>
         <li><a className="menu__item" href="/">Home</a></li>
-        <li><a className="menu__item" href="/AboutBookPage">AboutBooks</a></li>
-        <li><a className="menu__item" href="/BookSearchPage">Booksearch</a></li>
-        <li><a className="menu__item" href="/" onClick={handleLogout}>Logout</a></li>
+        <li><a className="menu__item" href="/book-search">Book search</a></li>
+        <li><a className="menu__item" href="/login" onClick={handleLogout}>Logout</a></li>
       </ul>
     </div>
   );
