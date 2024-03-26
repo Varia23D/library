@@ -26,6 +26,25 @@ export const fetchTransactionData = async (bookId) => {
   }
 };
 
+//function checks books status taken (true/false) 
+export const ifTaken = async (bookId) => {
+  const jwt = getJWT()
+  try {
+    const body = {
+      data: { book: bookId }
+    };
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/transactions/`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${jwt}`
+      },
+      body: JSON.stringify(body),
+    });
+  } catch (error) {
+    
+  }
+}
 
 //function takes transaction and book ids and sendsa  put request to change open status of taken transaction and launches function to change book status to returned 
 export const closeTransaction = async (transactionId, bookId) => {
