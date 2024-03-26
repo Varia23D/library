@@ -3,13 +3,8 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { storeUser } from '../helpers/userStorage';
 import '../components/loginPage.css'
-<<<<<<< HEAD
-import varialogo from '../Pages/varialogo.png';
 import { toast } from 'react-toastify';
-
-=======
 // import varialogo from '../Pages/varialogo.png';
->>>>>>> f145d46a7a12d0a4532f83b05c33df68dee85e07
 
 // Define the initial state for the user with empty email and password
 const initialUser = { password: '', identifier: '' };
@@ -51,7 +46,7 @@ const Login = () => {
     } catch (error) {
       // Log and display an error message in case of an exception
       console.error('Error during login:', error.message);
-      toast.error('Error during login. Please try again.');
+      toast.error('Error during login' + error.message);
     }
   };
 
@@ -59,14 +54,8 @@ const Login = () => {
     <div className='loginForm-container'>
       <h1>Login</h1>
       <div className='login-container'>
-<<<<<<< HEAD
-        <h2>Login</h2>
         <label className='login-label-email'>
-
-=======
-        <label className='login-label-email'>
-        <h2>Email:</h2>
->>>>>>> f145d46a7a12d0a4532f83b05c33df68dee85e07
+          <h2>Email:</h2>
           <input
             className='login-input'
             type='email'
@@ -77,11 +66,7 @@ const Login = () => {
           />
         </label>
         <label className='login-label-password'>
-<<<<<<< HEAD
-
-=======
           <h2 className=''>Password:</h2>
->>>>>>> f145d46a7a12d0a4532f83b05c33df68dee85e07
           <input
             className='login-input'
             type='password'
@@ -90,13 +75,13 @@ const Login = () => {
             onChange={handleChange}
             placeholder='Enter your password'
           />
-        </label>
+        </label >
         <button className='login-btn' onClick={handleLogin}>Login</button>
         <button className='moodle-login-btn'>Moodle login</button>
         <p className='login-options-separator'>or</p>
         <button className='signup-btn' onClick={handleSignUpBtn}>Sign up</button>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 
