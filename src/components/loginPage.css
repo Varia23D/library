@@ -1,124 +1,108 @@
-.login-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(to bottom, #0568eb 0%, #0568eb 40%, #bad8ff 100%);
-    padding: 0 5%;
+.loginForm-container {
+    background: linear-gradient(#fff, #84CCF8);
+    height: 100%;
+}
+
+.loginForm-container h1 {
+    font-size: 32px;
+    font-family: 'Source Serif Pro';
+    text-align: center;
+    padding-top: 96px;
 }
 
 .login-container {
+    margin-top: 119px;
     display: flex;
     flex-direction: column;
-    width: fit-content;
-    min-width: 320px;
-    height: 500px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    position: relative;
+    width: 400px;
+    max-width: calc(100% - 40px);
+    height: 100vh;
+    background: linear-gradient(194.22deg, #F8FAFC 24.58%, #E2E8F0 127.19%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px 20px 0px 0px;
+    margin: 0 auto;
+    margin-top: 100px;
 }
 
-/* Logo Styles */
-.logo-container {
-    position: fixed;
-}
-
-.logo-image {
-    position: absolute;
-    top: -300px;
-    left: -50px;
-    width: 240px;
-    pointer-events: none;
-}
-
-/* Heading Styles */
-.login-form h2 {
+.login-label-email h2,
+.login-label-password h2 {
+    font-family: 'Source Serif Pro';
+    margin-top: 45px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15px;
-    color: #004A8A;
-    font-size: 30px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Label Styles */
 .login-label-email,
 .login-label-password {
-    display: grid;
-    padding: 15px 20px;
-    font-size: 22px;
-    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-.login-label-email {
-    margin-top: 20px;
-}
-
-/* Input Styles */
 .login-input {
-    padding: 10px;
-    font-size: medium;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5px;
-    border-radius: 5px;
-    border-style: solid;
-    border-color: rgb(186, 186, 186);
-}
-
-/* Button Styles */
-.login-btn,
-.moodle-login-btn,
-.signup-btn {
-    margin: 20px;
-    padding: 15px;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.signup-btn {
-    margin-inline: 80px;
-    font-weight: bold;
-    text-decoration: underline;
-    display: flex;
-    justify-content: center;
-    color: #0568eb;
+    font-size: 15px;
     background: none;
+    color: #94A3B8;
+    margin-top: 43px;
+    border: none;
+    width: 100%;
+    border-bottom: 1px solid #94A3B8;
+    padding-bottom: 4px;
+    outline: none; 
+}
+
+.login-btn,
+.signup-btn,
+.moodle-login-btn {
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    max-width: calc(100% - 40px);
+    width: auto;
+    height: 50px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    line-height: 50px;
+    background:linear-gradient(206.56deg, #51B5F3 14.94%, #1E78CD 58.66%);
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 24px;
+    font-family: 'League Spartan', sans-serif;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .login-btn {
-    background-color: #0568eb;
-    color: #ffffff;
+    margin-top: 72px;
 }
 
-.moodle-login-btn {
-    background-color: #ffa600;
-    color: #ffffff;
+.login-options-separator {
+    font-size: 20px;
+    margin-top: 20px;
 }
 
-/* Button Hover/Active Styles */
-.signup-btn:active,
+.signup-btn {
+background: linear-gradient(206.56deg, #E96093 14.94%, #B5245C 58.66%);
+}
+
 .login-btn:active,
-.moodle-login-btn:active {
+.moodle-login-btn:active,
+.signup-btn:active {
+    background: linear-gradient(206.56deg, #0f406d 14.94%, #275673 58.66%);
     transform: translateY(4px);
 }
 
-.login-btn:active {
-    background-color: #004A8A;
+.signup-btn:active {
+    background: linear-gradient(206.56deg, #893755 14.94%, #701538 58.66%);
 }
 
-.moodle-login-btn:active {
-    background-color: #a26a00;
-}
-
-/* Separator Styles */
 .login-options-separator {
-    margin-top: 13px;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
