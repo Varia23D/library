@@ -49,10 +49,6 @@ const Login = () => {
     }
   };
 
-  const handleSignUpBtn = () => {
-    navigate ('/registration')
-  };
-
   return (
     <div className='loginForm-container'>
       <h1>Login</h1>
