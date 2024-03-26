@@ -40,7 +40,7 @@ export const closeTransaction = async (transactionId, bookId) => {
       throw new Error('Failed to close transaction');
     }
     toast.success('Transaction closed successfully');
-    await changeBookStatusReturned(bookId);
+    await changeBookStatus(bookId, 'returned');
   } catch (error) {
     console.error('Error closing transaction:', error);
     toast.error("Error closing transaction. Please try again.");
@@ -69,7 +69,7 @@ export const createTransaction = async (bookId) => {
     toast.error("Error creating transaction. Please try again.");
     throw error;
   }
-  changeBookStatusTaken(bookId);
+  changeBookStatus(bookId, 'taken');
 };
 
 export const changeBookStatus = async (bookId, status) => {
