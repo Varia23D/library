@@ -6,7 +6,7 @@ export default function fetchBookTypes() {
     .then(data => data.data)
     .catch(error => {
       console.error('Error fetching data:', error);
-      toast.error("Error fetching books!" + error.message);   // error message as toast
+      toast.error("Error fetching books!", ' ' + error.message);   // error message as toast
       throw error
     });
 };

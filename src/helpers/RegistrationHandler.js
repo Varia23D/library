@@ -25,7 +25,7 @@ const RegistrationHandler = () => {
             }
         } catch (error) {
             console.error(error.message); // Log error message
-            toast.error('Registration unsuccessful: ' + error.message); // Error message as toast
+            toast.error('Registration unsuccessful: ', ' ' + error.message); // Error message as toast
         }
     };
 
