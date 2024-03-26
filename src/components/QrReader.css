@@ -11,17 +11,19 @@
     color: white; /* White text color */
     padding: 10px 20px; /* Add padding */
     width: 150px;
+    height: 36px;
     font-size: 16px; /* Increase font size */
     border: none; /* Remove border */
     border-radius: 18px; /* Add border radius */
     cursor: pointer; /* Add cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition on hover */
     font-family: 'League Spartan', sans-serif; 
     font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
   
   .square-button:hover {
-    background-color: #86CEF8; /* Darker green on hover */
+    
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2);
   }
   
   .plus-icon {

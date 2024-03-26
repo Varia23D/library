@@ -1,11 +1,10 @@
-/* Overall book list wrapper styling */
-/* Updated book list wrapper styling for responsiveness */
+
 .book-list-wrapper {
-  margin: 0 auto; /* Center the wrapper horizontally */
-  padding: 0px 20px 20px 20px; /* Add padding for spacing */
-  max-width: 800px; /* Set a maximum width for the wrapper */
-  width: 100%; /* Ensure the wrapper takes up the full width available */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  margin: 0 auto;
+  padding: 0px 20px 20px 20px;
+  max-width: 400px; /*maximum width for the wrapper */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 
@@ -36,8 +35,8 @@
   border-radius: 12px; /* Rounded corners */
   margin-top: 20px; /* Spacing between book containers */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-  display: flex; /* Use flexbox for layout */
-  align-items: center; /* Center align items vertically */
+  display: flex;
+  align-items: center; 
 }
 
 /* Styling for book details */
@@ -50,6 +49,12 @@
   line-height: 20px;
   color: #f8fafc;
   text-align: left;
+}
+
+/* Title link */
+a {color: #1e293b;
+  text-decoration: none;
+  font-family: 'Source Serif Pro', serif;
 }
 
 /* Styling for book title */
@@ -67,8 +72,8 @@
 
 /* Styling for additional book information */
 .book-details p {
-  font-size: 10px; /* Set font size for additional information */
-  color: #1e293b; /* Set color for additional information */
+  font-size: 10px;
+  color: #1e293b;
   font-family: 'League Spartan', sans-serif;
 }
 

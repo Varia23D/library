@@ -1,6 +1,6 @@
 // Q:? why we repeat links
 import { useNavigate } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './TopNavbar.css';
 
 const TopNavbar = ({ username }) => {
@@ -10,6 +10,20 @@ const TopNavbar = ({ username }) => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  {/* Burger menu hides when scrolling */}
+  useEffect(() => {
+    const handleScroll = () => {
+      if (menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [menuOpen]);
   const handleLogout = () => {
     localStorage.setItem("user", "");
     navigate('/login');
@@ -20,7 +34,7 @@ const TopNavbar = ({ username }) => {
       {/* Desktop Navbar */}
       <ul className="desktop-menu">
         <li><a className="menu__item" href="#">Edit Profile</a></li>
-        <li><a className="menu__item" href="#">Home</a></li>
+        <li><a className="menu__item" href="/">Home</a></li>
         <li><a className="menu__item" href="/AboutBookPage">AboutBooks</a></li>
         <li><a className="menu__item" href="/BookSearchPage">Booksearch</a></li>
         <li><a className="menu__item" href="/" onClick={handleLogout}>Logout</a></li>
@@ -38,7 +52,7 @@ const TopNavbar = ({ username }) => {
           </div>
         </li>
         <li><a className="menu__item" href="#">Edit Profile</a></li>
-        <li><a className="menu__item" href="#">Home</a></li>
+        <li><a className="menu__item" href="/">Home</a></li>
         <li><a className="menu__item" href="/AboutBookPage">AboutBooks</a></li>
         <li><a className="menu__item" href="/BookSearchPage">Booksearch</a></li>
         <li><a className="menu__item" href="/" onClick={handleLogout}>Logout</a></li>
