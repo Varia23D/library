@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { storeUser } from '../helpers/userStorage';
 import '../components/loginPage.css'
 // import varialogo from '../Pages/varialogo.png';
@@ -47,8 +47,8 @@ const Login = () => {
     }
   };
 
-  function navigateToRegistration() {
-    window.location.href = "http://localhost:3000/registration"
+  const handleSignUpBtn = () => {
+    navigate ('/registration')
   };
 
   return (
@@ -80,7 +80,7 @@ const Login = () => {
         <button className='login-btn' onClick={handleLogin}>Login</button>
         <button className='moodle-login-btn'>Moodle login</button>
         <p className='login-options-separator'>or</p>
-        <button className='signup-btn' onClick={navigateToRegistration}>Sign up</button>
+        <button className='signup-btn' onClick={handleSignUpBtn}>Sign up</button>
       </div>
     </div>
   );
