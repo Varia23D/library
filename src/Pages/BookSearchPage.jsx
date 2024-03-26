@@ -23,7 +23,7 @@ const BookSearchPage = () => {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                {isLoading && <p>Loading...</p>}
+                {isLoading && searchTerm.trim() !== "" && <p>Loading...</p>}
                 {isError && <p>Error fetching books.</p>}
                 <ul className="results-list">
                     {books.map((book) => (
@@ -40,7 +40,7 @@ const BookSearchPage = () => {
                         <h2>{selectedBook.attributes.title}</h2>
                         <p><strong>Book ID:</strong> {selectedBook.id}</p>
                         <p>{selectedBook.attributes.description || 'No description available.'}</p>
-                        <p><strong>Copies:</strong> {selectedBook.copiesCount || 'N/A'}</p>
+                        <p><strong>Availability:</strong> {selectedBook.isAvailable ? 'Available' : 'Not Available'}</p>
                     </div>
                 </div>
             )}
