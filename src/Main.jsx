@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import App from './App';
 
@@ -13,4 +13,8 @@ function Main() {
   );
 }
 
-export default Main; // Export Main as default
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
+root.render(<Main />);
+
+export default Main;
