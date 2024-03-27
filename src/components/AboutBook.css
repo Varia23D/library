@@ -62,7 +62,7 @@
 
     /* EDIT BUTTON and ABOUT container */
   .about-btn-container {
-    background: linear-gradient(190deg, var(--button-blue-stop-1-color) var(--button-blue-stop-1-position), var(--button-blue-stop-2-color) var(--button-blue-stop-2-position));
+    background: linear-gradient(188deg,#fff 50%, #84CCF8 200%);
     border-radius: 20px;
     padding: 0 20px 20px 20px;
     margin: 0 auto;
