@@ -1,4 +1,4 @@
-import { closeTransaction, createTransaction, fetchTransactionData } from "./apiRequests";
+import { closeTransaction, createTransaction, fetchTransactionData, isTaken } from "./apiRequests";
 
 //function takes data from QR code and function to update info about user transactions
 //
@@ -9,8 +9,14 @@ export const handleQRCodeScan = async (decodedText, updateBooks) => {
       await closeTransaction(transactionId, decodedText);
       console.log('Transaction was closed');
     } else {
-      await createTransaction(decodedText);
-      console.log('Transaction was created');
+      const taken = await isTaken(decodedText);
+      if (!taken) {
+        await createTransaction(decodedText);
+        console.log('Transaction was created');
+      } else {
+        console.log('book is taken')
+        return
+      }
     }
     updateBooks();
   } catch (error) {

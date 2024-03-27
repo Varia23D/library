@@ -27,22 +27,24 @@ export const fetchTransactionData = async (bookId) => {
 };
 
 //function checks books status taken (true/false) 
-export const ifTaken = async (bookId) => {
+export const isTaken = async (bookId) => {
   const jwt = getJWT()
   try {
-    const body = {
-      data: { book: bookId }
-    };
-    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/transactions/`, {
-      method: "POST",
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/book-copies/${bookId}`, {
+      method: "GET",
       headers: {
-        "Content-type": "application/json",
         "Authorization": `Bearer ${jwt}`
       },
-      body: JSON.stringify(body),
     });
+    if (!response.ok) {
+    throw new Error('Failed to close transaction');}
+    const book = await response.json();
+    const takenStatus = book.data.attributes.taken;
+    console.log('status knigi:', takenStatus)
+    return takenStatus 
   } catch (error) {
-    
+    console.error('Error closing transaction:', error);
+    throw error;
   }
 }
 
