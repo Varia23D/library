@@ -1,32 +1,35 @@
 .loginForm-container {
     background: linear-gradient(#fff, #84CCF8);
-    height: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .loginForm-container h1 {
     font-size: 32px;
     font-family: 'Source Serif Pro';
     text-align: center;
-    padding-top: 96px;
+    padding-top: 40px;
+    padding-bottom: 20px;
 }
 
 .login-container {
-    margin-top: 119px;
     display: flex;
     flex-direction: column;
     width: 400px;
     max-width: calc(100% - 40px);
-    height: 100vh;
     background: linear-gradient(194.22deg, #F8FAFC 24.58%, #E2E8F0 127.19%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px 20px 0px 0px;
     margin: 0 auto;
-    margin-top: 100px;
+    align-self: flex-start; /* Align at the top */
+    flex-grow: 1;
 }
 
 .login-label-email h2,
 .login-label-password h2 {
     font-family: 'Source Serif Pro';
+    font-size: 18px;
     margin-top: 45px;
     display: flex;
 }
@@ -40,6 +43,7 @@
 }
 
 .login-input {
+    font-family:'Source Serif Pro';
     font-size: 15px;
     background: none;
     color: #94A3B8;
@@ -77,7 +81,7 @@
 }
 
 .login-btn {
-    margin-top: 72px;
+    margin-top: 40px;
 }
 
 .login-options-separator {
@@ -105,4 +109,15 @@ background: linear-gradient(206.56deg, #E96093 14.94%, #B5245C 58.66%);
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+/* Media query for screens wider than 1024px */
+@media (min-width: 1025px) {
+    .login-container {
+        border-radius: 20px;
+        min-height: 600px;
+        margin-bottom: 400px;
+        margin-top: 200px;
+        width: 600px;
+    }
 }
