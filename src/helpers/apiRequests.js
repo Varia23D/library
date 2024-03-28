@@ -22,7 +22,7 @@ export const fetchTransactionData = async (bookId) => {
 
   } catch (error) {
     console.error('Error getting transaction data:', error);
-      throw error;
+    throw error;
   }
 };
 
@@ -32,10 +32,10 @@ export const closeTransaction = async (transactionId, bookId) => {
   const jwt = getJWT()
   try {
     const body = {
-          data: {
-            open: false
-          }
-        };
+      data: {
+        open: false
+      }
+    };
     const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/transactions/${transactionId}`, {
       method: "PUT",
       headers: {
@@ -97,7 +97,7 @@ export const changeBookStatus = async (bookId, status) => {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
-        "Authorization": `Bearer ${ jwt }`
+        "Authorization": `Bearer ${jwt}`
       },
       body: JSON.stringify(body),
     });

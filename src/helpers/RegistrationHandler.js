@@ -1,37 +1,37 @@
 import axios from 'axios';
-import {useState} from 'react';
-import {useNavigate} from 'react-router';
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
 // import './Registration.css';
 
-
-const initialUser = {username:'', email:'', password:''};                  // blank initial user
+const initialUser = { username: '', email: '', password: '' }; // blank initial user
 
 const RegistrationHandler = () => {
-
-    const [user, setUser] = useState(initialUser);                         // pass blank initial user to useState
+    const [user, setUser] = useState(initialUser); // pass blank initial user to useState
     const navigate = useNavigate();
+
     const register = async () => {
-        try{
+        try {
             const url = `${process.env.REACT_APP_BACKEND}/api/auth/local/register`;
-            if (user.username && user.email && user.password){     // ensure all input fields have content
-                const result = await axios.post(url, user);          // make post request to API with user info
-                if (result){
-                    setUser(initialUser);                                // if the API responds, set input values to the user
+            // Ensure all input fields have content
+            if (user.username && user.email && user.password) {
+                const result = await axios.post(url, user); // Make post request to API with user info
+                if (result) {
+                    setUser(initialUser); // Reset user input
                     console.log('registered successfully');
-                    alert('registered successfully');
+                    toast.success('Registration successfull!'); // Success message as toast
                 }
-                navigate('/login');    
+                navigate('/login'); // Navigate to login page after successful registration
             }
-        }
-        catch(error){
-            console.error(error.message);                           // display error message if registration is unsuccessful 
-            alert('Registration unsuccessful: ' + error.message);
+        } catch (error) {
+            console.error(error.message); // Log error message
+            toast.error('Registration unsuccessful: ', ' ' + error.message); // Error message as toast
         }
     };
 
-    const handleChange = ({target}) => {                              // function to handle input  
-        const {name, value} = target;                                 // target's name and value assigned to variables
-        setUser((currentUser) => ({...currentUser, [name]:value})); // assigns input value to the blank user with setUser hook
+    const handleChange = ({ target }) => { // Function to handle input changes
+        const { name, value } = target;
+        setUser((currentUser) => ({ ...currentUser, [name]: value })); // Update user state
     };
 
     return { user, handleChange, register };
