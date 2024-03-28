@@ -1,4 +1,3 @@
-
 .book-list-wrapper {
   margin: 0 auto;
   padding: 0px 20px 20px 20px;
@@ -6,7 +5,6 @@
   width: 100%;
   box-sizing: border-box;
 }
-
 
 .book-cover {
   position: relative;
@@ -16,15 +14,20 @@
   align-items: center;
   background-size: cover;
   overflow: hidden;
-  border-radius: 0;
-  padding: 0;
   border-radius:  12px 0 0 12px;
 }
 
 /* Overall book list styling */
-.book-list {
-  font-family: 'Source Serif Pro';
-  color: #535c68; /* Set text color */
+.book-list,
+.book-details,
+.book-details h2,
+.book-details p,
+a {
+  font-family: 'Source Serif Pro', serif;
+  color: #1e293b;
+  line-height: 20px;
+  text-decoration: none;
+  flex: 1;
 }
 
 /* Styling for individual book container */
@@ -41,41 +44,21 @@
 
 /* Styling for book details */
 .book-details {
-  flex: 1; /* Allow details to grow and fill available space */
   margin-left: 10px; /* Add space between book cover and details */
-  font-family: 'Source Serif Pro', serif;
   font-size: 16px;
-  font-weight: 400;
-  line-height: 20px;
-  color: #f8fafc;
-  text-align: left;
-}
-
-/* Title link */
-a {color: #1e293b;
-  text-decoration: none;
-  font-family: 'Source Serif Pro', serif;
 }
 
 /* Styling for book title */
 .book-details h2 {
-  color: #1e293b; /* Set title color */
-  font-weight: medium;
-  font-family: 'Source Serif Pro', serif;
   font-size: 16px;
   font-weight: 400;
-  line-height: 20px;
-  text-align: left;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin: 20px 0 20px 0;
 }
 
 /* Styling for additional book information */
 .book-details p {
   font-size: 12px;
-  color: #1e293b;
   font-family: 'League Spartan', sans-serif;
-  font-weight: 100;
 }
 
 /* Styling for due date */
@@ -87,11 +70,7 @@ a {color: #1e293b;
 
 /* Styling for book list headers */
 .book-list h1 {
-  color: #1e293b; /* Set header color */
-  font-weight: 600;
   font-size: 18px; 
   font-family: 'Source Serif Pro', serif;
-  line-height: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px 0 20px 0;
 }
