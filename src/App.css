@@ -1,22 +1,5 @@
-:root {
-  --button-blue-stop-1-color: rgb(255, 255, 255);
-  --button-blue-stop-1-position: 40%;
-  --button-blue-stop-2-color: rgb(200, 234, 255);
-  --button-blue-stop-2-position: 160%;
-
-  --ocean-stop-1-color: rgba(81 181 243 / 1);
-  --ocean-stop-1-position: 30%;
-  --ocean-stop-2-color: rgba(30 120 205 / 1);
-  --ocean-stop-2-position: 100%;
-
-  --whiteblue-stop-1-color: rgba(248 250 252 / 1);
-  --whiteblue-stop-1-position: 0%;
-  --whiteblue-stop-2-color: rgba(225 242 252 / 1);
-  --whiteblue-stop-2-position: 100%;
-}
-
 body {
-    background: linear-gradient(190deg, var(--whiteblue-stop-1-color) var(--whiteblue-stop-1-position), var(--whiteblue-stop-2-color) var(--whiteblue-stop-2-position));
+  background: linear-gradient(188deg,#fff 20%, #84CCF8 120%);
     background-attachment: fixed;
     background-size: cover;
     margin: 0;
