@@ -8,7 +8,7 @@ const AboutBookPage = ({book}) => {
     <div>
     <TopNavbar />
     <AboutBook book={book}/>
-    <Footer />
+    {/*<Footer />*/}
     </div>
   );
 }
