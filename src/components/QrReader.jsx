@@ -30,7 +30,7 @@ const QrReader = ({updateBooks}) => {
       handleQRCodeScan(decodedText, updateBooks);
     };
 
-    const config = { fps: 10, qrbox: { width: 250, height: 250 }, aspectRatio: 1 };
+    const config = { fps: 10, aspectRatio: 1 };
 
     html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback)
       .then(() => {

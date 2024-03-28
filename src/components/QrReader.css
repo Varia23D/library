@@ -1,4 +1,13 @@
-/* QR Reader styles */
+#reader {
+  max-width: 300px !important;
+  max-height: 300px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
 .qr-container {
     display: flex;
     justify-content: center;
