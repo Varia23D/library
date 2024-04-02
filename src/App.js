@@ -14,7 +14,8 @@ import { userData } from './helpers/userStorage';
 import fetchBookTypes from './helpers/fetchBookTypes';
 import NotFoundPage from './Pages/404-page';
 import BookSearchPage from './Pages/BookSearchPage';
-// import {ToastContainer} from 'react-toastify';
+import { ToastContainer } from 'react-toastify'; // Import the toast container
+import 'react-toastify/dist/ReactToastify.css'; // Import css for the toast container
 const App = () => {
   const [books, setBooks] = useState([]);
 
@@ -29,7 +30,7 @@ const App = () => {
   return (
 
     <div className="app-container">
-       <Container>
+      <Container>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Protector Component={StudentHomePage} />} />
@@ -39,11 +40,12 @@ const App = () => {
             <Route path="/book-search" element={<BookSearchPage />} />
             <Route path="/*" element={<NotFoundPage />} />
             {books.map(book => (
-                <Route key={book.id} path={`/book/${book.id}`} element={<AboutBookPage book={book} />} />
-              ))}
+              <Route key={book.id} path={`/book/${book.id}`} element={<AboutBookPage book={book} />} />
+            ))}
           </Routes>
         </BrowserRouter>
       </Container>
+      <ToastContainer />
     </div>
   );
 };
