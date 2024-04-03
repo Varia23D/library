@@ -39,13 +39,6 @@ body {
     justify-content: center;
 }
 
-@media (max-width: 600px) {
-    .results-grid {
-        gap: 5px;
-        padding: 10px;
-    }
-}
-
 .book-cube {
     max-width: 200px;
     width: auto;
@@ -64,14 +57,6 @@ body {
 
 .book-cube:hover {
     transform: scale(1.05);
-}
-
-.book-cover,
-.book-cover-placeholder {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 12px 12px 0 0;
 }
 
 .book-title {
