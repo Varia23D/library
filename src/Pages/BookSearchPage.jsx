@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useBookSearchResults from '../hooks/useBookSearchResults';
 import './BookSearchPage.css';
+import TopNavbar from '../../src/components/TopNavbar';
 
 const BookSearchPage = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -15,6 +16,9 @@ const BookSearchPage = () => {
 
     return (
         <>
+        <div className='booksearch-navbar'>
+        <TopNavbar />
+        </div>
             <div className={`book-search-container ${isModalOpen ? 'blurred' : ''}`}>
                 <input
                     type="text"
@@ -23,7 +27,7 @@ const BookSearchPage = () => {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                {isLoading && searchTerm.trim() !== "" && <p>Loading...</p>}
+                {isLoading && searchTerm.trim() !== "" && <p className='booksearch-loading'>Loading...</p>}
                 {isError && <p>Error fetching books.</p>}
                 <ul className="results-list">
                     {books.map((book) => (
