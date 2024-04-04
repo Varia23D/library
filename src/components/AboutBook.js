@@ -16,7 +16,7 @@ const BookPage = ({ book,updateBooks}) => {
           </div>
 
           <div className='about-btn-container'>
-          <QrReader updateBooks={updateBooks}/>
+          <QrReader updateBooks={updateBooks} isReturnButton={true} />{/*component used as prop*/}
             <div className='about-section'>
               <span className='about-the-book-title'>About</span>
               <span className='about-the-book-text'>{book.attributes.description}</span>

@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { handleQRCodeScan } from "../helpers/QRCodeHandler";
 import './QrReader.css'; // Import CSS file for styling
 
-const QrReader = ({updateBooks}) => {
+const QrReader = ({updateBooks, isReturnButton}) => {
   const html5QrCodeRef = useRef(null);
   const [isScannerRunning, setIsScannerRunning] = useState(false);
 
@@ -54,8 +54,8 @@ const QrReader = ({updateBooks}) => {
       <div className={`qr-container`}>
       {!isScannerRunning && (
           <button className="square-button" onClick={startScanner} >
-            Scan QR {/* Button text */}
-            <span className="plus-icon">&#43;</span> {/* Plus icon */}
+             {isReturnButton ? "Return book" : "Scan QR"} {/* Button text */}
+            {/*<span className="plus-icon">&#43;</span>  Plus icon */}
           </button>
       )}
       {isScannerRunning && (
