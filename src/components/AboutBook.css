@@ -10,11 +10,13 @@
   width: 100%;
   padding: 0 20px; 
   margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
   
    /* EDIT COVER PHOTO */
    .cover-photo-container {
-    margin: 0 auto;
     position: relative;
     width: 174px;
     height: 174px; 
@@ -24,9 +26,8 @@
   }
   /* EDIT COVER PHOTO inside the circle */
   .circular-image {
-    height: auto;
     position: absolute;
-    width: 174px;
+    width: 174px;/* photo size inside circle */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -34,23 +35,10 @@
   
   /* EDIT TITLE */
   .title-container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 4px;
-    margin: 0 auto;
     padding-top: 40px;
     padding-bottom: 40px;
   }
   .about-title{
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-shrink: 0;
-    flex-basis: auto;
-    position: relative;
     width: 308px;
     height: 40px;
     color: #1e293b;
@@ -58,59 +46,23 @@
     font-size: 32px;
     font-weight: 400;
     line-height: 40px;
-    text-align: center;
-    white-space: nowrap; 
-
   }
 
     /* EDIT BUTTON and ABOUT container */
   .about-btn-container {
-    background: linear-gradient(190deg, var(--button-blue-stop-1-color) var(--button-blue-stop-1-position), var(--button-blue-stop-2-color) var(--button-blue-stop-2-position));
+    background: linear-gradient(188deg,#fff 50%, #84CCF8 200%);
     border-radius: 20px;
-    padding: 20px;
-    margin-top: 20px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+    padding: 0 20px 20px 20px;
     text-align: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 4px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);}
-
-    .return-book-btn {
-      text-align: center;
-      margin-bottom: 20px;
-      width: 150px;
-      height: 36px;
-      border-radius: 18px;
-      background: linear-gradient(183deg,var(--ocean-stop-1-color) var(--ocean-stop-1-position), var(--ocean-stop-2-color) var(--ocean-stop-2-position));
-      border-style: none;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      margin: 20 auto;
-      color: #ffffff;
-      font-family: 'League Spartan', sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      cursor: pointer;
-    }
 
     .return-book-btn:hover {
       box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
       /* EDIT ABOUT SECTION the title and paragraph info */
-    .about-section {
-      margin-top: 20px;
-      height: min-content;
-      text-align: center;
-      align-items: center;
-      flex-direction: column;
-    }
-    
     .about-the-book-title {
       display: flex;
-      align-items: flex-start;
       justify-content: center;
       color: #1e293b;
       font-size: 20px;

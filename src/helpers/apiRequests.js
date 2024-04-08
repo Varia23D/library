@@ -6,7 +6,7 @@ import { getJWT } from "./jwtUtils";
 export const fetchTransactionData = async (bookId) => {
   const jwt = getJWT()
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/transactions?filters[book]=${bookId}&filters[open]=true`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/users/me?populate[transactions][populate][book][filters][id]=${bookId}&populate[transactions][filters][open][$eq]=true&populate[transactions][fields][1]=open`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${jwt}`
@@ -16,8 +16,9 @@ export const fetchTransactionData = async (bookId) => {
       throw new Error('Failed to fetch transaction data');
     }
     const data = await response.json();
-    const transactions = data.data;
-    const openTransaction = transactions.find(transaction => transaction.attributes.open);
+    const transactions = data.transactions;
+    const openTransaction = transactions.find(transaction => transaction.open && transaction.book && transaction.book.id === bookId);
+    console.log('transactions: ', transactions)
     return openTransaction ? openTransaction.id : null
 
   } catch (error) {
