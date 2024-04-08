@@ -16,6 +16,7 @@ import NotFoundPage from './Pages/404-page';
 import BookSearchPage from './Pages/BookSearchPage';
 import { ToastContainer } from 'react-toastify'; // Import the toast container
 import 'react-toastify/dist/ReactToastify.css'; // Import css for the toast container
+import SettingsPage from './Pages/SettingsPage';
 const App = () => {
   const [books, setBooks] = useState([]);
 
@@ -38,6 +39,7 @@ const App = () => {
             <Route path="/logout" element={<Logout />} />
             <Route path="/registration" element={<Registration />} />
             <Route path="/book-search" element={<BookSearchPage />} />
+            <Route path="/settings" element={<Protector Component={SettingsPage} />} />
             <Route path="/*" element={<NotFoundPage />} />
             {books.map(book => (
               <Route key={book.id} path={`/book/${book.id}`} element={<AboutBookPage book={book} />} />

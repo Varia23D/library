@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { storeUser } from '../helpers/userStorage';
 import { toast } from 'react-toastify';             // Import toast
 import '../components/loginPage.css'
+import hasPhoneNumber from '../helpers/hasPhoneNumber';
 // import varialogo from '../Pages/varialogo.png';
 
 // Define the initial state for the user with empty email and password
@@ -37,7 +38,13 @@ const Login = () => {
           toast.success('Login successful!');   // Toast success message instead of an alert
           storeUser(data)
           setUser(initialUser);
-          navigate('/')
+          const userPgoneNumber = await hasPhoneNumber(data.jwt)
+          if (!userPgoneNumber) {
+            navigate('/settings')
+          } else {
+            navigate('/')
+            
+          }
         } else {
 
           toast.error('Invalid login credentials!');    // Toast error message instead of an alert
