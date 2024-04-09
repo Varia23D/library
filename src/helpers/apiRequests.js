@@ -6,7 +6,7 @@ import { getJWT } from "./jwtUtils";
 export const fetchTransactionData = async (bookId) => {
   const jwt = getJWT()
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/users/me?populate[transactions][populate][book][fields][0]=11&populate[transactions][filters][open][$eq]=true&populate[transactions][fields][1]=open`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/users/me?populate[transactions][populate][book][fields][0]=id&populate[transactions][filters][open][$eq]=true&populate[transactions][fields][1]=open`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${jwt}`
