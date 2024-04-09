@@ -6,7 +6,7 @@ import { getJWT } from "./jwtUtils";
 export const fetchTransactionData = async (bookId) => {
   const jwt = getJWT()
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/users/me?populate[transactions][populate][book][filters][id]=${bookId}&populate[transactions][filters][open][$eq]=true&populate[transactions][fields][1]=open`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/users/me?populate[transactions][populate][book][fields][0]=11&populate[transactions][filters][open][$eq]=true&populate[transactions][fields][1]=open`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${jwt}`
@@ -17,8 +17,10 @@ export const fetchTransactionData = async (bookId) => {
     }
     const data = await response.json();
     const transactions = data.transactions;
-    const openTransaction = transactions.find(transaction => transaction.open && transaction.book && transaction.book.id === bookId);
-    console.log('transactions: ', transactions)
+    
+    const openTransaction = transactions.find(transaction => 
+      transaction.book && 
+      transaction.book.id === parseInt(bookId));
     return openTransaction ? openTransaction.id : null
 
   } catch (error) {
