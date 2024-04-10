@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { storeUser } from '../helpers/userStorage';
 import { toast } from 'react-toastify';             // Import toast
-import '../components/loginPage.css'
+import '../css/loginPage.css'
 // import varialogo from '../Pages/varialogo.png';
 
 // Define the initial state for the user with empty email and password

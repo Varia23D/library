@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import useBookSearchResults from '../hooks/useBookSearchResults';
-import './BookSearchPage.css';
+import '../css/BookSearchPage.css';
 
 const BookSearchPage = () => {
     const [searchTerm, setSearchTerm] = useState('');

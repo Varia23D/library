@@ -1,5 +1,5 @@
 import React from 'react';
-import './Greeting.css'; // Import CSS file for Greeting component
+import '../css/Greeting.css'; // Import CSS file for Greeting component
 
 const Greeting = ({ username }) => {
   return (

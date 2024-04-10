@@ -1,6 +1,6 @@
 import BarIndicator from "./BarIndicator";
 import { formatDate } from "../helpers/formatDate";
-import './BookList.css';
+import '../css/BookList.css';
 import { Link } from "react-router-dom";
 
 
