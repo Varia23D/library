@@ -1,16 +1,16 @@
 import React from 'react';
 import TopNavbar from '../components/TopNavbar';
-import AboutBook from '../components/BookDetails';
+import BookDetails from '../components/BookDetails';
 import Footer from '../components/Footer';
 
-const AboutBookPage = ({book}) => {
+const AboutBook = ({book}) => {
   return (
     <div>
     <TopNavbar />
-    <AboutBook book={book}/>
-    {/*<Footer />*/}
+    <BookDetails book={book}/>
+    <Footer />
     </div>
   );
 }
 
-export default AboutBookPage;
+export default AboutBook;

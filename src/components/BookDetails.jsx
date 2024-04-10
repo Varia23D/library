@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/AboutBook.css';
+import '../css/BookDetails.css';
 import QrReader from './QrReader';
 
 const BookDetails = ({ book,updateBooks}) => {
