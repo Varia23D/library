@@ -4,30 +4,30 @@ import axios from "axios";
 
 const ProfileSettingsPage = () => {
     
-    const initialUser = {phone:''};
-    const [user, setUser] = useState(initialUser);
+    // const initialUser = {phone:''};
+    // const [user, setUser] = useState(initialUser);
                       
-    const addPhone = async () => {
-        try{
-            const url = 'http://localhost:1337/api/users-permissions/users/me';
-            const result = await axios.put(url, user);       
-                if (result){
-                    console.log(result);
-                    setUser(initialUser);
-                    console.log('profile updated successfully');
-                    alert('profile updated successfully');
-                }
-            }
-        catch(error){
-            console.error(error.message);                  
-            alert('profile update unsuccessful: ' + error.message);
-        }
-    };
+    // const addPhone = async () => {
+    //     try{
+    //         const url = 'http://localhost:1337/api/users-permissions/users/me';
+    //         const result = await axios.put(url, user);       
+    //             if (result){
+    //                 console.log(result);
+    //                 setUser(initialUser);
+    //                 console.log('profile updated successfully');
+    //                 alert('profile updated successfully');
+    //             }
+    //         }
+    //     catch(error){
+    //         console.error(error.message);                  
+    //         alert('profile update unsuccessful: ' + error.message);
+    //     }
+    // };
 
-    const handleChange = ({target}) => {                              
-            const {name, value} = target;                                
-            setUser((currentUser) => ({currentUser, [name]:value})); 
-        };
+    // const handleChange = ({target}) => {                              
+    //         const {name, value} = target;                                
+    //         setUser((currentUser) => ({currentUser, [name]:value})); 
+    //     };
 
     return(
         <>
