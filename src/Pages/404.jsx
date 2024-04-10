@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import '../css/404-page.css';
+import '../css/404.css';
 import varialogo from '../img/varialogo.png';
 
 const NotFoundPage = () => 

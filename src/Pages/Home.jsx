@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useBooks } from '../hooks/useBooks'
 import BookList from '../components/BookList';
 import TopNavbar from '../components/TopNavbar'; // Import the TopNavbar component
@@ -22,7 +22,7 @@ const Home = () => {
       <Greeting username={username} /> {/* Pass the username prop */}
       <QrReader updateBooks={updateBooks}/>
       <BookList books={books} />
-       {/*<Footer />*/}
+      <Footer />
     </div>
   );
 };
