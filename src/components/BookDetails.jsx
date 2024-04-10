@@ -2,7 +2,7 @@ import React from 'react';
 import '../css/AboutBook.css';
 import QrReader from './QrReader';
 
-const BookPage = ({ book,updateBooks}) => {
+const BookDetails = ({ book,updateBooks}) => {
 
   return (
     <div className='whole-page-container'>
@@ -27,4 +27,4 @@ const BookPage = ({ book,updateBooks}) => {
   );
 };
 
-export default BookPage;
+export default BookDetails;

@@ -1,19 +1,17 @@
 
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import StudentHomePage from './Pages/StudentHomePage';
+import Home from './Pages/Home';
 import Registration from './Pages/Registration'
 import { Protector } from "./helpers/Protector"
 import { Container } from "reactstrap";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Logout from "./components/Logout";
 import Login from './Pages/Login';
-import AboutBookPage from './Pages/AboutBookPage';
-import BookPage from './components/AboutBook';
-import { userData } from './helpers/userStorage';
+import AboutBookPage from './Pages/AboutBook';
 import fetchBookTypes from './helpers/fetchBookTypes';
-import NotFoundPage from './Pages/404-page';
-import BookSearchPage from './Pages/BookSearchPage';
+import NotFoundPage from './Pages/404';
+import BookSearch from './Pages/BookSearch';
 import { ToastContainer } from 'react-toastify'; // Import the toast container
 import 'react-toastify/dist/ReactToastify.css'; // Import css for the toast container
 const App = () => {
@@ -33,11 +31,11 @@ const App = () => {
       <Container>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Protector Component={StudentHomePage} />} />
+            <Route path="/" element={<Protector Component={Home} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/registration" element={<Registration />} />
-            <Route path="/book-search" element={<BookSearchPage />} />
+            <Route path="/book-search" element={<BookSearch />} />
             <Route path="/*" element={<NotFoundPage />} />
             {books.map(book => (
               <Route key={book.id} path={`/book/${book.id}`} element={<AboutBookPage book={book} />} />
