@@ -1,16 +1,24 @@
-/* QR Reader styles */
+#reader {
+  max-width: 300px !important;
+  max-height: 300px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
 .qr-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 0px 20px 0px;
   }
   
   .square-button {
-    background: linear-gradient(183deg,var(--ocean-stop-1-color) var(--ocean-stop-1-position), var(--ocean-stop-2-color) var(--ocean-stop-2-position));
+    background:linear-gradient(206.56deg, #51B5F3 14.94%, #1E78CD 58.66%);
     color: white; /* White text color */
-    padding: 10px 20px; /* Add padding */
-    width: 150px;
+    margin: 20px 0 20px 0px;
+    width: 160px;
     height: 36px;
     font-size: 16px; /* Increase font size */
     border: none; /* Remove border */

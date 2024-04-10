@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { toast } from 'react-toastify';   // Import toast
 
 const LoginHandler = async (user, setUser, initialUser, navigate) => { // Accept navigate function as a parameter
   // API endpoint for authentication
@@ -15,19 +16,19 @@ const LoginHandler = async (user, setUser, initialUser, navigate) => { // Accept
         // Store JWT token in cookies
         Cookies.set('userData', data, { expires: 30 }); // Expires in 30 days
         // Display a success alert and reset the user state
-        alert('Login successful!');
+        toast.success('Login successful!');   // Toast success message instead of an alert
         setUser(initialUser);
         console.log('initial user', initialUser);
         navigate('/'); // Use the navigate function for navigation
       } else {
         // Display an alert for invalid login credentials
-        alert('Invalid login credentials!');
+        toast.error('Invalid login credentials!');    // Toast error message instead of an alert
       }
     }
   } catch (error) {
     // Log and display an error message in case of an exception
     console.error('Error during login:', error.message);
-    alert('Error during login. Please try again.');
+    toast.error('Login error. Please try again!');   // Toast error message instead of an alert
   }
 };
 

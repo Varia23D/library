@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { storeUser } from '../helpers/userStorage';
+import { toast } from 'react-toastify';             // Import toast
 import '../components/loginPage.css'
 // import varialogo from '../Pages/varialogo.png';
 
@@ -31,21 +32,21 @@ const Login = () => {
     try {
       if (user.identifier && user.password) {
         const { data } = await axios.post(url, user);
-        console.log (data)
+        console.log(data)
         if (data.jwt) {
-          alert('Login successful!');
+          toast.success('Login successful!');   // Toast success message instead of an alert
           storeUser(data)
           setUser(initialUser);
           navigate('/')
         } else {
 
-          alert('Invalid login credentials!');
+          toast.error('Invalid login credentials!');    // Toast error message instead of an alert
         }
       }
     } catch (error) {
       // Log and display an error message in case of an exception
       console.error('Error during login:', error.message);
-      alert('Error during login. Please try again.');
+      toast.error('Login error. Please try again!');   // Toast error message instead of an alert
     }
   };
 
@@ -54,7 +55,7 @@ const Login = () => {
       <h1>Login</h1>
       <div className='login-container'>
         <label className='login-label-email'>
-        <h2>Email:</h2>
+          <h2>Email:</h2>
           <input
             className='login-input'
             type='email'
