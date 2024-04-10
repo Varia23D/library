@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { storeUser } from '../helpers/userStorage';
 import { toast } from 'react-toastify';             // Import toast
-import '../components/loginPage.css'
+import '../css/Login.css'
 // import varialogo from '../Pages/varialogo.png';
 
 // Define the initial state for the user with empty email and password
@@ -32,7 +32,6 @@ const Login = () => {
     try {
       if (user.identifier && user.password) {
         const { data } = await axios.post(url, user);
-        console.log(data)
         if (data.jwt) {
           toast.success('Login successful!');   // Toast success message instead of an alert
           storeUser(data)
