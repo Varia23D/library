@@ -79,11 +79,16 @@ export const closeTransaction = async (transactionId, bookId) => {
 
 //function takes book id and sends a post request to create a new transaction with that book id and launches function to change book status to taken 
 
-export const createTransaction = async (bookId) => {
+export const createTransaction = async (bookId, loan_period) => {
   const jwt = getJWT()
+  const todayDate = new Date();
+  const return_date = todayDate + loan_period;
   try {
     const body = {
-      data: { book: bookId }
+      data: { 
+        book: bookId,
+        return_date: return_date
+      }
     };
     const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/transactions/`, {
       method: "POST",
