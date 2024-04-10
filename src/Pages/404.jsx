@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './404-page.css';
-import varialogo from './varialogo.png';
+import '../css/404.css';
+import varialogo from '../img/varialogo.png';
 
 const NotFoundPage = () => 
     <div className="NotFound-Container">

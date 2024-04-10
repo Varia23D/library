@@ -1,5 +1,5 @@
 import React from 'react';
-import './BarIndicator.css'; // Import CSS file for styling
+import '../css/BarIndicator.css'; // Import CSS file for styling
 
 // calculates how much % of book's rented time passed
 const calculateProgress = (rentedDate, dueDate) => {

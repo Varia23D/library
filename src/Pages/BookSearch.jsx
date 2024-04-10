@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import useBookSearchResults from '../hooks/useBookSearchResults';
-import './BookSearchPage.css';
+import '../css/BookSearch.css';
 
-const BookSearchPage = () => {
+const BookSearch = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const { books, isLoading, isError } = useBookSearchResults(searchTerm);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -48,4 +48,4 @@ const BookSearchPage = () => {
     );
 };
 
-export default BookSearchPage;
+export default BookSearch;
