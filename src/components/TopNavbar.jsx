@@ -1,4 +1,3 @@
-// Q:? why we repeat links
 import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import '../css/TopNavbar.css';

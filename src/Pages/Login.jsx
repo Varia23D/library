@@ -32,7 +32,6 @@ const Login = () => {
     try {
       if (user.identifier && user.password) {
         const { data } = await axios.post(url, user);
-        console.log(data)
         if (data.jwt) {
           toast.success('Login successful!');   // Toast success message instead of an alert
           storeUser(data)
