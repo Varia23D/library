@@ -12,13 +12,10 @@ const LoginHandler = async (user, setUser, initialUser, navigate) => { // Accept
       const { data } = await axios.post(url, user);
       // Check if a JWT token is received in the response
       if (data.jwt) {
-        console.log('data jwt: ', data);
-        // Store JWT token in cookies
         Cookies.set('userData', data, { expires: 30 }); // Expires in 30 days
         // Display a success alert and reset the user state
         toast.success('Login successful!');   // Toast success message instead of an alert
         setUser(initialUser);
-        console.log('initial user', initialUser);
         navigate('/'); // Use the navigate function for navigation
       } else {
         // Display an alert for invalid login credentials

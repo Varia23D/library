@@ -15,7 +15,7 @@
     align-items: center;
 }
 .registration_background_img{
-   background-image: url('varialogo.png');
+   background-image: url('../img/varialogo.png');
    background-repeat: no-repeat;
    background-position: 100% 33%;
    background-size: 50%;

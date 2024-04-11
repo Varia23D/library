@@ -1,7 +1,7 @@
 //tishchuk-separation-of-the-visual-part-and-business-in-registration-and-login
 import React from 'react';
 import registrationHandler from '../helpers/RegistrationHandler';
-import './Registration.css';
+import '../css/Registration.css';
 //Returns a registration form component.
  
 const Registration = () => {

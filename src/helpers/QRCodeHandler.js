@@ -25,8 +25,7 @@ export const handleQRCodeScan = async (decodedText, updateBooks) => {
     }
     updateBooks();
   } catch (error) {
-    console.error('Error handling QR code scan:', error);
-    toast.error('QR scan error. Please try again!');   // Toast error message
+
   }
 
 };
