@@ -16,7 +16,7 @@ import AboutBook from './Pages/AboutBook';
 import BookSearch from './Pages/BookSearch';
 import NotFoundPage from './Pages/404';
 //loading circles
-import {Circles} from 'react-loader-spinner'
+import {Oval} from 'react-loader-spinner'
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -38,7 +38,7 @@ const App = () => {
     return (
     <div className='loading-container'>
       <Container>
-        <Circles 
+        <Oval 
         height={80}
         width={80}
         color="#84CCF8"
