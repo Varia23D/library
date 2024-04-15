@@ -6,7 +6,7 @@ import { getJWT } from "./jwtUtils";
 export const fetchTransactionData = async (bookId) => {
   const jwt = getJWT()
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/transactions?filters[book]=${bookId}&filters[open]=true`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/users/me?populate[transactions][populate][book][fields][0]=id&populate[transactions][filters][open][$eq]=true&populate[transactions][fields][1]=open`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${jwt}`
@@ -16,8 +16,11 @@ export const fetchTransactionData = async (bookId) => {
       throw new Error('Failed to fetch transaction data');
     }
     const data = await response.json();
-    const transactions = data.data;
-    const openTransaction = transactions.find(transaction => transaction.attributes.open);
+    const transactions = data.transactions;
+    
+    const openTransaction = transactions.find(transaction => 
+      transaction.book && 
+      transaction.book.id === parseInt(bookId));
     return openTransaction ? openTransaction.id : null
 
   } catch (error) {
@@ -26,6 +29,27 @@ export const fetchTransactionData = async (bookId) => {
   }
 };
 
+//function checks books status taken (true/false) 
+export const isTaken = async (bookId) => {
+  const jwt = getJWT()
+  try {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/book-copies/${bookId}`, {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${jwt}`
+      },
+    });
+    if (!response.ok) {
+    throw new Error('Failed to close transaction');}
+    const book = await response.json();
+    const takenStatus = book.data.attributes.taken;
+    console.log('status knigi:', takenStatus)
+    return takenStatus 
+  } catch (error) {
+    console.error('Error closing transaction:', error);
+    throw error;
+  }
+}
 
 //function takes transaction and book ids and sendsa  put request to change open status of taken transaction and launches function to change book status to returned 
 export const closeTransaction = async (transactionId, bookId) => {

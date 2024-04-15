@@ -3,9 +3,9 @@ import useBookSearchResults from '../hooks/useBookSearchResults';
 import { Link } from "react-router-dom";
 import TopNavbar from '../../src/components/TopNavbar';
 import Footer from '../../src/components/Footer';
-import './BookSearchPage.css';
+import '../css/BookSearch.css';
 
-const BookSearchPage = () => {
+const BookSearch = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const { bookCopies, isLoading, isError } = useBookSearchResults(searchTerm);
 
@@ -64,4 +64,4 @@ const BookSearchPage = () => {
     );
 };
 
-export default BookSearchPage;
+export default BookSearch;
