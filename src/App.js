@@ -15,17 +15,37 @@ import Home from './Pages/Home';
 import AboutBook from './Pages/AboutBook';
 import BookSearch from './Pages/BookSearch';
 import NotFoundPage from './Pages/404';
+//loading circles
+import {Circles} from 'react-loader-spinner'
 
 const App = () => {
   const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchBookTypes()
       .then(data => {
-        setBooks(data)
+        setBooks(data);
+        setLoading(false);
       })
-      .catch(error => console.error('Error fetching data:', error));
+      .catch(error => {
+        console.error('Error fetching data:', error)
+        setLoading(false);
+      });
   }, []);
+
+  if (loading) {
+    return (
+    <div className='loading-container'>
+      <Container>
+        <Circles 
+        height={80}
+        width={80}
+        color="#84CCF8"
+        />  
+      </Container>
+    </div>)
+  }
 
   return (
 
@@ -38,10 +58,9 @@ const App = () => {
             <Route path="/logout" element={<Logout />} />
             <Route path="/registration" element={<Registration />} />
             <Route path="/book-search" element={<BookSearch />} />
+            <Route path="/book/:id" element={<AboutBook books={books}/>} />
+            <Route path="/404" element={<NotFoundPage />} />
             <Route path="/*" element={<NotFoundPage />} />
-            {books.map(book => (
-              <Route key={book.id} path={`/book/${book.id}`} element={<AboutBook book={book} />} />
-            ))}
           </Routes>
         </BrowserRouter>
       </Container>

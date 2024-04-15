@@ -1,9 +1,15 @@
 import React from 'react';
 import '../css/BookDetails.css';
 import QrReader from './QrReader';
+import { Circles } from 'react-loader-spinner';
+import { useNavigate } from 'react-router-dom';
 
 const BookDetails = ({ book,updateBooks}) => {
-
+  const navigate = useNavigate();
+  if (!book || !book.attributes || !book.attributes.cover || !book.attributes.cover.data || !book.attributes.cover.data[0]) {
+    navigate('/404')
+    return null
+  }
   return (
     <div className='whole-page-container'>
       <div className='max-width-container'>
