@@ -136,6 +136,10 @@ background: linear-gradient(206.56deg, #E96093 14.94%, #B5245C 58.66%);
     justify-content: center;
     align-items: center;
     width: 100%;
+    font-family: 'League Spartan';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
 }
 
 /* Media query for screens wider than 1024px */
