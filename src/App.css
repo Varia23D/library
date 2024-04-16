@@ -11,3 +11,9 @@ body {
     flex-direction: column;
 
   }
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
