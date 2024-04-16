@@ -1,18 +1,13 @@
-body {
-    overflow: hidden;
-}
-
 .book-search-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
     min-height: 100vh;
-    background: linear-gradient(#fff, #84CCF8);
-    color: #fff;
+    color: #1e293b;
     padding: 20px;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Source Serif Pro', serif;
 }
 
 .search-input {
@@ -23,7 +18,7 @@ body {
     border: 2px solid #00c3ff;
     margin: 20px 0;
     font-size: 18px;
-    color: #00c3ff;
+    color: #1e293b;
     background-color: rgba(255, 255, 255, 0.9);
     outline: none;
 }
@@ -32,7 +27,6 @@ body {
     display: grid;
     grid-template-columns: repeat(auto, minmax(120px, 1fr));
     gap: 10px;
-    padding: 20px;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -40,12 +34,11 @@ body {
 }
 
 .book-cube {
-    max-width: 200px;
-    width: auto;
+    width: 90%;
     margin: auto;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     transition: transform 0.2s ease-in-out;
     cursor: pointer;
@@ -53,6 +46,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 10px;
+    background: linear-gradient(188deg, #fff 20%, #84CCF8 120%);
 }
 
 .book-cube:hover {
@@ -65,4 +59,19 @@ body {
     padding: 5px;
     font-size: 16px;
     color: #004b87;
+}
+
+.book-availability {
+    font-size: 12px;
+    font-family: 'League Spartan', sans-serif;
+    text-align: center;
+    margin-top: auto;
+}
+
+.no-copies {
+    color: red;
+}
+
+.copies-available {
+    color: green;
 }

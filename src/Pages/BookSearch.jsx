@@ -22,7 +22,7 @@ const BookSearch = () => {
     }, {}), [bookCopies]);
 
     const filteredBooks = useMemo(() => {                                                   // Memo the filtered books
-        if (!searchTerm) return booksAvailability;                                          // Check if search term is empty
+        if (!searchTerm) return {};                                                         // Check if search term is empty or not
 
         const lowerCaseSearchTerm = searchTerm.toLowerCase();                               // Filtering the books based on search term
         return Object.entries(booksAvailability).reduce((acc, [title, data]) => {           // Reducing the books based on search term
@@ -51,7 +51,7 @@ const BookSearch = () => {
                         <div key={bookTypeId} className="book-cube">
                             <Link to={`/book/${bookTypeId}`}>
                                 <h3 className="book-title">{title}</h3>
-                                <p className="book-availability">
+                                <p className={`book-availability ${count === 0 ? 'no-copies' : 'copies-available'}`}>
                                     {count === 0 ? "No copies available" : `Available Copies: ${count}`}
                                 </p>
                             </Link>
