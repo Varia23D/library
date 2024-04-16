@@ -54,7 +54,7 @@ const Login = () => {
       <h1>Login</h1>
       <div className='login-container'>
         <label className='login-label-email'>
-          <h2>Email:</h2>
+          <h2>Email</h2>
           <input
             className='login-input'
             type='email'
@@ -65,7 +65,7 @@ const Login = () => {
           />
         </label>
         <label className='login-label-password'>
-          <h2 className=''>Password:</h2>
+          <h2 className=''>Password</h2>
           <input
             className='login-input'
             type='password'
@@ -76,8 +76,8 @@ const Login = () => {
           />
         </label>
         <button className='login-btn' onClick={handleLogin}>Login</button>
-        <button className='moodle-login-btn'>Moodle login</button>
-        <p className='login-options-separator'>or</p>
+        <button className='moodle-login-btn'>Moodle</button>
+        <p className='login-options-separator'>Or</p>
         <button className='signup-btn' onClick={handleSignUpBtn}>Sign up</button>
       </div>
     </div>
