@@ -109,11 +109,6 @@ body {
     margin-top: 40px;
 }
 
-.login-options-separator {
-    font-size: 20px;
-    margin-top: 20px;
-}
-
 .signup-btn {
 background: linear-gradient(206.56deg, #E96093 14.94%, #B5245C 58.66%);
 }
@@ -132,6 +127,8 @@ background: linear-gradient(206.56deg, #E96093 14.94%, #B5245C 58.66%);
 }
 
 .login-options-separator {
+    font-size: 20px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -155,11 +152,25 @@ background: linear-gradient(206.56deg, #E96093 14.94%, #B5245C 58.66%);
         margin-top: 200px;
     }
 }
-
+/* for mini phones 375px */
 @media (max-width: 375px) {
     .loginForm-container h1 {
         margin: 0;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    }
+
+    .login-label-email h2,
+    .login-label-password h2 {
+        margin-top: 15px;
+    }
+
+    .login-options-separator {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .login-btn {
+        margin-top: 20px;
     }
 }
