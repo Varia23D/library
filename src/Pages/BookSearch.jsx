@@ -1,21 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import useBookSearchResults from '../hooks/useBookSearchResults';
+import { Link } from "react-router-dom";
+import TopNavbar from '../../src/components/TopNavbar';
+import Footer from '../../src/components/Footer';
 import '../css/BookSearch.css';
 
 const BookSearch = () => {
     const [searchTerm, setSearchTerm] = useState('');
-    const { books, isLoading, isError } = useBookSearchResults(searchTerm);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedBook, setSelectedBook] = useState(null);
+    const { bookCopies, isLoading, isError } = useBookSearchResults(searchTerm);
 
-    const handleBookClick = (book) => {
-        setSelectedBook(book);
-        setIsModalOpen(true);
-    };
+    const booksAvailability = useMemo(() => bookCopies.reduce((acc, copy) => {              // Memo the book availability data
+        const { bookTitle, isAvailable } = copy;                                            // Reduce the book copies based on book title
+        const bookTypeId = copy.attributes.book_type.data.id;
+        if (!acc[bookTitle]) {
+            acc[bookTitle] = { count: 0, bookTypeId };
+        }
+        if (isAvailable) {                                                                // Checking if book is available
+            acc[bookTitle].count += 1;                                                    // Incrementing the available books
+        }
+        return acc;
+    }, {}), [bookCopies]);
+
+    const filteredBooks = useMemo(() => {                                                   // Memo the filtered books
+        if (!searchTerm) return {};                                                         // Check if search term is empty or not
+
+        const lowerCaseSearchTerm = searchTerm.toLowerCase();                               // Filtering the books based on search term
+        return Object.entries(booksAvailability).reduce((acc, [title, data]) => {           // Reducing the books based on search term
+            if (title.toLowerCase().includes(lowerCaseSearchTerm)) {                        // Check if title includes search term
+                acc[title] = data;                                                          // Add the book to the filtered books
+            }
+            return acc;                                                                     // Return the filtered books
+        }, {});
+    }, [booksAvailability, searchTerm]);                                                    // Memo the filtered books based on search term
 
     return (
-        <>
-            <div className={`book-search-container ${isModalOpen ? 'blurred' : ''}`}>
+        <div className="app-container">
+            <TopNavbar />
+            <div className="book-search-container">
                 <input
                     type="text"
                     className="search-input"
@@ -23,28 +44,23 @@ const BookSearch = () => {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                {isLoading && searchTerm.trim() !== "" && <p>Loading...</p>}
+                {isLoading && <p>Loading...</p>}
                 {isError && <p>Error fetching books.</p>}
-                <ul className="results-list">
-                    {books.map((book) => (
-                        <li key={book.id} className="book-item" onClick={() => handleBookClick(book)}>
-                            <h3 className="book-title">{book.attributes.title}</h3>
-                        </li>
+                <div className="results-grid">
+                    {Object.entries(filteredBooks).map(([title, { count, bookTypeId }]) => (
+                        <div key={bookTypeId} className="book-cube">
+                            <Link to={`/book/${bookTypeId}`}>
+                                <h3 className="book-title">{title}</h3>
+                                <p className={`book-availability ${count === 0 ? 'no-copies' : 'copies-available'}`}>
+                                    {count === 0 ? "No copies available" : `Available Copies: ${count}`}
+                                </p>
+                            </Link>
+                        </div>
                     ))}
-                </ul>
-            </div>
-            {isModalOpen && selectedBook && (
-                <div className="modal" onClick={() => setIsModalOpen(false)}>
-                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                        <span className="close" onClick={() => setIsModalOpen(false)}>&times;</span>
-                        <h2>{selectedBook.attributes.title}</h2>
-                        <p><strong>Book ID:</strong> {selectedBook.id}</p>
-                        <p>{selectedBook.attributes.description || 'No description available.'}</p>
-                        <p><strong>Availability:</strong> {selectedBook.isAvailable ? 'Available' : 'Not Available'}</p>
-                    </div>
                 </div>
-            )}
-        </>
+            </div>
+            <Footer />
+        </div>
     );
 };
 
