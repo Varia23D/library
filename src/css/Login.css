@@ -1,6 +1,6 @@
-.loginBody {
+/* .loginBody {
     overflow: hidden;
-}
+} */
 
 .loginForm-container {
     background: linear-gradient(#fff, #84CCF8);
@@ -34,9 +34,9 @@
     align-self: flex-start;
 }
 
-.loginForm-container .login-container {
+/* .loginForm-container .login-container {
     flex-grow: 1;
-}
+} */
 
 .login-label-email h2,
 .login-label-password h2 {
