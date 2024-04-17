@@ -32,7 +32,14 @@
     border-radius: 20px 20px 0px 0px;
     margin: 0 auto;
     align-self: flex-start;
-    flex-grow: 1;
+}
+
+.login-page {
+    .login-container {
+        flex-grow: 1; /* This will only affect elements with class 'login-container' on the login page */
+    }
+
+    /* Other styles specific to the login page */
 }
 
 .login-label-email h2,
