@@ -1,23 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/BookDetails.css';
 import QrReader from './QrReader';
-import { isTaken } from '../helpers/apiRequests';
+import { fetchTransactionData, isTaken } from '../helpers/apiRequests';
 
-const BookDetails = ({ book, updateBooks }) => {
-  const [isBookTaken, setIsBookTaken] = useState(false);
+const BookDetails = ({ book }) => {
+  const [buttonText, setButtonText] = useState(null);
 
   useEffect(() => {
-    const fetchBookStatus = async () => {
-      try {
-        const takenStatus = await isTaken(book.id);
-        setIsBookTaken(takenStatus);
-      } catch (error) {
-        console.error('Error fetching book status:', error);
-      }
-    };
+    console.log('Book details:', book);
+    checkStatus(); 
+  }, []);
+  
+  const checkStatus = async () => {
+    try {
+      const transactionId = await fetchTransactionData(book.id);
+      const takenStatus = await isTaken(book.id);
 
-    fetchBookStatus();
-  }, [book.id]);
+      if (transactionId && takenStatus) {
+        setButtonText('Book is Taken');
+      } else if (!transactionId && !takenStatus) {
+        setButtonText('Book is Available');
+      } else {
+        setButtonText('Status Unknown');
+      }
+    } catch (error) {
+      console.error('Error checking status:', error);
+      setButtonText('Status Unknown');
+    }
+  };
   
   return (
     <div className='whole-page-container'>
@@ -31,7 +41,8 @@ const BookDetails = ({ book, updateBooks }) => {
           </div>
 
           <div className='about-btn-container'>
-          <QrReader updateBooks={updateBooks} isReturnButton={isBookTaken} />{/* Pass isBookTaken as prop */}
+          <QrReader />
+          {buttonText && <span>{buttonText}</span>}
             <div className='about-section'>
               <span className='about-the-book-title'>About</span>
               <span className='about-the-book-text'>{book.attributes.description}</span>
@@ -41,5 +52,6 @@ const BookDetails = ({ book, updateBooks }) => {
     </div>
   );
 };
+
 
 export default BookDetails;
