@@ -50,6 +50,7 @@ const Login = () => {
   };
 
   return (
+    <div className='loginBody'>
     <div className='loginForm-container'>
       <h1>Login</h1>
       <div className='login-container'>
@@ -80,6 +81,7 @@ const Login = () => {
         <p className='login-options-separator'>Or</p>
         <button className='signup-btn' onClick={handleSignUpBtn}>Sign up</button>
       </div>
+    </div>
     </div>
   );
 };
