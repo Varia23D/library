@@ -19,6 +19,7 @@
     margin: 0;
     margin-top: 20px;
     margin-bottom: 20px;
+    color: #1E293B;
 }
 
 
@@ -66,6 +67,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
+    color: #1E293B;
     margin-bottom: 20px;
     margin-left: 20px;
     display: flex;
