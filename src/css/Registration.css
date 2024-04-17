@@ -1,6 +1,6 @@
-body {
+/* .registration Body {
     overflow: hidden;
-}
+} */
 
 .registration{
     background: linear-gradient(#fff, #84CCF8);
@@ -23,7 +23,7 @@ body {
 
 
 /* positioning and style for input area */
-.registration_input{
+.registration .registration_input{
     display: flex;
     flex-direction: column;
     width: 400px;
