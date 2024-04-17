@@ -40,6 +40,7 @@ const Registration = () => {
     };
 
     return (
+        <div className='registrationBody'>
         <div className='registration'>
             <h1>Sign up</h1>
             <div className='registration_input'>
@@ -77,6 +78,7 @@ const Registration = () => {
                 <button className='moodle_button'>Sign up with Moodle</button>
                 <Link to="/login" className='backToLogin_button'>Already a user? login</Link>
             </div>
+        </div>
         </div>
     );
 };
