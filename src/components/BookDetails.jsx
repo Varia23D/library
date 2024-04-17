@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../css/BookDetails.css';
 import QrReader from './QrReader';
-import { fetchTransactionData, isTaken } from '../helpers/apiRequests';
+import { fetchMyTransactions, fetchTransactionData, isTaken } from '../helpers/apiRequests';
 
 const BookDetails = ({ book }) => {
   const [buttonText, setButtonText] = useState(null);
@@ -13,8 +13,13 @@ const BookDetails = ({ book }) => {
   
   const checkStatus = async () => {
     try {
-      const transactionId = await fetchTransactionData(book.id);
+
+      const transactionId = await fetchMyTransactions();
+
+      //check if in transactionId a transaction with book_type.id === book.id 
+      console.log('transactionId', transactionId)
       const takenStatus = await isTaken(book.id);
+      console.log('takenStatus', takenStatus)
 
       if (transactionId && takenStatus) {
         setButtonText('Book is Taken');
