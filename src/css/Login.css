@@ -34,8 +34,8 @@
     align-self: flex-start;
 }
 
-.login-page .login-container {
-    flex-grow: 1; /* This will only affect elements with class 'login-container' on the login page */
+.loginForm-container .login-container {
+    flex-grow: 1;
 }
 
 .login-label-email h2,
