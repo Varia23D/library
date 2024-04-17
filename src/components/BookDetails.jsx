@@ -13,24 +13,23 @@ const BookDetails = ({ book }) => {
   
   const checkStatus = async () => {
     try {
-
-      const transactionId = await fetchMyTransactions();
-
-      //check if in transactionId a transaction with book_type.id === book.id 
-      console.log('transactionId', transactionId)
-      const takenStatus = await isTaken(book.id);
-      console.log('takenStatus', takenStatus)
-
-      if (transactionId && takenStatus) {
-        setButtonText('Book is Taken');
-      } else if (!transactionId && !takenStatus) {
-        setButtonText('Book is Available');
+      const transactions = await fetchMyTransactions();
+      console.log('Transactions:', transactions);
+  
+      // Check if there's any transaction for the book type and change text on the button accordingly
+      const hasTransaction = transactions.some(transaction => {
+        const bookType = transaction.book.book_type;
+        return bookType.id === book.id && transaction.open && transaction.book.taken;
+      });
+  
+      if (hasTransaction) {
+        setButtonText('Return book');
       } else {
-        setButtonText('Status Unknown');
+        setButtonText('Rent a book');
       }
     } catch (error) {
       console.error('Error checking status:', error);
-      setButtonText('Status Unknown');
+      console.log('Error object:', error);
     }
   };
   
@@ -46,8 +45,7 @@ const BookDetails = ({ book }) => {
           </div>
 
           <div className='about-btn-container'>
-          <QrReader />
-          {buttonText && <span>{buttonText}</span>}
+          <QrReader buttonText={buttonText} />
             <div className='about-section'>
               <span className='about-the-book-title'>About</span>
               <span className='about-the-book-text'>{book.attributes.description}</span>
