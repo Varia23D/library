@@ -50,11 +50,12 @@ const Login = () => {
   };
 
   return (
+    <div className='loginWholeContainer'>
     <div className='loginForm-container'>
       <h1>Login</h1>
       <div className='login-container'>
         <label className='login-label-email'>
-          <h2>Email:</h2>
+          <h2>Email</h2>
           <input
             className='login-input'
             type='email'
@@ -62,10 +63,11 @@ const Login = () => {
             value={user.identifier}
             onChange={handleChange}
             placeholder='Enter your email'
+            autocomplete='email'
           />
         </label>
         <label className='login-label-password'>
-          <h2 className=''>Password:</h2>
+          <h2 className=''>Password</h2>
           <input
             className='login-input'
             type='password'
@@ -73,13 +75,15 @@ const Login = () => {
             value={user.password}
             onChange={handleChange}
             placeholder='Enter your password'
+            autocomplete='current-password'
           />
         </label>
         <button className='login-btn' onClick={handleLogin}>Login</button>
-        <button className='moodle-login-btn'>Moodle login</button>
-        <p className='login-options-separator'>or</p>
+        <button className='moodle-login-btn'>Moodle</button>
+        <p className='login-options-separator'>Or</p>
         <button className='signup-btn' onClick={handleSignUpBtn}>Sign up</button>
       </div>
+    </div>
     </div>
   );
 };
