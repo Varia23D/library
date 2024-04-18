@@ -230,15 +230,15 @@
     }
 }
 
-@media (max-height: 666px) {
+@media (max-height: 720px) and (min-width: 430px) {
     .registration_input h2 {
         margin-top: 15px;
         margin-bottom: 10px;
     }
 
     .registration h1 {
-        margin-top: 2px;
-        margin-bottom: 2px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     .confirm_password_container {
