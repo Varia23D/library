@@ -141,28 +141,6 @@
     color: #0c4275;
 }
 
-/* Media query for screens wider than 1024px */
-@media (min-width: 1025px) {
-    .registration_input {
-        border-radius: 20px;
-        margin-bottom: 500px;
-        margin-top: 40px;
-    }
-
-    .registration h1 {
-        margin-top: 200px;
-    }
-
-    .backToLogin_button {
-        margin-bottom: 20px;
-    }
-}
-
-.confirm_password_container {
-    position: relative;
-    margin-bottom: 20px;
-}
-
 .confirm_password_container input[type="password"] {
     margin-inline: 20px; /* Keep consistent margin with other input fields */
     font-family: 'Source Serif Pro';
@@ -198,7 +176,44 @@
     border-bottom: 1px solid #94A3B8;
 }
 
-@media (max-width: 375px) {
+/* Media query for screens wider than 1024px */
+@media (min-width: 1025px) {
+    .registration_input {
+        border-radius: 20px;
+        margin-bottom: 500px;
+        margin-top: 20px;
+    }
+
+
+    .registration .registration_input {
+        flex-grow: 0;
+        border-radius: 20px;
+    }
+
+    .registration h1 {
+        margin-top: 20vh;
+        margin-bottom: 60px;
+    }
+
+    .backToLogin_button {
+        margin-bottom: 20px;
+    }
+}
+
+.confirm_password_container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 1025px) and (max-height: 1000px) {
+    .registration h1 {
+        margin-top: 5vh;
+        margin-bottom: 2vh;
+    }
+}
+
+/* For smaller than 375px width, or if height is less than 720px */
+@media (max-width: 375px), (max-height: 750px) {
     .registration h1 {
         margin: 0;
     margin-top: 5px;

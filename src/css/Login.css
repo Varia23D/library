@@ -152,15 +152,23 @@ background: linear-gradient(206.56deg, #E96093 14.94%, #B5245C 58.66%);
         border-radius: 20px;
         min-height: 600px;
         margin-bottom: 500px;
-        margin-top: 40px;
     }
 
     .loginForm-container h1 {
-        margin-top: 200px;
+        margin-top: 20vh;
+        margin-bottom: 60px;
     }
 }
+/* if also height is less than 1000px */
+@media (min-width: 1025px) and (max-height: 1000px) {
+    .loginForm-container h1 {
+        margin-top: 5vh;
+        margin-bottom: 2vh;
+    }
+}
+
 /* for mini phones 375px */
-@media (max-width: 375px) {
+@media (max-width: 375px), (max-height: 750px) {
     .loginForm-container h1 {
         margin: 0;
     margin-top: 5px;

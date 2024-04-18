@@ -50,7 +50,7 @@ const Login = () => {
   };
 
   return (
-    <div className='loginBody'>
+    <div className='loginWholeContainer'>
     <div className='loginForm-container'>
       <h1>Login</h1>
       <div className='login-container'>
@@ -63,6 +63,7 @@ const Login = () => {
             value={user.identifier}
             onChange={handleChange}
             placeholder='Enter your email'
+            autocomplete='email'
           />
         </label>
         <label className='login-label-password'>
@@ -74,6 +75,7 @@ const Login = () => {
             value={user.password}
             onChange={handleChange}
             placeholder='Enter your password'
+            autocomplete='current-password'
           />
         </label>
         <button className='login-btn' onClick={handleLogin}>Login</button>
