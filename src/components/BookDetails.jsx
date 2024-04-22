@@ -14,7 +14,7 @@ const BookDetails = ({ book }) => {
   const checkStatus = async () => {
     try {
       const transactions = await fetchMyTransactions();
-      console.log('Transactions:', transactions);
+  
   
       // Check if there's any transaction for the book type and change text on the button accordingly
       const hasTransaction = transactions.some(transaction => {
