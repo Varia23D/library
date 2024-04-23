@@ -1,25 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import '../css/BookDetails.css';
 import QrReader from './QrReader';
-import { fetchMyTransactions, fetchTransactionData, isTaken } from '../helpers/apiRequests';
+import { useNavigate } from 'react-router-dom';
+import { fetchMyTransactions } from '../helpers/apiRequests';
 
 const BookDetails = ({ book }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!book || !book.attributes || !book.attributes.cover || !book.attributes.cover.data || !book.attributes.cover.data[0]) {
+      navigate('/404');
+    }
+  }, [book, navigate]);
+  
   const [buttonText, setButtonText] = useState(null);
 
   useEffect(() => {
     console.log('Book details:', book);
     checkStatus(); 
-  }, []);
+  }, [book]);
   
   const checkStatus = async () => {
     try {
       const transactions = await fetchMyTransactions();
-  
-  
+
       // Check if there's any transaction for the book type and change text on the button accordingly
       const hasTransaction = transactions.some(transaction => {
         const bookType = transaction.book.book_type;
-        return bookType.id === book.id && transaction.open && transaction.book.taken;
+        return bookType.id === book.id
       });
   
       if (hasTransaction) {
@@ -36,25 +44,24 @@ const BookDetails = ({ book }) => {
   return (
     <div className='whole-page-container'>
       <div className='max-width-container'>
-          <div className='cover-photo-container'>
-            <img className='circular-image' src={`${process.env.REACT_APP_BACKEND}${book.attributes.cover.data[0].attributes.url}`} alt="" />
-          </div>
+        <div className='cover-photo-container'>
+          <img className='circular-image' src={`${process.env.REACT_APP_BACKEND}${book.attributes.cover.data[0].attributes.url}`} alt="" />
+        </div>
 
-          <div className='title-container'>
-            <span className='about-title'>{book.attributes.title}</span>
-          </div>
+        <div className='title-container'>
+          <span className='about-title'>{book.attributes.title}</span>
+        </div>
 
-          <div className='about-btn-container'>
+        <div className='about-btn-container'>
           <QrReader buttonText={buttonText} />
-            <div className='about-section'>
-              <span className='about-the-book-title'>About</span>
-              <span className='about-the-book-text'>{book.attributes.description}</span>
-            </div>
+          <div className='about-section'>
+            <span className='about-the-book-title'>About</span>
+            <span className='about-the-book-text'>{book.attributes.description}</span>
           </div>
+        </div>
       </div>
     </div>
   );
 };
-
 
 export default BookDetails;

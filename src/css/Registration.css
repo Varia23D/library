@@ -1,107 +1,247 @@
-/* global */
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'League Spartan', sans-serif;
-    
+.registrationBody {
+    overflow: hidden;
 }
 
-
-/* main container, background color and image */
 .registration{
-    background-image:linear-gradient(#84CCF8, #fff);
+    background: linear-gradient(#fff, #84CCF8);
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-.registration_background_img{
-   background-image: url('../img/varialogo.png');
-   background-repeat: no-repeat;
-   background-position: 100% 33%;
-   background-size: 50%;
 }
 
-
-/* heading position and style */
-.registration_heading{
-    color: #fff;
-    font-size: 20px;
-    padding-top: 55px;
-    padding-bottom: 35px;
-    padding-left: 15px;
-    height: 70px;
+.registration h1{
+    font-size: 32px;
+    text-align: center;
+    font-family: 'Source Serif Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #1E293B;
 }
 
 
 /* positioning and style for input area */
-.registration_input{
+.registration .registration_input{
     display: flex;
     flex-direction: column;
-    padding: 10px;
-    width: 318px;
-    background-color: #fff;
-    border-radius: 20px;
-    color: black;
-    text-align: left;
+    width: 400px;
+    max-width: calc(100% - 40px);
+    background: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px 20px 0px 0px;
+    margin: 0 auto;
+    align-self: flex-start; /* Align at the top */
+    flex-grow: 1;
 }
-.registration_input > input{
-    padding: 8px;
-    border: 1px solid rgba(173, 173, 173, 1);
-    border-radius: 10px;
-    margin: 7px;
-}
-.registration_input > label{
-    margin-top: 5px;
-    font-size: 18px;
-    margin-left: 15px;
-}
-
-
-/* positioning and style for button */
-.registration_buttons{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.register_button{
-    margin: 10px;
-    margin-top: 15px;
+.registration_input input{
+    margin-inline: 20px;
+    font-family:'Source Serif Pro';
+    font-size: 15px;
+    background: none;
     border: none;
-    border-radius: 20px;
-    background-color: rgba(0, 75, 135, 1);
-    color: #fff;
+    max-width: calc(100% - 40px);
+    border-bottom: 1px solid #94A3B8;
+    padding-bottom: 4px;
+}
+
+::placeholder {
+    color: #94A3B8;
+  }
+
+.registration_input input:focus{
+    outline: none;
+}
+
+.username_label{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.registration_input h2{
+    font-family: 'Source Serif Pro';
+    font-style: normal;
+    font-weight: 400;
     font-size: 18px;
-    padding: 10px;
-    width: 306px;
+    color: #1E293B;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    display: flex;
 }
-.register_button:hover{
-    background-color: rgb(0, 44, 80);
+
+.register_name {
+    margin-top: 20px;
 }
+
+.register_button,
 .moodle_button{
-    margin: 10px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    max-width: calc(100% - 40px);
+    width: auto;
+    height: 50px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    line-height: 50px;
+    background:linear-gradient(206.56deg, #51B5F3 14.94%, #1E78CD 58.66%);
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 24px;
+    font-family: 'League Spartan', sans-serif;
     border: none;
-    margin-top: 5px;
-    border-radius: 20px;
-    background-color: rgba(134, 206, 248, 1);
-    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.register_button{
+    background: linear-gradient(206.56deg, #E96093 14.94%, #B5245C 58.66%);
+    margin-top: 10px;
+}
+
+.moodle_button{
+    background:linear-gradient(206.56deg, #ffa954 14.94%, #FF8100 58.66%);
+}
+
+.register_button:active,
+.moodle_button:active{
+    background: linear-gradient(206.56deg, #0f406d 14.94%, #275673 58.66%);
+    transform: translateY(4px);
+}
+
+.moodle_button:active{
+    background:linear-gradient(206.56deg, #ad6217 14.94%, #8a4500 58.66%);
+}
+
+.backToLogin_button{
+    text-align: center;
+    width: auto;
+    text-decoration: underline;
+    color: #1E78CD;
+    background: #fff;
     font-size: 18px;
-    padding: 10px;
-    width: 306px;
-}
-.moodle_button:hover{
-    background-color: #5fbffa;
+    font-family: 'League Spartan', sans-serif;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 60px;
+    margin-right: 60px;
+    flex-grow: 0;
 }
 
+.backToLogin_button:active{
+    color: #0c4275;
+}
 
-/* mobile settings */
-@media only screen and (max-width: 768px) {
-    .registration_input{
-        width: 318px;
+/* Media query for screens wider than 1024px or 1000px in height */
+@media (min-width: 1025px), (min-height: 1000px) {
+    .registration_input {
+        border-radius: 20px;
+        min-height: 600px;
+        margin-top: 20px;
     }
-    .register_button{
-        width: 306px;
+
+
+    .registration .registration_input {
+        flex-grow: 0;
+        border-radius: 20px;
     }
-    .moodle_button{
-        width: 306px;
+
+    .registration h1 {
+        margin-top: 10vh;
+        margin-bottom: 60px;
+    }
+
+    .backToLogin_button {
+        margin-bottom: 20px;
+    }
+}
+
+.confirm_password_container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.confirm_password_container input[type="password"] {
+    margin-inline: 20px; /* Keep consistent margin with other input fields */
+    font-family: 'Source Serif Pro';
+    font-size: 15px;
+    background: none;
+    color: #94A3B8;
+    border: none;
+    width: calc(100% - 40px); /* Adjust width to match other input fields */
+    border-bottom: 1px solid #94A3B8;
+    padding-bottom: 4px;
+}
+
+.password_match_text {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: red;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.email_error_text {
+    position: absolute;
+    margin-left: 20px;
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.email_wrapper input{
+    width: calc(100% - 40px);
+    border-bottom: 1px solid #94A3B8;
+}
+
+/* if also height is less than 1000px */
+@media (min-width: 1025px) and (max-height: 1000px) {
+    .registration h1 {
+        margin-top: 5vh;
+        margin-bottom: 2vh;
+    }
+}
+
+/* For smaller than 375px width */
+@media (max-width: 375px) {
+
+    .registration_input h2 {
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    .register_button {
+        margin-top: 0px;
+    }
+
+    .backToLogin_button{
+        margin-top: 20px;
+    }
+}
+
+@media (max-height: 720px) and (min-width: 430px) {
+    .registration_input h2 {
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    .registration h1 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .confirm_password_container {
+        margin-bottom: 2px;
     }
 }
