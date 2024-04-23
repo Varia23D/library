@@ -6,7 +6,7 @@ import varialogo from '../img/varialogo.png';
 const NotFoundPage = () => 
     <div className="NotFound-Container">
         <img className="NotFound-logo" src={varialogo} alt="Varialogo" />
-        <h2 className="NotFound-h2">404 Page not found</h2>
+        <h2 className="NotFound-h2">404 - Page not found</h2>
         <Link className="NotFound-Link" to='/'>Back to homepage</Link>
     </div>
 
