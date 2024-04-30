@@ -67,7 +67,7 @@ const Registration = () => {
                     </div>
                     <label htmlFor='phone_number'></label>
                     <h2>Phone number</h2>
-                    <input type='number' name='phone_number' placeholder='Your phone number' />
+                    <input type='tel' name='phone_number' placeholder='Your phone number' />
 
                     <label htmlFor='password'></label>
                     <h2>Password</h2>
