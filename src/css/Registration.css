@@ -165,11 +165,17 @@
     }
 }
 
+.password_container,
 .confirm_password_container {
     position: relative;
     margin-bottom: 20px;
 }
 
+.password_container {
+    margin-bottom: 0;
+}
+
+.password_container input[type="password"],
 .confirm_password_container input[type="password"] {
     margin-inline: 20px; /* Keep consistent margin with other input fields */
     font-family: 'Source Serif Pro';
@@ -183,6 +189,16 @@
 }
 
 .password_match_text {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: red;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.password_length_error_text {
     position: absolute;
     top: 100%;
     left: 0;
@@ -242,6 +258,6 @@
     }
 
     .confirm_password_container {
-        margin-bottom: 2px;
+        margin-bottom: 10px;
     }
 }
