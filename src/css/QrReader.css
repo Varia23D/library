@@ -8,6 +8,10 @@
   margin: auto;
 }
 
+#reader.scanner-open {
+  margin-top: 20px;
+}
+
 .qr-container {
     display: flex;
     justify-content: center;
