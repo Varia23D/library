@@ -6,8 +6,7 @@ import { getJWT } from "./jwtUtils";
 export const fetchTransactionData = async (bookId) => {
   const jwt = getJWT()
   try {
-    const response = await fetch(`http://localhost:1337/api/users/me?populate[transactions][populate][book][fields][0]=id&populate[transactions][filters][open][$eq]=true&populate[transactions][fields][1]=open`, {
-    // fetch(`${process.env.REACT_APP_BACKEND}/api/users/me?populate[transactions][populate][book][fields][0]=id&populate[transactions][filters][open][$eq]=true&populate[transactions][fields][1]=open`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/users/me?populate[transactions][populate][book][fields][0]=id&populate[transactions][filters][open][$eq]=true&populate[transactions][fields][1]=open`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${jwt}`
@@ -57,8 +56,7 @@ export const fetchMyTransactions = async () => {
 export const isTaken = async (bookId) => {
   const jwt = getJWT()
   try {
-    const response = await fetch(`http://localhost:1337/api/book-copies/${bookId}`, {
-    // fetch(`${process.env.REACT_APP_BACKEND}/api/book-copies/${bookId}`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/book-copies/${bookId}`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${jwt}`
@@ -85,8 +83,7 @@ export const closeTransaction = async (transactionId, bookId) => {
             open: false
           }
         };
-    const response = await fetch(`http://localhost:1337/api/transactions/${transactionId}`, {
-    // fetch(`${process.env.REACT_APP_BACKEND}/api/transactions/${transactionId}`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/transactions/${transactionId}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
@@ -110,16 +107,16 @@ export const closeTransaction = async (transactionId, bookId) => {
 export const createTransaction = async (bookId, loan_period) => {
   const jwt = getJWT()
   const todayDate = new Date();
-  const return_date = todayDate + loan_period;
+  const returnDate = todayDate + loan_period;
   try {
     const body = {
       data: { 
         book: bookId,
-        return_date: return_date
+        returnDate: returnDate
       }
     };
-    const response = await fetch(`http://localhost:1337/api/transactions/`, {
-    // fetch(`${process.env.REACT_APP_BACKEND}/api/transactions/`, {
+    console.log(loan_period);
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/transactions/`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -149,8 +146,7 @@ export const changeBookStatus = async (bookId, status) => {
         taken: status === 'taken' ? true : false,
       }
     };
-    const response = await fetch(`http://localhost:1337/api/book-copies/${bookId}`, {
-    // fetch(`${process.env.REACT_APP_BACKEND}/api/book-copies/${bookId}`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/book-copies/${bookId}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
