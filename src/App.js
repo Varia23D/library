@@ -16,7 +16,7 @@ import AboutBook from './Pages/AboutBook';
 import BookSearch from './Pages/BookSearch';
 import NotFoundPage from './Pages/404';
 //loading circles
-import {Oval} from 'react-loader-spinner'
+import { Oval } from 'react-loader-spinner'
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -36,15 +36,15 @@ const App = () => {
 
   if (loading) {
     return (
-    <div className='loading-container'>
-      <Container>
-        <Oval 
-        height={80}
-        width={80}
-        color="#84CCF8"
-        />  
-      </Container>
-    </div>)
+      <div className='loading-container'>
+        <Container>
+          <Oval
+            height={80}
+            width={80}
+            color="#84CCF8"
+          />
+        </Container>
+      </div>)
   }
 
   return (
@@ -57,8 +57,8 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/registration" element={<Registration />} />
-            <Route path="/book-search" element={<BookSearch />} />
-            <Route path="/book/:id" element={<AboutBook books={books}/>} />
+            <Route path="/book-search" element={<Protector Component={BookSearch} />} />
+            <Route path="/book/:id" element={<AboutBook books={books} />} />
             <Route path="/404" element={<NotFoundPage />} />
             <Route path="/*" element={<NotFoundPage />} />
           </Routes>
