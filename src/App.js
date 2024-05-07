@@ -57,10 +57,10 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Protector Component={Logout} />} />
             <Route path="/registration" element={<Registration />} />
-            <Route path="/book-search" element={<Protector Component={BookSearch} />} />
-            <Route path="/book/:id" element={<Protector Component={AboutBook} books={books} />} />
-            <Route path="/404" element={<Protector Component={NotFoundPage} />} />
-            <Route path="/*" element={<Protector Component={NotFoundPage} />} />
+            <Route path="/book-search" element={<BookSearch />} />
+            <Route path="/book/:id" element={<AboutBook books={books} />} />
+            <Route path="/404" element={<NotFoundPage />} />
+            <Route path="/*" element={<NotFoundPage />} />
           </Routes>
         </BrowserRouter>
       </Container>

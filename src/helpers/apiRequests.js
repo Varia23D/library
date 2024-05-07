@@ -29,6 +29,29 @@ export const fetchTransactionData = async (bookId) => {
   }
 };
 
+
+export const fetchMyTransactions = async () => {
+  const jwt = getJWT()
+  try {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/users/me?populate[transactions][populate][book][populate][book_type][fields]=id&populate[transactions][filters][open][$eq]=true&populate[transactions][fields][1]=open`, {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${jwt}`
+      }
+    })
+    if (!response.ok) {
+      throw new Error('Failed to fetch transaction data');
+    }
+    const data = await response.json();
+    const transactions = data.transactions;
+    
+    return transactions ? transactions : null
+
+  } catch (error) {
+    console.error('Error getting transaction data:', error);
+      throw error;
+  }
+};
 //function checks books status taken (true/false) 
 export const isTaken = async (bookId) => {
   const jwt = getJWT()
