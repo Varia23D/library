@@ -1,8 +1,9 @@
 import { Html5Qrcode } from "html5-qrcode";
 import { useState, useEffect, useRef } from "react";
 import { handleQRCodeScan } from "../helpers/QRCodeHandler";
+import { Oval } from 'react-loader-spinner';
 import '../css/QrReader.css'; // Import CSS file for styling
-import { Oval } from 'react-loader-spinner'
+
 
 const QrReader = ({ updateBooks, isReturnButton, buttonText }) => {
   const html5QrCodeRef = useRef(null);
