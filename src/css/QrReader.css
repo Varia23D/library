@@ -42,3 +42,12 @@
     margin-left: 5px; /* Add some space between text and icon */
     font-size: 20px; /* Increase icon size */
   }
+  
+  .modal {
+    margin: 20px 20px;
+    display: flex;
+    justify-content: center;
+    height: auto;
+    size: 10vh;
+    align-items: center;
+  }
