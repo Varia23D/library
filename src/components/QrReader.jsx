@@ -52,7 +52,12 @@ const QrReader = ({updateBooks, isReturnButton,buttonText }) => {
     <div>
        <div id="reader" className={isScannerRunning ? 'scanner-open' : ''}></div>
       <div className={`qr-container`}>
-      {!isScannerRunning && (
+      {buttonText && !isScannerRunning && ( // Render button text if available 
+          <button className="square-button" onClick={startScanner} > {buttonText}
+          </button>
+      )}
+      
+      {window.location.pathname === '/' && ( // condition to only show on homepage
           <button className="square-button" onClick={startScanner} > Scan QR code
           </button>
       )}

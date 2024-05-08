@@ -14,6 +14,7 @@ const BookDetails = ({ book }) => {
   }, [book, navigate]);
   
   const [buttonText, setButtonText] = useState(null);
+  
 
   useEffect(() => {
     console.log('Book details:', book);
@@ -53,7 +54,7 @@ const BookDetails = ({ book }) => {
         </div>
 
         <div className='about-btn-container'>
-        <button className="square-button">{buttonText}</button>
+          <QrReader buttonText={buttonText} />
           <div className='about-section'>
             <span className='about-the-book-title'>About</span>
             <span className='about-the-book-text'>{book.attributes.description}</span>
