@@ -53,7 +53,7 @@ const BookDetails = ({ book }) => {
         </div>
 
         <div className='about-btn-container'>
-          <QrReader buttonText={buttonText} />
+        <button className="square-button">{buttonText}</button>
           <div className='about-section'>
             <span className='about-the-book-title'>About</span>
             <span className='about-the-book-text'>{book.attributes.description}</span>

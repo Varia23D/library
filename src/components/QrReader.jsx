@@ -53,7 +53,7 @@ const QrReader = ({updateBooks, isReturnButton,buttonText }) => {
        <div id="reader" className={isScannerRunning ? 'scanner-open' : ''}></div>
       <div className={`qr-container`}>
       {!isScannerRunning && (
-          <button className="square-button" onClick={startScanner} > {buttonText ? buttonText : 'Scan QR code'}
+          <button className="square-button" onClick={startScanner} > Scan QR code
           </button>
       )}
       {isScannerRunning && (
