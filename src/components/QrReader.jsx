@@ -29,16 +29,13 @@ const QrReader = ({ updateBooks, isReturnButton, buttonText }) => {
     const qrCodeSuccessCallback = (decodedText) => {
       html5QrCode.stop();
       setIsScannerRunning(false);
-      // Delay execution of handleQRCodeScan by 2 seconds
       setTimeout(() => {
         handleQRCodeScan(decodedText, updateBooks);
-      }, 2000);
-      // Display modal window here
+      }, 1250);
       setShowModal(true);
-      // Hide modal after 2 seconds
       setTimeout(() => {
         setShowModal(false);
-      }, 2000);
+      }, 1250);
     };
 
     const config = { fps: 10, aspectRatio: 1 };
