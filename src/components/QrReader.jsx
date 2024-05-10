@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { handleQRCodeScan } from '../helpers/QRCodeHandler';
 import { Html5Qrcode } from 'html5-qrcode';
-import { Oval } from 'react-loader-spinner';
 import '../css/QrReader.css'; 
 
 const Modal = ({ isOpen, children, onClose }) => {
@@ -87,7 +86,8 @@ const QrReader = ({ updateBooks, isReturnButton, buttonText }) => {
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <div>
           <div>
-            <Oval height={200} width={200} color="#84CCF8" />
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 50 50' xml:space='preserve' fill='%23000000'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Ccircle style='fill:%2325AE88;' cx='25' cy='25' r='25'%3E%3C/circle%3E%3Cpolyline style='fill:none;stroke:%23FFFFFF;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;' points=' 38,15 22,33 12,25 '%3E%3C/polyline%3E%3C/g%3E%3C/svg%3E"
+        alt="SVG Image" height={200} width={200} color="#84CCF8" />
           </div>
         </div>
       </Modal>
