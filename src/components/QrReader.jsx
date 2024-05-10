@@ -1,9 +1,9 @@
-import { Html5Qrcode } from "html5-qrcode";
-import { useState, useEffect, useRef } from "react";
-import { handleQRCodeScan } from "../helpers/QRCodeHandler";
+import React, { useState, useEffect, useRef } from 'react';
+import { handleQRCodeScan } from '../helpers/QRCodeHandler';
+import { Html5Qrcode } from 'html5-qrcode';
+import Modal from './Modal';
 import { Oval } from 'react-loader-spinner';
-import '../css/QrReader.css'; // Import CSS file for styling
-
+import '../css/QrReader.css'; 
 
 const QrReader = ({ updateBooks, isReturnButton, buttonText }) => {
   const html5QrCodeRef = useRef(null);
@@ -32,16 +32,16 @@ const QrReader = ({ updateBooks, isReturnButton, buttonText }) => {
       setIsScannerRunning(false);
       setTimeout(() => {
         handleQRCodeScan(decodedText, updateBooks);
-      }, 1250);
+      }, 500);
       setShowModal(true);
       setTimeout(() => {
         setShowModal(false);
-      }, 1250);
+      }, 500);
     };
 
     const config = { fps: 10, aspectRatio: 1 };
 
-    html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback)
+    html5QrCode.start({ facingMode: 'environment' }, config, qrCodeSuccessCallback)
       .then(() => {
         setIsScannerRunning(true);
       })
@@ -55,11 +55,6 @@ const QrReader = ({ updateBooks, isReturnButton, buttonText }) => {
       html5QrCodeRef.current.stop();
       setIsScannerRunning(false);
     }
-  };
-
-  // Function to close modal
-  const closeModal = () => {
-    setShowModal(false);
   };
 
   return (
@@ -77,22 +72,13 @@ const QrReader = ({ updateBooks, isReturnButton, buttonText }) => {
         )}
       </div>
 
-      {/* Modal */}
-      {showModal && (
-        <div className="modal">
+      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+        <div  >
           <div>
-            <div>
-              <div>
-                <Oval
-                  height={80}
-                  width={80}
-                  color="#84CCF8"
-                />
-              </div>
-            </div>
+            <Oval height={200} width={200} color="#84CCF8" />
           </div>
         </div>
-      )}
+      </Modal>
     </div>
   );
 };
