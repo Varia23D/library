@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { handleQRCodeScan } from '../helpers/QRCodeHandler';
 import { Html5Qrcode } from 'html5-qrcode';
-import Modal from './Modal';
+import Modal from '../component/Modal';
 import { Oval } from 'react-loader-spinner';
 import '../css/QrReader.css'; 
 
