@@ -82,7 +82,6 @@ const QrReader = ({ updateBooks, isReturnButton, buttonText }) => {
         )}
       </div>
 
-      {/* Modal component */}
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <div>
           <div>
