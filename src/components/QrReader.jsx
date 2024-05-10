@@ -3,7 +3,18 @@ import { handleQRCodeScan } from '../helpers/QRCodeHandler';
 import { Html5Qrcode } from 'html5-qrcode';
 import { Oval } from 'react-loader-spinner';
 import '../css/QrReader.css'; 
-import Modal from './Modal';
+
+const Modal = ({ isOpen, children, onClose }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="modal-overlay">
+      <div className="modal-content">
+        {children}
+      </div>
+    </div>
+  );
+};
 
 const QrReader = ({ updateBooks, isReturnButton, buttonText }) => {
   const html5QrCodeRef = useRef(null);
@@ -32,11 +43,11 @@ const QrReader = ({ updateBooks, isReturnButton, buttonText }) => {
       setIsScannerRunning(false);
       setTimeout(() => {
         handleQRCodeScan(decodedText, updateBooks);
-      }, 500);
+      }, 750);
       setShowModal(true);
       setTimeout(() => {
         setShowModal(false);
-      }, 500);
+      }, 760);
     };
 
     const config = { fps: 10, aspectRatio: 1 };
@@ -72,8 +83,9 @@ const QrReader = ({ updateBooks, isReturnButton, buttonText }) => {
         )}
       </div>
 
+      {/* Modal component */}
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
-        <div  >
+        <div>
           <div>
             <Oval height={200} width={200} color="#84CCF8" />
           </div>
