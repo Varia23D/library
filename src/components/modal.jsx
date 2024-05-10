@@ -1,12 +1,13 @@
-import React from "react";
-import Loader from "react-loader-spinner";
+import React from 'react';
+import '../css/QrReader.css';
 
-const Modal = ({ show }) => {
+const Modal = ({ isOpen, children }) => {
+  if (!isOpen) return null;
+
   return (
-    <div className={`modal ${show ? "show" : ""}`}>
+    <div className="modal-overlay">
       <div className="modal-content">
-        <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />
-        <p>Processing...</p>
+        {children}
       </div>
     </div>
   );
