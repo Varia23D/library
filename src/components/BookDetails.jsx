@@ -14,6 +14,7 @@ const BookDetails = ({ book }) => {
   }, [book, navigate]);
   
   const [buttonText, setButtonText] = useState(null);
+  
 
   useEffect(() => {
     console.log('Book details:', book);
