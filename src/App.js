@@ -58,9 +58,9 @@ const App = () => {
             <Route path="/logout" element={<Logout />} />
             <Route path="/registration" element={<Registration />} />
             <Route path="/book-search" element={<Protector Component={BookSearch} />} />
-            <Route path="/book/:id" element={<AboutBook books={books} />} />
-            <Route path="/404" element={<NotFoundPage />} />
-            <Route path="/*" element={<NotFoundPage />} />
+            <Route path="/book/:id" element={<Protector Component={AboutBook} books={books} />} />
+            <Route path="/404" element={<Protector Component={NotFoundPage} />} />
+            <Route path="/*" element={<Protector Component={NotFoundPage} />} />
           </Routes>
         </BrowserRouter>
       </Container>
