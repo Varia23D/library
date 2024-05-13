@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { handleQRCodeScan } from '../helpers/QRCodeHandler';
 import { Html5Qrcode } from 'html5-qrcode';
+import { useState, useEffect, useRef } from 'react';
+import { handleQRCodeScan } from '../helpers/QRCodeHandler';
 import '../css/QrReader.css'; 
 
-const Modal = ({ isOpen, children, onClose }) => {
+const Modal = ({ isOpen, children}) => {
   if (!isOpen) return null;
 
   return (
@@ -81,7 +81,7 @@ const QrReader = ({ updateBooks, isReturnButton, buttonText }) => {
           </button>
         )}
       </div>
-
+      
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <div>
           <div>

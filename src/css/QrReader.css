@@ -39,8 +39,8 @@
   }
   
   .plus-icon {
-    margin-left: 5px; 
-    font-size: 20px; 
+    margin-left: 5px; /* Add some space between text and icon */
+    font-size: 20px; /* Increase icon size */
   }
 
   .modal-overlay {
