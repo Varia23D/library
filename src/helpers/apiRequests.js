@@ -103,19 +103,17 @@ export const closeTransaction = async (transactionId, bookId) => {
 };
 
 //function takes book id and sends a post request to create a new transaction with that book id and launches function to change book status to taken 
-
-export const createTransaction = async (bookId, loan_period) => {
+export const createTransaction = async (bookId) => {
   const jwt = getJWT()
-  const todayDate = new Date();
-  const returnDate = todayDate + loan_period;
   try {
+    const returnDate = await calculateReturnDate();
+    console.log(returnDate);
     const body = {
       data: { 
         book: bookId,
-        returnDate: returnDate
+        returnDate: returnDate,
       }
     };
-    console.log(loan_period);
     const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/transactions/`, {
       method: "POST",
       headers: {
@@ -134,6 +132,33 @@ export const createTransaction = async (bookId, loan_period) => {
     throw error;
   }
   changeBookStatusTaken(bookId);
+};
+
+
+//function takes book's loan period and calculates return date
+export const calculateReturnDate = async () => {
+  const jwt = getJWT();
+  try{
+    const response = await fetch (`${process.env.REACT_APP_BACKEND}/api/book-types/2`, {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${jwt}`
+      },
+    });
+    if (!response.ok) {
+      throw new Error('Failed to calculate return date');
+    }
+    const book = await response.json();
+    const loan_period = book.data.attributes.loan_period;
+    const todayDate = new Date().getTime();
+    const returnDate = new Date(todayDate + loan_period * 24 * 60 * 60 * 1000);
+    console.log ('Return date calculated successfully');
+    return returnDate;
+  }
+  catch(error){
+    console.error('Error calculating return date', error);
+    throw error;
+  }
 };
 
 
