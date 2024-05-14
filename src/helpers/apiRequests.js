@@ -136,10 +136,10 @@ export const createTransaction = async (bookId) => {
 
 
 //function takes book's loan period and calculates return date
-export const calculateReturnDate = async () => {
+export const calculateReturnDate = async (bookId) => {
   const jwt = getJWT();
   try{
-    const response = await fetch (`${process.env.REACT_APP_BACKEND}/api/book-types/2`, {
+    const response = await fetch (`${process.env.REACT_APP_BACKEND}/api/book-types/${bookId}`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${jwt}`
