@@ -66,7 +66,6 @@ export const isTaken = async (bookId) => {
     throw new Error('Failed to close transaction');}
     const book = await response.json();
     const takenStatus = book.data.attributes.taken;
-    console.log('status knigi:', takenStatus)
     return takenStatus 
   } catch (error) {
     console.error('Error closing transaction:', error);
