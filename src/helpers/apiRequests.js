@@ -66,7 +66,6 @@ export const isTaken = async (bookId) => {
     throw new Error('Failed to close transaction');}
     const book = await response.json();
     const takenStatus = book.data.attributes.taken;
-    console.log('status knigi:', takenStatus)
     return takenStatus 
   } catch (error) {
     console.error('Error closing transaction:', error);
@@ -106,12 +105,12 @@ export const closeTransaction = async (transactionId, bookId) => {
 export const createTransaction = async (bookId) => {
   const jwt = getJWT()
   try {
-    const returnDate = await calculateReturnDate();
+    const returnDate = await calculateReturnDate(bookId);
     console.log(returnDate);
     const body = {
       data: { 
         book: bookId,
-        returnDate: returnDate,
+        returnDate: returnDate.toISOString(),
       }
     };
     const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/transactions/`, {
@@ -119,7 +118,7 @@ export const createTransaction = async (bookId) => {
       headers: {
         "Content-type": "application/json",
         "Authorization": `Bearer ${jwt}`
-      },
+      },  
       body: JSON.stringify(body),
     });
 
@@ -149,9 +148,9 @@ export const calculateReturnDate = async (bookId) => {
       throw new Error('Failed to calculate return date');
     }
     const book = await response.json();
-    const loan_period = book.data.attributes.loan_period;
+    const loanPeriod = book.data.attributes.loanPeriod;
     const todayDate = new Date().getTime();
-    const returnDate = new Date(todayDate + loan_period * 24 * 60 * 60 * 1000);
+    const returnDate = new Date(todayDate + loanPeriod * 24 * 60 * 60 * 1000);
     console.log ('Return date calculated successfully');
     return returnDate;
   }
