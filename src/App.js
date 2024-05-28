@@ -6,10 +6,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from 'react-toastify'; // Import the toast container
 import { Container } from "reactstrap";
 import { Protector } from "./helpers/Protector"
+import RequirePhoneNumber from "./helpers/RequirePhoneNumber";
 import fetchBookTypes from './helpers/fetchBookTypes';
 //pages
 import Login from './Pages/Login';
 import Logout from "./components/Logout";
+import AccountSettings from './Pages/AccountSettings';
 import Registration from './Pages/Registration'
 import Home from './Pages/Home';
 import AboutBook from './Pages/AboutBook';
@@ -53,12 +55,19 @@ const App = () => {
       <Container>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Protector Component={Home} />} />
+            <Route path="/" element={<Protector><RequirePhoneNumber>
+                                    <Home />
+                                    </RequirePhoneNumber></Protector>} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/registration" element={<Registration />} />
-            <Route path="/book-search" element={<Protector Component={BookSearch} />} />
-            <Route path="/book/:id" element={<AboutBook books={books} />} />
+            <Route path="/book-search" element={<Protector><RequirePhoneNumber>
+                                    <BookSearch />
+                                    </RequirePhoneNumber></Protector>} />
+            <Route path="/book/:id" element={<RequirePhoneNumber>
+                                    <AboutBook books={books} />
+                                    </RequirePhoneNumber>} />
+            <Route path="/account-settings" element={<AccountSettings />} />
             <Route path="/404" element={<NotFoundPage />} />
             <Route path="/*" element={<NotFoundPage />} />
           </Routes>
