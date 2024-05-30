@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css'; // Import css for the toast cont
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from 'react-toastify'; // Import the toast container
 import { Container } from "reactstrap";
-import { Protector } from "./helpers/Protector"
+import Protector from "./helpers/Protector";
 import RequirePhoneNumber from "./helpers/RequirePhoneNumber";
 import fetchBookTypes from './helpers/fetchBookTypes';
 //pages

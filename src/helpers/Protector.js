@@ -4,7 +4,7 @@ import { userData } from "./userStorage"
 
 
 // function takes component and redirects to login page if there is no jwt token in local storage 
-export const Protector = ({Component}) => {
+const Protector = ({children}) => {
   const navigate = useNavigate()
   const { jwt } = userData()
   useEffect(() => {
@@ -13,5 +13,7 @@ export const Protector = ({Component}) => {
     }
   }, [navigate, jwt])
 
-  return <Component/>
+  return jwt ? children : null;
 }
+
+export default Protector;
