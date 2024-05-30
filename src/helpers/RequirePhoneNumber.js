@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { userData } from '../helpers/userStorage';
 import axios from 'axios';
@@ -33,7 +33,7 @@ const RequirePhoneNumber = ({ children }) => {
 		}
 	}, [navigate, currentUser]);
 
-	return children;
+	return currentUser.jwt ? children : null;
 };
 
 export default RequirePhoneNumber;
