@@ -65,32 +65,30 @@ const AccountSettings = () => {
 
   return (
     <div className="account-settings-container">
-        <div className="account-settings-box">
-            <h1>Account Settings</h1>
-            <div className="account-settings-field">
-                <label>Name:</label>
-                <input className="account-settings-input" type="text" value={user.username} readOnly />
-            </div>
-            <div className="account-settings-field">
-                <label>Email:</label>
-                <input className="account-settings-input" type="email" value={user.email} readOnly />
-            </div>
-            <div className="account-settings-field">
-                <label>Phone:</label>
-                <input
-                    className="account-settings-input"
-                    type="text"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    readOnly={!isEditing}
-                />
-            </div>
-            {!isEditing && (
-                <button className="button" onClick={() => setIsEditing(true)}>Edit</button>
-            )}
-            {isEditing && <button className="button" onClick={handleSave}>Save</button>}
-            {message && <p>{message}</p>}
-        </div>
+      <h1>Account Settings</h1>
+      <div className="account-settings-field">
+          <label>Name:</label>
+          <input className="account-settings-input" type="text" value={user.username} readOnly />
+      </div>
+      <div className="account-settings-field">
+          <label>Email:</label>
+          <input className="account-settings-input" type="email" value={user.email} readOnly />
+      </div>
+      <div className="account-settings-field">
+          <label>Phone:</label>
+          <input
+              className="account-settings-input"
+              type="text"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              readOnly={!isEditing}
+          />
+      </div>
+      {!isEditing && (
+          <button className="button" onClick={() => setIsEditing(true)}>Edit</button>
+      )}
+      {isEditing && <button className="button" onClick={handleSave}>Save</button>}
+      {message && <p>{message}</p>}
     </div>
   );
 };

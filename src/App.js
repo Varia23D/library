@@ -11,7 +11,6 @@ import fetchBookTypes from './helpers/fetchBookTypes';
 //pages
 import Login from './Pages/Login';
 import Logout from "./components/Logout";
-import AccountSettings from './Pages/AccountSettings';
 import Registration from './Pages/Registration'
 import Home from './Pages/Home';
 import AboutBook from './Pages/AboutBook';
@@ -19,6 +18,7 @@ import BookSearch from './Pages/BookSearch';
 import NotFoundPage from './Pages/404';
 //loading circles
 import { Oval } from 'react-loader-spinner'
+import EditProfile from './Pages/EditProfile';
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -67,7 +67,7 @@ const App = () => {
             <Route path="/book/:id" element={<RequirePhoneNumber>
                                     <AboutBook books={books} />
                                     </RequirePhoneNumber>} />
-            <Route path="/account-settings" element={<AccountSettings />} />
+            <Route path="/account-settings" element={<EditProfile />} />
             <Route path="/404" element={<NotFoundPage />} />
             <Route path="/*" element={<NotFoundPage />} />
           </Routes>
