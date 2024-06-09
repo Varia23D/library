@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { userData } from '../helpers/userStorage';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import '../css/AccountSettings.css';
 
 const AccountSettings = () => {
   const [user, setUser] = useState(null);
   const [phone, setPhone] = useState('');
   const [isEditing, setIsEditing] = useState(false);
-  const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,12 +34,12 @@ const AccountSettings = () => {
   const handleSave = async () => {
     const currentUser = userData();
     if (!phone) {
-      setMessage('Phone number is required');
+      toast.error('Phone number is required');
       return;
     }
 
     if (!/^(\+\d{1,3}\d{8,9}|0\d{8,9})$/.test(phone)) {
-      setMessage('Invalid phone number format');
+      toast.error('Invalid phone number format');
       return;
     }
 
@@ -53,10 +53,10 @@ const AccountSettings = () => {
           },
         }
       );
-      setMessage('Phone number updated successfully');
+      toast.success('Phone number updated successfully');
       setIsEditing(false);
     } catch (error) {
-      setMessage('Error updating phone number');
+      toast.error('Error updating phone number');
       console.error('Error updating phone number:', error);
     }
   };
@@ -82,13 +82,13 @@ const AccountSettings = () => {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               readOnly={!isEditing}
+              placeholder='Phone number is required'
           />
       </div>
       {!isEditing && (
           <button className="button" onClick={() => setIsEditing(true)}>Edit</button>
       )}
       {isEditing && <button className="button" onClick={handleSave}>Save</button>}
-      {message && <p>{message}</p>}
     </div>
   );
 };
