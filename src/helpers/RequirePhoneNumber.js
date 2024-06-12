@@ -10,13 +10,14 @@ const RequirePhoneNumber = ({ children }) => {
 	useEffect(() => {
 		const checkUserPhone = async () => {
 		try {
+										// Make an API call to check if phone number is available
 			const response = await axios.get(`${process.env.REACT_APP_BACKEND}/api/users/me`, {
 			headers: {
 				Authorization: `Bearer ${currentUser.jwt}`,
 			},
 			});
 			if (!response.data.phone) {
-			navigate('/account-settings');
+			navigate('/account-settings');	// Navigate to settings if phone number is missing
 			}
 		}
 		catch (error) {
@@ -33,7 +34,7 @@ const RequirePhoneNumber = ({ children }) => {
 		}
 	}, [navigate, currentUser]);
 
-	return currentUser.jwt ? children : null;
+	return currentUser.jwt ? children : null;	// Render children if JWT is available, otherwise render null
 };
 
 export default RequirePhoneNumber;
