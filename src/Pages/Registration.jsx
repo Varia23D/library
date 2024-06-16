@@ -11,18 +11,18 @@ const Registration = () => {
     const [emailError, setEmailError] = useState(false); // State for email error
 
     // Function to check if passwords match
-    const checkPasswordMatch = () => {
-        setPasswordsMatch(confirmPassword === user.password);
+    const checkPasswordMatch = (password, confirmPassword) => {
+        setPasswordsMatch(password === confirmPassword);
     };
 
     // Effect to watch for changes in user.password or confirmPassword
     useEffect(() => {
-        checkPasswordMatch();
+        checkPasswordMatch(user.password, confirmPassword);
     }, [user.password, confirmPassword]);
 
     // Effect to watch for changes in user.password length
     useEffect(() => {
-        setPasswordLengthError(user.password.length < 8);
+        setPasswordLengthError(user.password.length > 0 && user.password.length < 8);
     }, [user.password]);
 
     const handleConfirmPasswordChange = (e) => {
