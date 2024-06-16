@@ -57,7 +57,7 @@ const QrReader = ({updateBooks, isReturnButton,buttonText }) => {
           </button>
       )}
       
-      {window.location.pathname === '/' && ( // condition to only show on homepage
+      {window.location.pathname === '/' && !isScannerRunning && ( // condition to only show on homepage
           <button className="square-button" onClick={startScanner} > Scan QR code
           </button>
       )}
