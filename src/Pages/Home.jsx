@@ -14,7 +14,7 @@ const Home = () => {
   // Fetch book data from your API endpoint
   useEffect(() => {
     updateBooks()
-  }, []); 
+  }, [updateBooks]); 
 
   return (
     <div className="app-container"> 
