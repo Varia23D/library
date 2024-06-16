@@ -63,7 +63,7 @@ const Login = () => {
             value={user.identifier}
             onChange={handleChange}
             placeholder='Enter your email'
-            autocomplete='email'
+            autoComplete='email'
           />
         </label>
         <label className='login-label-password'>
@@ -75,7 +75,7 @@ const Login = () => {
             value={user.password}
             onChange={handleChange}
             placeholder='Enter your password'
-            autocomplete='current-password'
+            autoComplete='current-password'
           />
         </label>
         <button className='login-btn' onClick={handleLogin}>Login</button>

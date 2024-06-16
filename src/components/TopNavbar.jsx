@@ -32,7 +32,7 @@ const TopNavbar = ({ username }) => {
     <div className="nav-container">
       {/* Desktop Navbar */}
       <ul className="desktop-menu">
-        <li><a className="menu__item" href="#">Edit Profile</a></li>
+        <li><a className="menu__item" href="/account-settings">Edit Profile</a></li>
         <li><a className="menu__item" href="/">Home</a></li>
         <li><a className="menu__item" href="/book-search">Book search</a></li>
         <li><a className="menu__item" href="/login" onClick={handleLogout}>Logout</a></li>
@@ -49,7 +49,7 @@ const TopNavbar = ({ username }) => {
             <div className="user-name">{username}</div>
           </div>
         </li>
-        <li><a className="menu__item" href="#">Edit Profile</a></li>
+        <li><a className="menu__item" href="/account-settings">Edit Profile</a></li>
         <li><a className="menu__item" href="/">Home</a></li>
         <li><a className="menu__item" href="/book-search">Book search</a></li>
         <li><a className="menu__item" href="/login" onClick={handleLogout}>Logout</a></li>

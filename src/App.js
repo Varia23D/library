@@ -5,7 +5,8 @@ import 'react-toastify/dist/ReactToastify.css'; // Import css for the toast cont
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from 'react-toastify'; // Import the toast container
 import { Container } from "reactstrap";
-import { Protector } from "./helpers/Protector"
+import Protector from "./helpers/Protector";
+import RequirePhoneNumber from "./helpers/RequirePhoneNumber";
 import fetchBookTypes from './helpers/fetchBookTypes';
 //pages
 import Login from './Pages/Login';
@@ -17,6 +18,7 @@ import BookSearch from './Pages/BookSearch';
 import NotFoundPage from './Pages/404';
 //loading circles
 import { Oval } from 'react-loader-spinner'
+import EditProfile from './Pages/EditProfile';
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -53,12 +55,19 @@ const App = () => {
       <Container>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Protector Component={Home} />} />
+            <Route path="/" element={<Protector><RequirePhoneNumber>
+                                    <Home />
+                                    </RequirePhoneNumber></Protector>} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/registration" element={<Registration />} />
-            <Route path="/book-search" element={<Protector Component={BookSearch} />} />
-            <Route path="/book/:id" element={<AboutBook books={books} />} />
+            <Route path="/book-search" element={<Protector><RequirePhoneNumber>
+                                    <BookSearch />
+                                    </RequirePhoneNumber></Protector>} />
+            <Route path="/book/:id" element={<RequirePhoneNumber>
+                                    <AboutBook books={books} />
+                                    </RequirePhoneNumber>} />
+            <Route path="/account-settings" element={<EditProfile />} />
             <Route path="/404" element={<NotFoundPage />} />
             <Route path="/*" element={<NotFoundPage />} />
           </Routes>
