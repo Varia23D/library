@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.39bd597e.css",
+    "main.js": "/static/js/main.106d1d82.js",
+    "static/media/varialogo.png": "/static/media/varialogo.ab0999e1fcfbfb200a6d.png",
+    "index.html": "/index.html",
+    "main.39bd597e.css.map": "/static/css/main.39bd597e.css.map",
+    "main.106d1d82.js.map": "/static/js/main.106d1d82.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.39bd597e.css",
+    "static/js/main.106d1d82.js"
+  ]
+}
