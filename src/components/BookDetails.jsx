@@ -17,7 +17,6 @@ const BookDetails = ({ book }) => {
   
 
   useEffect(() => {
-    console.log('Book details:', book);
     checkStatus(); 
   }, [book]);
   
