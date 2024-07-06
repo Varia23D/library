@@ -1,32 +1,31 @@
 import { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
+import { storeUser } from './userStorage';
 
-function KeycloakRedirect() {
-  const location = useLocation();
+const KeycloakRedirect = () => {
   const navigate = useNavigate();
+  const { provider } = useParams();
+  const location = useLocation();
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
-    const code = urlParams.get('code'); // Extract the authorization code
+    const accessToken = urlParams.get('access_token');
 
-    if (code) {
-      // Exchange the authorization code for an access token
-      axios.get(`${process.env.REACT_APP_BACKEND}/api/connect/keycloak/callback?code=${code}`)
-        .then(response => {
-          const { jwt, user } = response.data;
-          // Save the JWT and user data in your application (e.g., in the state or local storage)
-          localStorage.setItem('jwt', jwt);
-          localStorage.setItem('user', JSON.stringify(user));
-          // Navigate to the home page or another page
-          navigate('/');
-        })
-        .catch(error => {
-          console.error('Error during Keycloak callback:', error);
-          // Handle the error (e.g., show an error message)
-        });
+    if (accessToken) {
+      axios.get(`${process.env.REACT_APP_BACKEND}/api/auth/${provider}/callback`, {
+        params: { access_token: accessToken }
+      })
+      .then(response => {
+        const { jwt, user } = response.data;
+        storeUser({ jwt, user }); // Save user and token
+        navigate('/'); // Redirect to home
+      })
+      .catch(error => {
+        console.error('Error during Keycloak callback:', error.response || error.message);
+      });
     }
-  }, [location, navigate]);
+  }, [location, navigate, provider]);
 
   return (
     <div className="loading-container">
