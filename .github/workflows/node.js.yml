@@ -2,9 +2,8 @@ name: My Deploy
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches: [ develop ]
+
 
 jobs:
   build:
