@@ -4,7 +4,7 @@ concurrency: development
 
 on:
   push:
-    branches: [ "develop", "main" ]
+    branches: [ "develop" ]
 
 jobs:
   test-build:
