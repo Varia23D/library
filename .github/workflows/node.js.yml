@@ -1,0 +1,96 @@
+name: Node.js CI
+
+concurrency: development
+
+on:
+  push:
+    branches: [ "develop", "main" ]
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+    environment: development
+    env:
+      CI: false
+    strategy:
+      matrix:
+        node-version: [20.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build --if-present -- --no-warnings
+
+    - name: Upload GitHub Pages artifact
+      uses: actions/upload-pages-artifact@v2.0.0
+      with:
+        path: .
+
+  # test:
+  #   name: Test
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Use Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+  #         cache: 'npm'
+  #     - run: npm ci
+  #     - name: Run Tests
+  #       run: npm test -- --coverage
+  #     - name: Setup Pages
+  #       if: github.ref == 'refs/heads/main'
+  #       uses: actions/configure-pages@v3
+  #     - name: Upload Artifact
+  #       if: github.ref == 'refs/heads/main'
+  #       uses: actions/upload-pages-artifact@v1
+  #       with:
+  #         path: "./coverage"
+
+  test-deploy-gh-pages:
+    runs-on: ubuntu-latest
+    needs: test-build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: development
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+
+
+  build-on-render:
+    runs-on: ubuntu-latest
+    needs: test-deploy-gh-pages
+    environment: development
+    steps:
+      - name: Deploy to development
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.MY_RENDER_API_KEY }}
+
+  build-on-main:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: test-build
+    environment: prod
+    steps:
+      - name: Deploy to production
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.PROD_RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.PROD_RENDER_API_KEY }}
