@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     environment: development
     env:
@@ -30,28 +29,34 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present -- --no-warnings
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run Tests
-        run: <run the tests with code coverage>
 
-      - name: Setup Pages
-        if: github.ref == 'refs/heads/main'
-        uses: actions/configure-pages@v3
-
-      - name: Upload Artifact
-        if: github.ref == 'refs/heads/main'
-        uses: actions/upload-pages-artifact@v1
-        with:
-          # location of the coverage artifacts
-          path: "./coverage"
+  # test:
+  #   name: Test
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Use Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+  #         cache: 'npm'
+  #     - run: npm ci
+  #     - name: Run Tests
+  #       run: npm test -- --coverage
+  #     - name: Setup Pages
+  #       if: github.ref == 'refs/heads/main'
+  #       uses: actions/configure-pages@v3
+  #     - name: Upload Artifact
+  #       if: github.ref == 'refs/heads/main'
+  #       uses: actions/upload-pages-artifact@v1
+  #       with:
+  #         path: "./coverage"
 
   deploy:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    needs: test
+    needs: build
     
     permissions:
       pages: write
@@ -63,6 +68,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
