@@ -62,19 +62,18 @@ jobs:
     # if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: build
-    
     permissions:
       pages: write
       id-token: write
-
     environment:
-      # environment created automatically by GitHub
       name: development
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+        with:
+          branch: develop # Specify the branch to deploy to, if different
+          folder: ./build  # Specify the folder to deploy, adjust as necessary
