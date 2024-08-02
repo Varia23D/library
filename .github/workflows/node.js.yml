@@ -1,4 +1,4 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and deploy it to GitHub Pages
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
 name: Node.js CI
@@ -22,9 +22,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-      with:
-        submodules: true
-        fetch-depth: 0
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
@@ -32,6 +29,29 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present -- --no-warnings
+
+  # test:
+  #   name: Test
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Use Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+  #         cache: 'npm'
+  #     - run: npm ci
+  #     - name: Run Tests
+  #       run: npm test -- --coverage
+  #     - name: Setup Pages
+  #       if: github.ref == 'refs/heads/main'
+  #       uses: actions/configure-pages@v3
+  #     - name: Upload Artifact
+  #       if: github.ref == 'refs/heads/main'
+  #       uses: actions/upload-pages-artifact@v1
+  #       with:
+  #         path: "./coverage"
 
   deploy:
     if: github.ref == 'refs/heads/main'
@@ -41,7 +61,7 @@ jobs:
     permissions:
       pages: write
       id-token: write
-#
+
     environment:
       # environment created automatically by GitHub
       name: development
@@ -50,9 +70,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          submodules: true
-          fetch-depth: 0
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
