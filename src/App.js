@@ -19,10 +19,14 @@ import NotFoundPage from './Pages/404';
 //loading circles
 import { Oval } from 'react-loader-spinner'
 import EditProfile from './Pages/EditProfile';
+import { AuthProvider, useAuth } from './helpers/AuthContext';
+import Librarian from './Pages/Librarian';
 
-const App = () => {
+const AppContent = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { userRole } = useAuth()
+
 
   useEffect(() => {
     fetchBookTypes()
@@ -48,6 +52,7 @@ const App = () => {
         </Container>
       </div>)
   }
+  console.log(userRole)
 
   return (
 
@@ -56,7 +61,7 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Protector><RequirePhoneNumber>
-                                    <Home />
+                                    {userRole === 'Librarian' ? <Librarian/> : <Home /> }
                                     </RequirePhoneNumber></Protector>} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
@@ -77,5 +82,11 @@ const App = () => {
     </div>
   );
 };
+
+const App = () => (
+  <AuthProvider>
+    <AppContent />
+  </AuthProvider>
+);
 
 export default App;
