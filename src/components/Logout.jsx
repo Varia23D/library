@@ -8,6 +8,7 @@ const Logout = () => {
 
   useEffect(() => {
     localStorage.setItem("user", "")
+    localStorage.setItem('userRole', '')
     Cookies.remove('userData')
     navigate('/login')
   }, [navigate]);

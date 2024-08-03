@@ -6,6 +6,5 @@ export const getUserRole = async (token) => {
       Authorization: `Bearer ${token}`,
     },
   })
-  console.log(response.data.role.name)
   return response.data.role.name
 }
