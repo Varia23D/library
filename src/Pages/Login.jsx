@@ -79,7 +79,7 @@ const Login = () => {
           />
         </label>
         <button className='login-btn' onClick={handleLogin}>Login</button>
-        <button className='moodle-login-btn'>Moodle</button>
+        <button className='keycloak-login-btn' onClick={() => window.location.href = `${process.env.REACT_APP_BACKEND}/api/connect/keycloak`}>Keycloak</button>
         <p className='login-options-separator'>Or</p>
         <button className='signup-btn' onClick={handleSignUpBtn}>Sign up</button>
       </div>
