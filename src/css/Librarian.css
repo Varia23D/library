@@ -1,0 +1,13 @@
+.librarian-page_book-tabs {
+  display: flex;
+  gap: 36px;
+}
+
+.librarian-wrapper {
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+  font-family: 'Source Serif Pro', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}

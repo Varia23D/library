@@ -4,9 +4,11 @@ import { userData } from '../helpers/userStorage';
 import Footer from "../components/Footer";
 import TopNavbar from "../components/TopNavbar";
 import fetchBookTypes from "../helpers/fetchBookTypes";
+import '../css/Librarian.css'
+import TabBtn from "../components/TabBtn";
 
 const Librarian = () => {
-  const [books, setBooks ] = useState([]);
+  const [books, setBooks] = useState([]);
   const [activeTab, setActiveTab] = useState('overdue')
   const { username } = userData() || {}
 
@@ -25,25 +27,36 @@ const Librarian = () => {
 
   return (
     <div className="app-container">
-      <TopNavbar />
-      <Greeting username={username} />
-      <div className="tabs">
-        <button onClick={() => setActiveTab('overdue')} className={activeTab === 'overdue' ? 'active' : ''}>Overdue</button>
-        <button onClick={() => setActiveTab('rented')} className={activeTab === 'rented' ? 'active' : ''}>Rented</button>
+
+        <TopNavbar />
+        <Greeting username={username} />
+      <div className="librarian-wrapper">
+        <div className="librarian-page_book-tabs">
+        <TabBtn 
+          label='Overdue'
+          active={activeTab === 'overdue'}
+          onClick={() => setActiveTab('overdue')}
+        />
+        <TabBtn 
+          label='Rented'
+          active={activeTab === 'rented'}
+          onClick={() => setActiveTab('rented')}
+        />
+        </div>
+        <div className="book-list">
+          {activeTab === 'overdue' && (
+            <div>
+              <h2>Overdue Books</h2>
+            </div>
+          )}
+          {activeTab === 'rented' && (
+            <div>
+              <h2>Rented Books</h2>
+            </div>
+          )}
+        </div>
       </div>
-      <div className="book-list">
-        {activeTab === 'overdue' && (
-          <div>
-            <h2>Overdue Books</h2>
-          </div>
-        )}
-        {activeTab === 'rented' && (
-          <div>
-            <h2>Rented Books</h2>
-          </div>
-        )}
-      </div>
-      <Footer />
+        <Footer />
     </div>
   )
 

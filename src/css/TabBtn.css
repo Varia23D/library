@@ -1,0 +1,18 @@
+.tab-btn.active {
+  font-weight: 600;
+  margin-bottom: 20px;
+  border-bottom: solid 3px #51B5F3;
+}
+
+.tab-btn:active {
+  transform: scale(0.95);
+}
+
+.tab-btn:hover {
+  cursor:pointer;
+  color: #0074bd;
+}
+
+.tab-btn {
+  transition: transform 0.2s ease;
+}
