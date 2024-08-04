@@ -6,6 +6,7 @@ import TopNavbar from "../components/TopNavbar";
 import fetchBookTypes from "../helpers/fetchBookTypes";
 import '../css/librarian/Librarian.css'
 import TabBtn from "../components/librarian/TabBtn";
+import LBookList from "../components/librarian/LBookList";
 
 const Librarian = () => {
   const [books, setBooks] = useState([]);
@@ -47,6 +48,7 @@ const Librarian = () => {
           {activeTab === 'overdue' && (
             <div>
               <h2>Overdue Books</h2>
+              <LBookList book={null} />
             </div>
           )}
           {activeTab === 'rented' && (
