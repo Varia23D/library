@@ -4,8 +4,8 @@ import { userData } from '../helpers/userStorage';
 import Footer from "../components/Footer";
 import TopNavbar from "../components/TopNavbar";
 import fetchBookTypes from "../helpers/fetchBookTypes";
-import '../css/Librarian.css'
-import TabBtn from "../components/TabBtn";
+import '../css/librarian/Librarian.css'
+import TabBtn from "../components/librarian/TabBtn";
 
 const Librarian = () => {
   const [books, setBooks] = useState([]);

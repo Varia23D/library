@@ -1,7 +1,7 @@
 .tab-btn.active {
   font-weight: 600;
-  margin-bottom: 20px;
   border-bottom: solid 3px #51B5F3;
+  color:black;
 }
 
 .tab-btn:active {
@@ -10,9 +10,10 @@
 
 .tab-btn:hover {
   cursor:pointer;
-  color: #0074bd;
+  /* color: #0074bd; */
 }
 
 .tab-btn {
   transition: transform 0.2s ease;
+  color: #94A3B8;
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/TabBtn.css'
+import '../../css/librarian/TabBtn.css'
 
 const TabBtn = ({label, active, onClick}) => {
   return (

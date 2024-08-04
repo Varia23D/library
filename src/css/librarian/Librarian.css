@@ -1,6 +1,8 @@
 .librarian-page_book-tabs {
   display: flex;
   gap: 36px;
+  margin-bottom: 20px;
+  margin-top: 32px;
 }
 
 .librarian-wrapper {
