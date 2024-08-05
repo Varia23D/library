@@ -5,6 +5,10 @@ import LBookItem from "./LBookItem"
 const LBookList = ({ tab }) => {
   const [books, setBooks] = useState([])
   const [loading, setLoading] = useState(true)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [totalPages, setTotalPage] = useState(1)
+  const pageSize = 25;
+
 
   const getBooks = async () => {
     const jwt = getJWT()
@@ -35,6 +39,7 @@ const LBookList = ({ tab }) => {
       
       
       setBooks(filteredBooks)
+      setTotalPage(data.meta.pagination.pageCount)
     } catch (error) {
       console.error('Error getting transaction data:', error);
         throw error;
@@ -45,8 +50,21 @@ const LBookList = ({ tab }) => {
   }
 
   useEffect(() => {
+    setLoading(true)
     getBooks()
-  }, [tab])
+  }, [tab, currentPage])
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1)
+    }
+  }
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1)
+    }
+  }
 
   return (
     <div className="librarian-book-list">
@@ -54,13 +72,24 @@ const LBookList = ({ tab }) => {
         loading ? (
           <p>Loading</p>
         ) : books.length === 0 ? (
-          <p>There is no overdue books</p>
+          <p>{tab === 'overdue' ? 'There are no overdue books' : 'There are no taken books'}</p>
         ) : (
-          books.map((book) => (
+          <>
+          {books.map((book) => (
             <LBookItem key={book.id} book={book}/>
-          ))
-        )
-      }
+          ))}
+          {totalPages > 1 && (
+          <div className="pagination-controls">
+            <button onClick={handlePrevPage} disabled={currentPage === 1}>
+            Previous
+            </button>
+            <span>Page {currentPage} from {totalPages}</span>
+            <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+              Next
+            </button>
+          </div>)}
+          </>
+        )}
     </div>
   )
 }
