@@ -6,15 +6,13 @@ import { fetchMyTransactions } from '../helpers/apiRequests';
 
 const BookDetails = ({ book }) => {
   const navigate = useNavigate();
+  const [buttonText, setButtonText] = useState(null);
 
   useEffect(() => {
-    if (!book || !book.attributes || !book.attributes.cover || !book.attributes.cover.data || !book.attributes.cover.data[0]) {
+    if (!book || !book.attributes) {
       navigate('/404');
     }
   }, [book, navigate]);
-  
-  const [buttonText, setButtonText] = useState(null);
-  
 
   useEffect(() => {
     checkStatus(); 
@@ -26,6 +24,7 @@ const BookDetails = ({ book }) => {
 
       // Check if there's any transaction for the book type and change text on the button accordingly
       const hasTransaction = transactions.some(transaction => {
+      const hasTransaction = transactions.some((transaction) => {
         const bookType = transaction.book.book_type;
         return bookType.id === book.id
       });
@@ -41,11 +40,19 @@ const BookDetails = ({ book }) => {
     }
   };
   
+  const coverUrl = book.attributes.cover.data && book.attributes.cover.data.length > 0
+    ? `${process.env.REACT_APP_BACKEND}${book.attributes.cover.data[0].attributes.url}`
+    : '/src/img/covermockup.jpg';
+
   return (
     <div className='whole-page-container'>
       <div className='max-width-container'>
         <div className='cover-photo-container'>
-          <img className='circular-image' src={`${process.env.REACT_APP_BACKEND}${book.attributes.cover.data[0].attributes.url}`} alt="" />
+          <img
+            className='circular-image'
+            src={coverUrl}
+            alt={book.attributes.title || 'book-cover'}
+          />
         </div>
 
         <div className='title-container'>
