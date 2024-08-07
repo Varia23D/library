@@ -23,7 +23,6 @@ const BookDetails = ({ book }) => {
       const transactions = await fetchMyTransactions();
 
       // Check if there's any transaction for the book type and change text on the button accordingly
-      const hasTransaction = transactions.some(transaction => {
       const hasTransaction = transactions.some((transaction) => {
         const bookType = transaction.book.book_type;
         return bookType.id === book.id
