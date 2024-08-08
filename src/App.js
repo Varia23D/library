@@ -19,6 +19,7 @@ import NotFoundPage from './Pages/404';
 //loading circles
 import { Oval } from 'react-loader-spinner'
 import EditProfile from './Pages/EditProfile';
+import KeycloakRedirect from './helpers/KeycloakRedirect';
 import { AuthProvider, useAuth } from './helpers/AuthContext';
 import Librarian from './Pages/Librarian';
 
@@ -64,6 +65,7 @@ const AppContent = () => {
                                     {userRole === 'Librarian' ? <Librarian/> : <Home /> }
                                     </RequirePhoneNumber></Protector>} />
             <Route path="/login" element={<Login />} />
+            <Route path="/connect/:provider/redirect" element={<KeycloakRedirect />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/registration" element={<Registration />} />
             <Route path="/book-search" element={<Protector><RequirePhoneNumber>
