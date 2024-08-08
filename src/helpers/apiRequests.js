@@ -164,3 +164,39 @@ export const changeBookStatusReturned = async (bookId) => {
 export const changeBookStatusTaken = async (bookId) => {
   await changeBookStatus(bookId, 'taken')
 }
+
+
+export const getUserInfo = async (bookCopyId) => {
+  const jwt = getJWT()
+    try {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/book-copies?populate[transactions][filters][open][$eq]=true&populate[transactions][populate]=user.attributes&[filters][taken][$eq]=true&[filters][id][$eq]=${bookCopyId}`, {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${jwt}`
+        }
+      })
+      if (!response.ok) {
+        throw new Error('Failed to fetch transaction data');
+      }
+      const data = await response.json();
+      const userData = data.data
+
+      const userEmails = userData.flatMap(bookCopy => 
+        bookCopy.attributes.transactions.data.map(transaction => 
+          transaction.attributes.user.data.attributes.email
+        )
+      );
+  
+      if (userEmails.length > 0) {
+        return userEmails[0];
+      } else {
+        throw new Error('No open transactions found');
+      }
+
+    } catch (error) {
+      console.error('Error getting transaction data:', error);
+      throw error;
+    } finally {
+    }
+
+  }
