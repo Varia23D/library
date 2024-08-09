@@ -42,14 +42,9 @@ jobs:
 
     steps:
       - name: SSH deploy to remote server
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.REMOTE_SERVER_ADDRESS }}
-          username: ${{ secrets.REMOTE_SERVER_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            ssh -o StrictHostKeyChecking=no ${{ secrets.REMOTE_SERVER_USERNAME }}@${{ secrets.REMOTE_SERVER_ADDRESS }}
-            cd /home/debian/app/frontend
-            git pull origin main
-            npm install
-            npm run build
+        run: |
+          ssh ${{ secrets.REMOTE_SERVER_USERNAME }}@${{ secrets.REMOTE_SERVER_ADDRESS }}
+          cd /home/debian/app/frontend
+          git pull origin main
+          npm install
+          npm run build
