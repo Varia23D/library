@@ -28,14 +28,28 @@ jobs:
     - run: npm run build --if-present -- --no-warnings
 
   
-  build-on-main:
-    runs-on: ubuntu-latest
+  deploy-on-main:
+    runs-on: self-hosted
     if: github.ref == 'refs/heads/main'
     needs: test-build
     environment: prod
+
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
+
     steps:
-      - name: Deploy to production
-        uses: johnbeynon/render-deploy-action@v0.0.8
+      - name: SSH deploy to remote server
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          service-id: ${{ secrets.MY_PROD_RENDER_SERVICE_ID }}
-          api-key: ${{ secrets.PROD_RENDER_API_KEY }}
+          host: ${{ secrets.REMOTE_SERVER_ADDRESS }}
+          username: ${{ secrets.REMOTE_SERVER_USERNAME }}
+          # key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            ssh ${{ secrets.REMOTE_SERVER_USERNAME }}@${{ secrets.REMOTE_SERVER_ADDRESS }}
+            cd /home/debian/app/frontend
+            git pull origin main
+            npm install
+            npm run build
