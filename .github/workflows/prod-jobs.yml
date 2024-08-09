@@ -43,8 +43,9 @@ jobs:
     steps:
       - name: SSH deploy to remote server
         run: |
-          ssh ${{ secrets.REMOTE_SERVER_USERNAME }}@${{ secrets.REMOTE_SERVER_ADDRESS }}
-          cd /home/debian/app/frontend
-          git pull origin main
-          npm install
-          npm run build
+          ssh ${{ secrets.REMOTE_SERVER_USERNAME }}@${{ secrets.REMOTE_SERVER_ADDRESS }} << 'EOF'
+            cd /home/debian/app/frontend
+            git pull origin main
+            npm install
+            npm run build
+          EOF
