@@ -44,15 +44,8 @@ jobs:
       - name: SSH deploy to remote server
         run: |
           ssh ${{ secrets.REMOTE_SERVER_USERNAME }}@${{ secrets.REMOTE_SERVER_ADDRESS }} << 'EOF'
-            if [ ! -d /home/debian/app/frontend/.git ]; then
-            git clone https://github.com/Varia23D/library.git /home/debian/app/frontend
-            else
-              cd /home/debian/app/frontend
-              git pull origin main
-            fi
             cd /home/debian/app/frontend
+            git pull origin main
             npm install
             npm run build
-            nohup serve -s build > /dev/null 2>&1 &
-            disown
           EOF
