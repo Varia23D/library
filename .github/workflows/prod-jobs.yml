@@ -53,6 +53,5 @@ jobs:
             cd /home/debian/app/frontend
             npm install
             npm run build
-            npm install -g serve
             serve -s build
           EOF
