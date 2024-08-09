@@ -53,5 +53,6 @@ jobs:
             cd /home/debian/app/frontend
             npm install
             npm run build
-            serve -s build &
+            nohup serve -s build > /dev/null 2>&1 &
+            disown
           EOF
