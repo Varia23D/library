@@ -62,18 +62,18 @@ const AppContent = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Protector><RequirePhoneNumber>
-                                    {userRole === 'Librarian' ? <Librarian/> : <Home /> }
-                                    </RequirePhoneNumber></Protector>} />
+              {userRole === 'Librarian' ? <Librarian /> : <Home />}
+            </RequirePhoneNumber></Protector>} />
             <Route path="/login" element={<Login />} />
             <Route path="/connect/:provider/redirect" element={<KeycloakRedirect />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/registration" element={<Registration />} />
             <Route path="/book-search" element={<Protector><RequirePhoneNumber>
-                                    <BookSearch />
-                                    </RequirePhoneNumber></Protector>} />
+              <BookSearch />
+            </RequirePhoneNumber></Protector>} />
             <Route path="/book/:id" element={<RequirePhoneNumber>
-                                    <AboutBook books={books} />
-                                    </RequirePhoneNumber>} />
+              <AboutBook books={books} />
+            </RequirePhoneNumber>} />
             <Route path="/account-settings" element={<EditProfile />} />
             <Route path="/404" element={<NotFoundPage />} />
             <Route path="/*" element={<NotFoundPage />} />

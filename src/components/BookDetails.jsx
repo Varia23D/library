@@ -3,23 +3,24 @@ import '../css/BookDetails.css';
 import QrReader from './QrReader';
 import { useNavigate } from 'react-router-dom';
 import { fetchMyTransactions } from '../helpers/apiRequests';
+import defaultCover from '../../src/img/cover-not-found.png'
 
 const BookDetails = ({ book }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!book || !book.attributes || !book.attributes.cover || !book.attributes.cover.data || !book.attributes.cover.data[0]) {
+    if (!book) {
       navigate('/404');
     }
   }, [book, navigate]);
-  
+
   const [buttonText, setButtonText] = useState(null);
-  
+
 
   useEffect(() => {
-    checkStatus(); 
+    checkStatus();
   }, [book]);
-  
+
   const checkStatus = async () => {
     try {
       const transactions = await fetchMyTransactions();
@@ -29,7 +30,7 @@ const BookDetails = ({ book }) => {
         const bookType = transaction.book.book_type;
         return bookType.id === book.id
       });
-  
+
       if (hasTransaction) {
         setButtonText('Return book');
       } else {
@@ -40,12 +41,24 @@ const BookDetails = ({ book }) => {
       console.log('Error object:', error);
     }
   };
-  
+
   return (
     <div className='whole-page-container'>
       <div className='max-width-container'>
         <div className='cover-photo-container'>
-          <img className='circular-image' src={`${process.env.REACT_APP_BACKEND}${book.attributes.cover.data[0].attributes.url}`} alt="" />
+          {book.attributes.cover?.data?.[0] ? (
+            <img
+              className='circular-image'
+              src={`${process.env.REACT_APP_BACKEND}${book.attributes.cover.data[0].attributes.url}` || `${defaultCover}`}
+              alt={book.attributes.title || "Book cover"}
+            />
+          ) : (
+            <img
+              className='circular-image'
+              src={`${defaultCover}`}
+              alt={book.attributes.title || "Book cover"}
+            />
+          )}
         </div>
 
         <div className='title-container'>
@@ -53,7 +66,7 @@ const BookDetails = ({ book }) => {
         </div>
 
         <div className='about-btn-container'>
-          <QrReader buttonText={buttonText} />
+          {/* <QrReader buttonText={buttonText} /> */}
           <div className='about-section'>
             <span className='about-the-book-title'>About</span>
             <span className='about-the-book-text'>{book.attributes.description}</span>

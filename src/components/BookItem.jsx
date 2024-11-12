@@ -2,7 +2,7 @@ import BarIndicator from "./BarIndicator";
 import { formatDate } from "../helpers/formatDate";
 import '../css/BookList.css';
 import { Link } from "react-router-dom";
-
+import defaultCover from '../../src/img/cover-not-found.png'
 
 const BookItem = ({ book }) => (
   <Link to={`/book/${book.book.book_type.id}`}>
@@ -13,7 +13,9 @@ const BookItem = ({ book }) => (
         src={`${process.env.REACT_APP_BACKEND}${book.book.book_type.cover[0].url}`} 
         alt={book.book.book_type.title} />
         ) : (
-        <p>No cover available</p>
+          <img style={{maxWidth: '100px' }} 
+          src={`${defaultCover}`} 
+          alt='no book cover' />
         )}
     </div>
     

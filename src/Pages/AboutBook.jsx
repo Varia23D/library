@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 const AboutBook = ({books}) => {
   const {id} = useParams()
   const book = books && books.find(book => book.id === parseInt(id))
-  
+  console.log('AboutBook bookdata', book)
   return (
     <div>
     <TopNavbar />

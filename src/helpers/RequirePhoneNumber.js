@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { userData } from '../helpers/userStorage';
 import axios from 'axios';
@@ -6,6 +6,7 @@ import axios from 'axios';
 const RequirePhoneNumber = ({ children }) => {
 	const navigate = useNavigate();
 	const currentUser = userData();
+	const [loading, setLoading] = useState(true); 
 
 	useEffect(() => {
 		const checkUserPhone = async () => {
@@ -18,6 +19,8 @@ const RequirePhoneNumber = ({ children }) => {
 			});
 			if (!response.data.phone) {
 			navigate('/account-settings');	// Navigate to settings if phone number is missing
+			}else {
+				setLoading(false);
 			}
 		}
 		catch (error) {
@@ -33,6 +36,10 @@ const RequirePhoneNumber = ({ children }) => {
 		navigate('/login');
 		}
 	}, [navigate, currentUser]);
+
+	if (loading) {
+    return <div>Loading...</div>;
+  }
 
 	return currentUser.jwt ? children : null;	// Render children if JWT is available, otherwise render null
 };
