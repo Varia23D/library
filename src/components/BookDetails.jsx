@@ -38,7 +38,7 @@ const BookDetails = ({ book }) => {
       }
     } catch (error) {
       console.error('Error checking status:', error);
-      console.log('Error object:', error);
+      // console.log('Error object:', error);
     }
   };
 

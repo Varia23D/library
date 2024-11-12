@@ -66,7 +66,7 @@ export const isTaken = async (bookId) => {
     throw new Error('Failed to close transaction');}
     const book = await response.json();
     const takenStatus = book.data.attributes.taken;
-    console.log('status knigi:', takenStatus)
+    // console.log('status knigi:', takenStatus)
     return takenStatus 
   } catch (error) {
     console.error('Error closing transaction:', error);
@@ -151,7 +151,7 @@ export const changeBookStatus = async (bookId, status) => {
     if (!response.ok) {
       throw new Error(`Failed to change book ${bookId} status to ${status}`);
     }
-    console.log(`${bookId} status changed to ${status}`)
+    // console.log(`${bookId} status changed to ${status}`)
   } catch (error) {
     console.error('Error modifying book status:', error);
     throw error;
@@ -214,7 +214,7 @@ export const getBookIdbyISBN = async (isbn) => {
         throw new Error('Failed to fetch transaction data');
       }
       const data = await response.json();
-      console.log('data:',data)
+      // console.log('data:',data)
       const bookId = data.data[0].attributes.copies.data[0].id
       if (bookId) {
         return bookId;

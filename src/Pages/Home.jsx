@@ -20,7 +20,7 @@ const Home = () => {
   }, []); 
 
   const handleBarcodeScan = async (barcode) => {
-    console.log('Scanned barcode:', barcode);
+    // console.log('Scanned barcode:', barcode);
     try {
 
       const decodedText = await getBookIdbyISBN(barcode);
@@ -28,16 +28,16 @@ const Home = () => {
       const transactionId = await fetchTransactionData(decodedText);
       if (transactionId) {
         await closeTransaction(transactionId, decodedText);
-        console.log('Transaction was closed');
+        // console.log('Transaction was closed');
         toast.success('Book returned!');   // Toast success message
       } else {
         const taken = await isTaken(decodedText);
         if (!taken) {
           await createTransaction(decodedText);
-          console.log('Transaction was created');
+          // console.log('Transaction was created');
           toast.success('Book taken!');   // Toast success 
         } else {
-          console.log('book is taken')
+          // console.log('book is taken')
           toast.error('Book is already taken by another user!');   // Toast error
           return
         }
