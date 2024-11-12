@@ -18,7 +18,7 @@ const RegistrationHandler = () => {
                 const result = await axios.post(url, user);          // make post request to API with user info
                 if (result) {
                     setUser(initialUser);                                // if the API responds, set input values to the user
-                    console.log('registered successfully');
+                    // console.log('registered successfully');
                     toast.success('Registration successfull!');       // Toast success message instead of the original alert
                 }
                 navigate('/login');
