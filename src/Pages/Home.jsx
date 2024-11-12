@@ -3,7 +3,7 @@ import { useBooks } from '../hooks/useBooks'
 import BookList from '../components/BookList';
 import TopNavbar from '../components/TopNavbar'; 
 import Greeting from '../components/Greeting';
-import QrReader from '../components/QrReader';
+// import QrReader from '../components/QrReader';
 import Footer from '../components/Footer';
 import { userData } from '../helpers/userStorage';
 import BarcodeScannerInput from '../components/BarcodeScannerInput';
@@ -17,7 +17,7 @@ const Home = () => {
 
   useEffect(() => {
     updateBooks()
-  }, []); 
+  }, [updateBooks]); 
 
   const handleBarcodeScan = async (barcode) => {
     // console.log('Scanned barcode:', barcode);

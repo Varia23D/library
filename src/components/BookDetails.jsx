@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import '../css/BookDetails.css';
-import QrReader from './QrReader';
+// import QrReader from './QrReader';
 import { useNavigate } from 'react-router-dom';
-import { fetchMyTransactions } from '../helpers/apiRequests';
+// import { fetchMyTransactions } from '../helpers/apiRequests';
 import defaultCover from '../../src/img/cover-not-found.png'
 
 const BookDetails = ({ book }) => {
@@ -14,33 +14,33 @@ const BookDetails = ({ book }) => {
     }
   }, [book, navigate]);
 
-  const [buttonText, setButtonText] = useState(null);
+  // const [buttonText, setButtonText] = useState(null);
 
 
-  useEffect(() => {
-    checkStatus();
-  }, [book]);
+  // useEffect(() => {
+  //   checkStatus();
+  // }, [book]);
 
-  const checkStatus = async () => {
-    try {
-      const transactions = await fetchMyTransactions();
+  // const checkStatus = async () => {
+  //   try {
+  //     const transactions = await fetchMyTransactions();
 
-      // Check if there's any transaction for the book type and change text on the button accordingly
-      const hasTransaction = transactions.some(transaction => {
-        const bookType = transaction.book.book_type;
-        return bookType.id === book.id
-      });
+  //     // Check if there's any transaction for the book type and change text on the button accordingly
+  //     // const hasTransaction = transactions.some(transaction => {
+  //     //   const bookType = transaction.book.book_type;
+  //     //   return bookType.id === book.id
+  //     // });
 
-      if (hasTransaction) {
-        setButtonText('Return book');
-      } else {
-        setButtonText('Rent a book');
-      }
-    } catch (error) {
-      console.error('Error checking status:', error);
-      // console.log('Error object:', error);
-    }
-  };
+  //     // if (hasTransaction) {
+  //     //   setButtonText('Return book');
+  //     // } else {
+  //     //   setButtonText('Rent a book');
+  //     // }
+  //   } catch (error) {
+  //     console.error('Error checking status:', error);
+  //     // console.log('Error object:', error);
+  //   }
+  // };
 
   return (
     <div className='whole-page-container'>
