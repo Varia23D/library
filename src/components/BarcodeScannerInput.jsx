@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { handleQRCodeScan } from '../helpers/QRCodeHandler';
+// import { handleQRCodeScan } from '../helpers/QRCodeHandler';
 
 const BarcodeScannerInput = ({ onScan }) => {
   const inputRef = useRef(null);
