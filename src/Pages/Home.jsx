@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useBooks } from '../hooks/useBooks'
 import BookList from '../components/BookList';
-import TopNavbar from '../components/TopNavbar'; 
+import TopNavbar from '../components/TopNavbar';
 import Greeting from '../components/Greeting';
 // import QrReader from '../components/QrReader';
 import Footer from '../components/Footer';
@@ -11,13 +11,13 @@ import { closeTransaction, createTransaction, fetchTransactionData, getBookIdbyI
 import { toast } from 'react-toastify';
 
 const Home = () => {
-  const {books, updateBooks} = useBooks();
-  const {username} = userData() || {}
-  
+  const { books, updateBooks } = useBooks();
+  const { username } = userData() || {}
 
+  // eslint-disable-next-line
   useEffect(() => {
     updateBooks()
-  }, [updateBooks]); 
+  }, []);
 
   const handleBarcodeScan = async (barcode) => {
     // console.log('Scanned barcode:', barcode);
@@ -41,18 +41,18 @@ const Home = () => {
           toast.error('Book is already taken by another user!');   // Toast error
           return
         }
-  
+
       }
       updateBooks();
     } catch (error) {
-  
+
     }
-    // Здесь можно добавить логику для обработки кода, например, вызвать updateBooks с нужными параметрами
+
     updateBooks(barcode);
   };
 
   return (
-    <div className="app-container"> 
+    <div className="app-container">
       <TopNavbar />
       <Greeting username={username} />
       <BarcodeScannerInput onScan={handleBarcodeScan} />
